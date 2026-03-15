@@ -13,7 +13,11 @@
       "Bash(find:*)",
       "Bash(grep:*)",
       "Bash(git push:*)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Read(//c/Users/jfver/Desktop/**)",
+      "Bash(echo \"EXIT: $?\")",
+      "Bash(cmd.exe /c \"dir /b %USERPROFILE%\\\\Desktop\\\\rewrites\" 2>&1)",
+      "Bash(npm ls:*)"
     ]
   }
 }
