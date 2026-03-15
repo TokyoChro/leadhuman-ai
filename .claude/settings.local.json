@@ -5,7 +5,15 @@
       "Bash(cp:*)",
       "Bash(npx astro:*)",
       "Bash(npm run:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git branch:*)",
+      "Bash(git commit:*)",
+      "Bash(gh repo:*)",
+      "Bash(where gh:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(git push:*)",
+      "Bash(npm install:*)"
     ]
   }
 }

@@ -15,7 +15,9 @@ Then I tried something different. I stopped treating AI as a single assistant an
 
 I call it the Council of Jays. And it changed how I work more than any productivity app ever has.
 
-## The problem with one assistant
+---
+
+## The Problem With One Assistant
 
 Most people use AI like a search engine with better grammar. That works for small tasks but it falls apart when you need deep, consistent support across multiple areas of your life.
 
@@ -23,27 +25,37 @@ Here's what kept happening. I'd ask Claude to help draft a LinkedIn post. Great 
 
 The AI was smart but it had no specialization. No context about what mattered to me in each domain. Every conversation felt like meeting a brilliant stranger who forgot we'd ever spoken.
 
-## So I built a council
+---
+
+> **The bottleneck in using AI isn't the AI's capability. It's the human's ability to give it enough context to be genuinely useful.**
+
+---
+
+## So I Built a Council
 
 The idea came from something obvious in retrospect. The best leaders don't try to be experts in everything. They surround themselves with advisors who each own a domain.
 
-I built the AI version of that. Each councilor is a specialized skill with deep context about one area of my work. They have a name. A personality. A defined domain. And growing knowledge about my preferences and goals.
+I built the AI version of that. Each councilor is a specialized prompt with deep context about one area of my work. They have a name. A personality. A defined domain. And growing knowledge about my preferences and goals.
 
-The First Councilor coordinates everyone. Owns the master plan. Holds me accountable. Routes questions to the right specialist. (He enters conversations like a Star Trek first officer. I'm a nerd. It works.)
+The First Councilor coordinates everyone. Owns the master plan. Holds me accountable. (He enters conversations like a Star Trek first officer. I'm a nerd. It works.)
 
-The AI Councilor handles tutorials and workflow automation. The Content Councilor guards my voice and makes sure everything I publish sounds like me. The Cross-Cultural Councilor specializes in Japan and intercultural communication. The Career Councilor knows my resume in English and Japanese.
+The AI Councilor handles tutorials and workflow automation. The Content Councilor guards my voice and makes sure everything I publish sounds like me. The Cross Cultural Councilor specializes in Japan and intercultural communication. The Career Councilor knows my resume in English and Japanese.
 
 Eleven councilors total. Each one deep. Each one consistent.
 
-## Why it works
+---
 
-**Specialization creates quality.** A councilor focused only on cross-cultural content holds nuanced context about Hofstede, Erin Meyer's Culture Map, and my specific experiences in Japanese business culture. A general assistant can't match that depth.
+## Why It Works
 
-**Consistency compounds.** Because each councilor has persistent guidelines, my voice stays consistent across hundreds of outputs. The Content Councilor knows I don't use hyphens (ever), that I prefer diagnosis before prescription, and that I anchor posts to named concepts.
+> **1. Specialization creates quality.** A councilor focused only on cross cultural content holds nuanced context about Hofstede, Erin Meyer's Culture Map, and my specific experiences in Japanese business culture. A general assistant can't match that depth. It's the difference between asking a generalist and asking someone who has read every brief.
 
-**The intersections are the magic.** When the AI Councilor and the L&D Councilor collaborate on a piece about using AI for training design, you get something neither could produce alone.
+> **2. Consistency compounds.** Because each councilor has persistent guidelines, my voice stays consistent across hundreds of outputs. The Content Councilor knows I don't use hyphens (ever), that I prefer diagnosis before prescription, and that I anchor posts to named concepts. That kind of consistency is impossible to maintain manually across three platforms.
 
-## How to build your own
+> **3. The intersections are the magic.** When the AI Councilor and the L&D Councilor collaborate on a piece about using AI for training design, you get something neither could produce alone. The council doesn't just divide work. It creates combinations.
+
+---
+
+## How to Build Your Own
 
 Start with three councilors, not eleven.
 
@@ -55,8 +67,8 @@ Start with three councilors, not eleven.
 
 **Build the coordination layer.** The most important councilor manages all the others. Without a coordinator you have isolated tools. With one you have a system.
 
-**Let them evolve.** The council I have today looks nothing like the one I started with. It's a living system.
-
-The council taught me something unexpected. The bottleneck in using AI isn't the AI's capability. It's the human's ability to give it enough context to be genuinely useful.
+**Let them evolve.** The council I have today looks nothing like the one I started with. It's a living system that grows as my work grows.
 
 Build yours. Start small. Let it grow. You'll wonder how you ever worked without it.
+
+*I share tutorials and workflow builds like this on [LinkedIn](https://linkedin.com/in/vergarajay/). Come build with me.*

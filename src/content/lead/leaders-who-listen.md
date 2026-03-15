@@ -1,0 +1,68 @@
+---
+title: "The Best Leaders I Know Talk Less Than Everyone Else"
+description: "Listening isn't passive. It's the most underrated leadership behavior in organizations. The research is clear and most leaders still get it wrong."
+pubDate: 2026-03-10
+tags: ["leadership", "communications", "l-and-d"]
+author: "Jay Vergara"
+draft: false
+---
+
+I've worked with a lot of leaders over the past decade. Coached some. Trained others. Watched a few very closely to figure out what made them different.
+
+The best ones all had something in common. They talked less than everyone else in the room.
+
+Not because they had nothing to say. Because they understood that talking is easy. Listening is the skill that actually changes outcomes.
+
+---
+
+## The Listening Gap
+
+Most leaders think they're good listeners. I thought I was too, until I started paying attention to what I was actually doing when someone was talking to me. I was waiting. Formulating my response. Thinking about how to fix their problem. Occasionally checking my phone.
+
+That's not listening. That's performing patience.
+
+[Kluger & Itzchakov (2021)](https://consensus.app/papers/the-power-of-listening-at-work-kluger-itzchakov/746e2d8afbfa5ee290ddda37309972bc/) published a comprehensive review of listening research in the *Annual Review of Organizational Psychology* and the findings are striking. **Listening is associated with and a likely cause of better job performance, stronger leadership, higher quality relationships, deeper job knowledge, and greater well being.** Both for the listener and the person being heard.
+
+They propose something called 'episodic listening theory.' When two people are genuinely listening to each other, they enter a state of togetherness. A mutual creative thought process. It generates clarity, new ideas, and a stronger attachment to the conversation partner.
+
+That's not soft skill territory. That's a performance mechanism.
+
+---
+
+> **Listening isn't passive. It's the most underrated leadership behavior in organizations. When leaders listen well, their teams perform better, trust more, and stay longer. The hard part isn't understanding this. It's actually doing it when you're stressed, behind on deadlines, and convinced you already know the answer.**
+
+---
+
+## What Happens When Leaders Don't Listen
+
+[Belgasm et al. (2025)](https://consensus.app/papers/interpersonal-conflict-and-employee-behavior-in-the-belgasm-alzubi/1ce52fd9117d5f8caef0f9c4781e74f7/) studied 501 public sector employees and found that **supervisors' active empathic listening directly moderates the relationship between interpersonal conflict and deviant behavior.** When conflict arises (and it always does), teams with leaders who listen empathically experience significantly less ostracism and fewer destructive behaviors.
+
+The reverse is also true. When employees feel unheard, conflict escalates. People withdraw. The best performers start looking for the exit.
+
+I've seen this play out dozens of times. A leader who moves fast and "gets things done" wonders why their team seems disengaged. They interpret the silence as agreement. It's not agreement. It's people who have stopped trying to be heard.
+
+---
+
+## Four Things to Try This Week
+
+> **1. In your next one on one, don't solve anything for the first 10 minutes.** Just listen. Ask follow up questions. Reflect back what you're hearing. The urge to fix will be overwhelming. Resist it. Most people don't need your solution. They need to feel understood first.
+
+> **2. Count how many times you interrupt in meetings this week.** Just track it. Don't try to change anything yet. Awareness alone shifts behavior. Most leaders are shocked when they start counting.
+
+> **3. After someone finishes talking, pause for three seconds before responding.** It feels like an eternity. It gives the other person space to add the thing they were actually trying to say. The real thought often comes after the first thought.
+
+> **4. Ask one question you don't already know the answer to.** Leaders fall into a pattern of asking questions to confirm what they already think. Genuine curiosity sounds different. "What am I not seeing here?" is a good place to start.
+
+---
+
+The leaders who changed my career weren't the ones with the best ideas. They were the ones who made me feel like my ideas mattered. That feeling came from one thing: they listened like what I was saying was important. And then they acted on it.
+
+When's the last time you felt truly heard by someone at work? I think the answer says more about your organization's culture than any engagement survey ever could.
+
+*I write about leadership and the human side of work on [LinkedIn](https://linkedin.com/in/vergarajay/). Come join the conversation.*
+
+---
+
+**Sources:**
+- Kluger, A. & Itzchakov, G. (2021). [The Power of Listening at Work](https://consensus.app/papers/the-power-of-listening-at-work-kluger-itzchakov/746e2d8afbfa5ee290ddda37309972bc/). *Annual Review of Organizational Psychology and Organizational Behavior*, 9.
+- Belgasm, H., Alzubi, A., Iyiola, K. & Khadem, A. (2025). [Interpersonal Conflict and Employee Behavior in the Public Sector](https://consensus.app/papers/interpersonal-conflict-and-employee-behavior-in-the-belgasm-alzubi/1ce52fd9117d5f8caef0f9c4781e74f7/). *Behavioral Sciences*, 15.
