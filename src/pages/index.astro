@@ -11,7 +11,7 @@ const leadPosts = (await getCollection("lead", ({ data }) => !data.draft))
 
 const latestPosts = [...buildPosts, ...leadPosts]
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 2);
+  .slice(0, 4);
 ---
 
 <BaseLayout title="Home">
