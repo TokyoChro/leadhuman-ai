@@ -3,14 +3,16 @@
 @theme {
   --color-ecru: #eee8dd;
   --color-surface: #e5dfd3;
+  --color-card-border: #d5d0c5;
   --color-ivy: #1d5a3c;
   --color-ivy-light: #267a52;
   --color-indigo-accent: #4338ca;
   --color-indigo-light: #5b50e0;
+  --color-coral: #c75a3a;
+  --color-coral-dark: #a8482e;
   --color-heading: #1e1c16;
   --color-body: #33302a;
   --color-muted: #7f7a6c;
-  --color-nav: #1e1c16;
 }
 
 /* Prose styling for light ecru theme */

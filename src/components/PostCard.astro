@@ -4,20 +4,29 @@ interface Props {
   description: string;
   pubDate: Date;
   href: string;
+  category?: "build" | "lead";
 }
 
-const { title, description, pubDate, href } = Astro.props;
+const { title, description, pubDate, href, category } = Astro.props;
 const formattedDate = pubDate.toLocaleDateString("en-US", {
   year: "numeric",
   month: "short",
   day: "numeric",
 });
+
+const categoryLabel = category === "build" ? "BUILD WITH AI" : category === "lead" ? "LEAD HUMANLY" : null;
+const categoryColor = category === "build" ? "bg-indigo-accent" : "bg-ivy";
 ---
 
 <a href={href} class="block group">
-  <article class="bg-surface border border-surface rounded-lg p-5 shadow-sm hover:shadow-md hover:border-muted/40 transition-all">
-    <time class="text-xs text-muted">{formattedDate}</time>
-    <h3 class="text-lg font-semibold mt-1 text-heading group-hover:text-ivy transition-colors">{title}</h3>
+  <article class="bg-surface border border-card-border rounded-lg p-5 shadow-sm hover:shadow-md transition-all">
+    <div class="flex items-center gap-2 mb-2">
+      {categoryLabel && (
+        <span class={`text-xs font-semibold px-2 py-0.5 rounded-full text-white ${categoryColor}`}>{categoryLabel}</span>
+      )}
+      <time class="text-xs text-muted">{formattedDate}</time>
+    </div>
+    <h3 class="text-lg font-semibold text-heading group-hover:text-ivy transition-colors">{title}</h3>
     <p class="text-sm text-body mt-2 line-clamp-2">{description}</p>
   </article>
 </a>
