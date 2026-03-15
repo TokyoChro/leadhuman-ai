@@ -9,6 +9,11 @@ interface Props {
 const { title, description = "Lead humanly. Learn constantly. Build with AI." } = Astro.props;
 
 const currentPath = Astro.url.pathname;
+const isHome = currentPath === "/";
+const pageTitle = isHome
+  ? "leadhuman.ai — Lead humanly. Learn constantly. Build with AI."
+  : `${title} | leadhuman.ai`;
+
 const navLinks = [
   { href: "/build/", label: "Build with AI" },
   { href: "/lead/", label: "Lead Humanly" },
@@ -26,7 +31,25 @@ const navLinks = [
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
-    <title>{title} | leadhuman.ai</title>
+    <title>{pageTitle}</title>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="leadhuman.ai" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={Astro.url.href} />
+
+    <slot name="head" />
   </head>
   <body class="bg-ecru text-body min-h-screen flex flex-col font-sans">
     <nav class="bg-ecru" style="box-shadow: 0 1px 3px rgba(0,0,0,0.06);">

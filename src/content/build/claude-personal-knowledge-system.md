@@ -1,6 +1,6 @@
 ---
 title: "How to Use Claude to Build a Personal Knowledge System in 30 Minutes"
-description: "Stop introducing yourself to AI every morning. Build a personal context system that makes Claude a genuine thinking partner."
+description: "Most people use AI like a search engine. I turned Claude into a personal knowledge management system that remembers my context, my career goals, and my writing voice. Here's the architecture behind it."
 pubDate: 2026-03-14
 tags: ["ai-tools", "claude", "tutorial", "workflow", "beginner"]
 author: "Jay Vergara"

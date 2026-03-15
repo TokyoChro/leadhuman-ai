@@ -1,6 +1,6 @@
 ---
 title: "When Your Quietest Team Members Have the Most to Say"
-description: "Silence in meetings isn't disengagement. It's a strategic decision employees make when they believe the cost of speaking up is higher than staying quiet."
+description: "Your quietest team members might be your most insightful. Research shows that silence in meetings doesn't mean disengagement but often means the environment isn't designed for how they think. Here's how to unlock their contribution."
 pubDate: 2026-03-08
 tags: ["cross-cultural", "japan", "leadership", "communications"]
 author: "Jay Vergara"

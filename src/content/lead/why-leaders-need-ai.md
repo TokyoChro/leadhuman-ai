@@ -1,6 +1,6 @@
 ---
 title: "Why Every Leader Needs to Understand AI (Even If They Never Write a Prompt)"
-description: "AI isn't replacing what leaders do. It's reshaping the environment they do it in. And if you don't understand the environment you can't lead in it."
+description: "You don't need to become an AI engineer. But you do need to understand what AI can and can't do well enough to make smart decisions about where it fits in your work and your team's workflow."
 pubDate: 2026-03-15
 tags: ["ai-tools", "leadership", "l-and-d"]
 author: "Jay Vergara"

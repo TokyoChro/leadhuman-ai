@@ -1,6 +1,6 @@
 ---
 title: "How I Built a Council of AI Advisors (And Why You Should Too)"
-description: "I stopped treating AI as a single assistant and started treating it as a team. Here's how the Council of Jays changed how I work."
+description: "What if instead of one AI chat for everything, you had a personal advisory council? Each specialist trained on your context, your voice, and your goals. Here's how I built mine using Claude and why it changed how I work."
 pubDate: 2026-03-15
 tags: ["ai-tools", "claude", "automation", "workflow", "tutorial"]
 author: "Jay Vergara"

@@ -5,6 +5,11 @@ import { getCollection } from "astro:content";
 
 const posts = (await getCollection("build", ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+function getReadingTime(body: string | undefined) {
+  if (!body) return 0;
+  return Math.ceil(body.split(/\s+/).length / 200);
+}
 ---
 
 <BaseLayout title="Build with AI" description="Posts about building with AI — tools, workflows, and experiments.">
@@ -19,7 +24,7 @@ const posts = (await getCollection("build", ({ data }) => !data.draft))
         pubDate={post.data.pubDate}
         href={`/build/${post.id}/`}
         category="build"
-        tags={post.data.tags}
+        readingTime={getReadingTime(post.body)}
       />
     ))}
   </div>

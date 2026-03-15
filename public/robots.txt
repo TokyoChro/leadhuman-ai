@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://leadhuman.ai/sitemap-index.xml

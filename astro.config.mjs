@@ -7,8 +7,11 @@ import vercel from '@astrojs/vercel';
 
 import rehypeNumberedCallouts from './src/plugins/rehype-numbered-callouts.mjs';
 
+import sitemap from '@astrojs/sitemap';
+
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://leadhuman.ai',
   vite: {
     plugins: [tailwindcss()]
   },
@@ -17,5 +20,6 @@ export default defineConfig({
     rehypePlugins: [rehypeNumberedCallouts],
   },
 
-  adapter: vercel()
+  adapter: vercel(),
+  integrations: [sitemap()]
 });

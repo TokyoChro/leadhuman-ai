@@ -10,18 +10,23 @@ const buildPosts = (await getCollection("build", ({ data }) => !data.draft))
 const leadPosts = (await getCollection("lead", ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 2);
+
+function getReadingTime(body: string | undefined) {
+  if (!body) return 0;
+  return Math.ceil(body.split(/\s+/).length / 200);
+}
 ---
 
 <BaseLayout title="Home">
   <!-- Hero -->
-  <section class="py-16 sm:py-24">
+  <section class="py-16 md:py-24 hero-text">
     <h1 class="text-4xl sm:text-5xl font-bold tracking-tight leading-tight text-heading">
       Lead humanly.<br />Learn constantly.<br />Build with AI.
     </h1>
     <p class="mt-6 text-lg text-muted max-w-xl">
       Thoughts on AI, leadership, learning, and building things that matter.
     </p>
-    <p class="text-sm text-muted mt-2">
+    <p class="text-sm text-stone-500 mt-2">
       Jay Vergara &middot; Leadership, AI, and cross-cultural insights from Tokyo
     </p>
   </section>
@@ -40,7 +45,7 @@ const leadPosts = (await getCollection("lead", ({ data }) => !data.draft))
           pubDate={post.data.pubDate}
           href={`/lead/${post.id}/`}
           category="lead"
-          tags={post.data.tags}
+          readingTime={getReadingTime(post.body)}
         />
       ))}
     </div>
@@ -60,7 +65,7 @@ const leadPosts = (await getCollection("lead", ({ data }) => !data.draft))
           pubDate={post.data.pubDate}
           href={`/build/${post.id}/`}
           category="build"
-          tags={post.data.tags}
+          readingTime={getReadingTime(post.body)}
         />
       ))}
     </div>

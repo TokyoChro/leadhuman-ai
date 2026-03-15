@@ -1,6 +1,6 @@
 ---
 title: "The Words You Can't Translate Are the Cultural Keys"
-description: "Every language has words that don't translate cleanly. Those aren't vocabulary gaps. They're windows into what a culture actually values."
+description: "Some of the most powerful leadership concepts don't translate into English. Words like nemawashi, kuuki wo yomu, and amae carry centuries of cultural wisdom that one-word translations can't capture. Here's why that matters for global teams."
 pubDate: 2026-03-11
 tags: ["cross-cultural", "japan", "leadership", "communications"]
 author: "Jay Vergara"
