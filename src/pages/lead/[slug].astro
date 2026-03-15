@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("lead");
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const formattedDate = post.data.pubDate.toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+---
+
+<BaseLayout title={post.data.title} description={post.data.description}>
+  <article>
+    <a href="/lead/" class="text-sm text-gray-500 hover:text-white transition-colors">&larr; Back to Lead Humanly</a>
+    <header class="mt-6 mb-8">
+      <h1 class="text-3xl sm:text-4xl font-bold">{post.data.title}</h1>
+      <div class="mt-3 flex flex-wrap items-center gap-3 text-sm text-gray-400">
+        <time>{formattedDate}</time>
+        <span>&middot;</span>
+        <span>{post.data.author}</span>
+      </div>
+      {post.data.tags.length > 0 && (
+        <div class="mt-3 flex flex-wrap gap-2">
+          {post.data.tags.map((tag) => (
+            <span class="text-xs px-2 py-1 rounded-full bg-gray-800 text-gray-400">{tag}</span>
+          ))}
+        </div>
+      )}
+    </header>
+    <div class="prose prose-invert max-w-none">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>

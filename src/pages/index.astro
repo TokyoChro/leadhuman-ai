@@ -1,17 +1,79 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PostCard from "../components/PostCard.astro";
+import { getCollection } from "astro:content";
 
+const buildPosts = (await getCollection("build", ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+
+const leadPosts = (await getCollection("lead", ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Home">
+  <!-- Hero -->
+  <section class="text-center py-16 sm:py-24">
+    <h1 class="text-4xl sm:text-5xl font-bold tracking-tight leading-tight">
+      Lead humanly.<br />Learn constantly.<br />Build with AI.
+    </h1>
+    <p class="mt-6 text-lg text-gray-400 max-w-xl mx-auto">
+      Thoughts on AI, leadership, learning, and building things that matter.
+    </p>
+  </section>
+
+  <!-- Build with AI -->
+  <section class="mb-16">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-2xl font-bold">Latest from Build with AI</h2>
+      <a href="/build/" class="text-sm text-gray-400 hover:text-white transition-colors">View all &rarr;</a>
+    </div>
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {buildPosts.map((post) => (
+        <PostCard
+          title={post.data.title}
+          description={post.data.description}
+          pubDate={post.data.pubDate}
+          href={`/build/${post.id}/`}
+        />
+      ))}
+    </div>
+    {buildPosts.length === 0 && (
+      <p class="text-gray-500 italic">No posts yet. Check back soon.</p>
+    )}
+  </section>
+
+  <!-- Lead Humanly -->
+  <section class="mb-16">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-2xl font-bold">Latest from Lead Humanly</h2>
+      <a href="/lead/" class="text-sm text-gray-400 hover:text-white transition-colors">View all &rarr;</a>
+    </div>
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {leadPosts.map((post) => (
+        <PostCard
+          title={post.data.title}
+          description={post.data.description}
+          pubDate={post.data.pubDate}
+          href={`/lead/${post.id}/`}
+        />
+      ))}
+    </div>
+    {leadPosts.length === 0 && (
+      <p class="text-gray-500 italic">No posts yet. Check back soon.</p>
+    )}
+  </section>
+
+  <!-- CTA -->
+  <section class="text-center py-12">
+    <a
+      href="https://linkedin.com/in/vergarajay/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-block px-6 py-3 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition-colors"
+    >
+      Connect with me on LinkedIn
+    </a>
+  </section>
+</BaseLayout>

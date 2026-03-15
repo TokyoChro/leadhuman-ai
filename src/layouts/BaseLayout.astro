@@ -1,0 +1,48 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Lead humanly. Learn constantly. Build with AI." } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} | leadhuman.ai</title>
+  </head>
+  <body class="bg-[#0a0a0a] text-gray-100 min-h-screen flex flex-col font-sans">
+    <nav class="border-b border-gray-800">
+      <div class="max-w-4xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <a href="/" class="text-xl font-bold tracking-tight text-white hover:text-gray-300 transition-colors">
+          leadhuman.ai
+        </a>
+        <div class="flex flex-wrap items-center gap-1 sm:gap-2 text-sm">
+          <a href="/build/" class="px-3 py-1.5 rounded-md hover:bg-gray-800 transition-colors">Build with AI</a>
+          <a href="/lead/" class="px-3 py-1.5 rounded-md hover:bg-gray-800 transition-colors">Lead Humanly</a>
+          <a href="/shorts/" class="px-3 py-1.5 rounded-md hover:bg-gray-800 transition-colors">Shorts</a>
+          <a href="/about/" class="px-3 py-1.5 rounded-md hover:bg-gray-800 transition-colors">About</a>
+          <a href="/connect/" class="px-3 py-1.5 rounded-md hover:bg-gray-800 transition-colors">Connect</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="flex-1 max-w-4xl mx-auto px-4 py-12 w-full">
+      <slot />
+    </main>
+
+    <footer class="border-t border-gray-800">
+      <div class="max-w-4xl mx-auto px-4 py-6 text-center text-sm text-gray-500">
+        &copy; 2026 Jay Vergara. Lead humanly. Learn constantly. Build with AI.
+      </div>
+    </footer>
+  </body>
+</html>
