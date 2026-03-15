@@ -19,6 +19,7 @@ const posts = (await getCollection("lead", ({ data }) => !data.draft))
         pubDate={post.data.pubDate}
         href={`/lead/${post.id}/`}
         category="lead"
+        tags={post.data.tags}
       />
     ))}
   </div>

@@ -5,9 +5,10 @@ interface Props {
   pubDate: Date;
   href: string;
   category?: "build" | "lead";
+  tags?: string[];
 }
 
-const { title, description, pubDate, href, category } = Astro.props;
+const { title, description, pubDate, href, category, tags = [] } = Astro.props;
 const formattedDate = pubDate.toLocaleDateString("en-US", {
   year: "numeric",
   month: "short",
@@ -16,17 +17,26 @@ const formattedDate = pubDate.toLocaleDateString("en-US", {
 
 const categoryLabel = category === "build" ? "BUILD WITH AI" : category === "lead" ? "LEAD HUMANLY" : null;
 const categoryColor = category === "build" ? "bg-indigo-accent" : "bg-ivy";
+
+// Determine left border accent color based on first tag
+const firstTag = tags[0] || "";
+const borderColor =
+  ["cross-cultural", "japan"].includes(firstTag) ? "border-amber-700" :
+  firstTag === "leadership" ? "border-emerald-800" :
+  ["communications", "l-and-d"].includes(firstTag) ? "border-teal-700" :
+  ["ai-tools", "tutorial", "automation"].includes(firstTag) ? "border-sky-700" :
+  "border-stone-400";
 ---
 
 <a href={href} class="block group">
-  <article class="bg-surface border border-card-border rounded-lg p-5 shadow-sm hover:shadow-md transition-all">
-    <div class="flex items-center gap-2 mb-2">
+  <article class={`bg-surface border border-card-border border-l-4 ${borderColor} rounded-lg p-5 shadow-sm transition-all duration-200 hover:shadow-lg hover:-translate-y-1`}>
+    <div class="flex items-center gap-2 mb-3">
       {categoryLabel && (
         <span class={`text-xs font-semibold px-2 py-0.5 rounded-full text-white ${categoryColor}`}>{categoryLabel}</span>
       )}
       <time class="text-xs text-muted">{formattedDate}</time>
     </div>
-    <h3 class="text-lg font-semibold text-heading group-hover:text-ivy transition-colors">{title}</h3>
+    <h3 class="text-xl font-bold text-heading group-hover:text-ivy transition-colors">{title}</h3>
     <p class="text-sm text-body mt-2 line-clamp-2">{description}</p>
   </article>
 </a>

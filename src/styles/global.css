@@ -16,6 +16,11 @@
   --color-muted: #7f7a6c;
 }
 
+/* Subtle paper texture background */
+body {
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
 /* Prose styling for light ecru theme */
 .prose-ecru {
   --tw-prose-body: #33302a;
@@ -34,4 +39,59 @@
   --tw-prose-pre-bg: #1e1c16;
   --tw-prose-th-borders: #7f7a6c;
   --tw-prose-td-borders: #e5dfd3;
+}
+
+/* Blockquotes as callout cards */
+.prose-ecru blockquote {
+  background-color: #f5f0e8;
+  border-left: 4px solid #1d5a3c;
+  border-radius: 0.5rem;
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0;
+  font-style: normal;
+}
+
+.prose-ecru blockquote p {
+  margin: 0.5rem 0;
+  color: #1e1c16;
+}
+
+/* Horizontal rules as subtle section dividers */
+.prose-ecru hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #c4b99a, transparent);
+  margin: 2.5rem 0;
+}
+
+/* Article links */
+.prose-ecru a {
+  color: #1d5a3c;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.prose-ecru a:hover {
+  border-bottom-color: #1d5a3c;
+}
+
+/* Sources section styling */
+.prose-ecru strong:last-of-type + br + ul,
+.prose-ecru p:last-of-type + ul {
+  font-size: 0.875rem;
+  color: #7f7a6c;
+}
+
+.sources-section {
+  font-size: 0.875rem;
+  color: #7f7a6c;
+}
+
+.sources-section a {
+  color: #7f7a6c;
+}
+
+.sources-section a:hover {
+  color: #1d5a3c;
 }

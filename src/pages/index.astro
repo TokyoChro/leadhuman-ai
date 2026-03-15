@@ -4,14 +4,12 @@ import PostCard from "../components/PostCard.astro";
 import { getCollection } from "astro:content";
 
 const buildPosts = (await getCollection("build", ({ data }) => !data.draft))
-  .map((post) => ({ ...post, category: "build" as const }));
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 2);
 
 const leadPosts = (await getCollection("lead", ({ data }) => !data.draft))
-  .map((post) => ({ ...post, category: "lead" as const }));
-
-const latestPosts = [...buildPosts, ...leadPosts]
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 4);
+  .slice(0, 2);
 ---
 
 <BaseLayout title="Home">
@@ -23,27 +21,49 @@ const latestPosts = [...buildPosts, ...leadPosts]
     <p class="mt-6 text-lg text-muted max-w-xl">
       Thoughts on AI, leadership, learning, and building things that matter.
     </p>
+    <p class="text-sm text-muted mt-2">
+      Jay Vergara &middot; Leadership, AI, and cross-cultural insights from Tokyo
+    </p>
   </section>
 
-  <!-- Latest Posts -->
+  <!-- Latest from Lead Humanly -->
   <section class="mb-16">
     <div class="flex items-center justify-between mb-6">
-      <h2 class="text-2xl font-bold text-heading">Latest</h2>
+      <h2 class="text-2xl font-bold text-ivy">Latest from Lead Humanly</h2>
+      <a href="/lead/" class="text-sm text-ivy hover:text-ivy-light transition-colors">View all &rarr;</a>
     </div>
     <div class="grid gap-4 sm:grid-cols-2">
-      {latestPosts.map((post) => (
+      {leadPosts.map((post) => (
         <PostCard
           title={post.data.title}
           description={post.data.description}
           pubDate={post.data.pubDate}
-          href={`/${post.category}/${post.id}/`}
-          category={post.category}
+          href={`/lead/${post.id}/`}
+          category="lead"
+          tags={post.data.tags}
         />
       ))}
     </div>
-    {latestPosts.length === 0 && (
-      <p class="text-muted italic">No posts yet. Check back soon.</p>
-    )}
+  </section>
+
+  <!-- Latest from Build with AI -->
+  <section class="mb-16">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-2xl font-bold text-ivy">Latest from Build with AI</h2>
+      <a href="/build/" class="text-sm text-ivy hover:text-ivy-light transition-colors">View all &rarr;</a>
+    </div>
+    <div class="grid gap-4 sm:grid-cols-2">
+      {buildPosts.map((post) => (
+        <PostCard
+          title={post.data.title}
+          description={post.data.description}
+          pubDate={post.data.pubDate}
+          href={`/build/${post.id}/`}
+          category="build"
+          tags={post.data.tags}
+        />
+      ))}
+    </div>
   </section>
 
   <!-- CTA -->
