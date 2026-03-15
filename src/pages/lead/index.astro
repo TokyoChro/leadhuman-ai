@@ -8,8 +8,8 @@ const posts = (await getCollection("lead", ({ data }) => !data.draft))
 ---
 
 <BaseLayout title="Lead Humanly" description="Posts about leadership, learning, and cross-cultural communication.">
-  <h1 class="text-3xl font-bold mb-2">Lead Humanly</h1>
-  <p class="text-gray-400 mb-8">Leadership, learning, and cross-cultural communication.</p>
+  <h1 class="text-3xl font-bold mb-2 text-heading">Lead Humanly</h1>
+  <p class="text-muted mb-8">Leadership, learning, and cross-cultural communication.</p>
 
   <div class="grid gap-4 sm:grid-cols-2">
     {posts.map((post) => (
@@ -23,6 +23,6 @@ const posts = (await getCollection("lead", ({ data }) => !data.draft))
   </div>
 
   {posts.length === 0 && (
-    <p class="text-gray-500 italic">No posts yet. Check back soon.</p>
+    <p class="text-muted italic">No posts yet. Check back soon.</p>
   )}
 </BaseLayout>

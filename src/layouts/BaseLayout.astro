@@ -19,18 +19,18 @@ const { title, description = "Lead humanly. Learn constantly. Build with AI." } 
     <meta name="generator" content={Astro.generator} />
     <title>{title} | leadhuman.ai</title>
   </head>
-  <body class="bg-[#0a0a0a] text-gray-100 min-h-screen flex flex-col font-sans">
-    <nav class="border-b border-gray-800">
+  <body class="bg-ecru text-body min-h-screen flex flex-col font-sans">
+    <nav class="bg-nav border-b border-nav">
       <div class="max-w-4xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <a href="/" class="text-xl font-bold tracking-tight text-white hover:text-gray-300 transition-colors">
+        <a href="/" class="text-xl font-bold tracking-tight text-ivy hover:text-ivy-light transition-colors">
           leadhuman.ai
         </a>
-        <div class="flex flex-wrap items-center gap-1 sm:gap-2 text-sm">
-          <a href="/build/" class="px-3 py-1.5 rounded-md hover:bg-gray-800 transition-colors">Build with AI</a>
-          <a href="/lead/" class="px-3 py-1.5 rounded-md hover:bg-gray-800 transition-colors">Lead Humanly</a>
-          <a href="/shorts/" class="px-3 py-1.5 rounded-md hover:bg-gray-800 transition-colors">Shorts</a>
-          <a href="/about/" class="px-3 py-1.5 rounded-md hover:bg-gray-800 transition-colors">About</a>
-          <a href="/connect/" class="px-3 py-1.5 rounded-md hover:bg-gray-800 transition-colors">Connect</a>
+        <div class="flex flex-wrap items-center gap-1 sm:gap-2 text-sm text-gray-300">
+          <a href="/build/" class="px-3 py-1.5 rounded-md hover:bg-white/10 transition-colors">Build with AI</a>
+          <a href="/lead/" class="px-3 py-1.5 rounded-md hover:bg-white/10 transition-colors">Lead Humanly</a>
+          <a href="/shorts/" class="px-3 py-1.5 rounded-md hover:bg-white/10 transition-colors">Shorts</a>
+          <a href="/about/" class="px-3 py-1.5 rounded-md hover:bg-white/10 transition-colors">About</a>
+          <a href="/connect/" class="px-3 py-1.5 rounded-md hover:bg-white/10 transition-colors">Connect</a>
         </div>
       </div>
     </nav>
@@ -39,8 +39,8 @@ const { title, description = "Lead humanly. Learn constantly. Build with AI." } 
       <slot />
     </main>
 
-    <footer class="border-t border-gray-800">
-      <div class="max-w-4xl mx-auto px-4 py-6 text-center text-sm text-gray-500">
+    <footer class="bg-nav border-t border-nav">
+      <div class="max-w-4xl mx-auto px-4 py-6 text-center text-sm text-gray-400">
         &copy; 2026 Jay Vergara. Lead humanly. Learn constantly. Build with AI.
       </div>
     </footer>

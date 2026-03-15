@@ -15,10 +15,10 @@ const leadPosts = (await getCollection("lead", ({ data }) => !data.draft))
 <BaseLayout title="Home">
   <!-- Hero -->
   <section class="text-center py-16 sm:py-24">
-    <h1 class="text-4xl sm:text-5xl font-bold tracking-tight leading-tight">
+    <h1 class="text-4xl sm:text-5xl font-bold tracking-tight leading-tight text-heading">
       Lead humanly.<br />Learn constantly.<br />Build with AI.
     </h1>
-    <p class="mt-6 text-lg text-gray-400 max-w-xl mx-auto">
+    <p class="mt-6 text-lg text-muted max-w-xl mx-auto">
       Thoughts on AI, leadership, learning, and building things that matter.
     </p>
   </section>
@@ -26,8 +26,8 @@ const leadPosts = (await getCollection("lead", ({ data }) => !data.draft))
   <!-- Build with AI -->
   <section class="mb-16">
     <div class="flex items-center justify-between mb-6">
-      <h2 class="text-2xl font-bold">Latest from Build with AI</h2>
-      <a href="/build/" class="text-sm text-gray-400 hover:text-white transition-colors">View all &rarr;</a>
+      <h2 class="text-2xl font-bold text-heading">Latest from Build with AI</h2>
+      <a href="/build/" class="text-sm text-ivy hover:text-ivy-light transition-colors">View all &rarr;</a>
     </div>
     <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {buildPosts.map((post) => (
@@ -40,15 +40,15 @@ const leadPosts = (await getCollection("lead", ({ data }) => !data.draft))
       ))}
     </div>
     {buildPosts.length === 0 && (
-      <p class="text-gray-500 italic">No posts yet. Check back soon.</p>
+      <p class="text-muted italic">No posts yet. Check back soon.</p>
     )}
   </section>
 
   <!-- Lead Humanly -->
   <section class="mb-16">
     <div class="flex items-center justify-between mb-6">
-      <h2 class="text-2xl font-bold">Latest from Lead Humanly</h2>
-      <a href="/lead/" class="text-sm text-gray-400 hover:text-white transition-colors">View all &rarr;</a>
+      <h2 class="text-2xl font-bold text-heading">Latest from Lead Humanly</h2>
+      <a href="/lead/" class="text-sm text-ivy hover:text-ivy-light transition-colors">View all &rarr;</a>
     </div>
     <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {leadPosts.map((post) => (
@@ -61,7 +61,7 @@ const leadPosts = (await getCollection("lead", ({ data }) => !data.draft))
       ))}
     </div>
     {leadPosts.length === 0 && (
-      <p class="text-gray-500 italic">No posts yet. Check back soon.</p>
+      <p class="text-muted italic">No posts yet. Check back soon.</p>
     )}
   </section>
 
@@ -71,7 +71,7 @@ const leadPosts = (await getCollection("lead", ({ data }) => !data.draft))
       href="https://linkedin.com/in/vergarajay/"
       target="_blank"
       rel="noopener noreferrer"
-      class="inline-block px-6 py-3 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition-colors"
+      class="inline-block px-6 py-3 bg-ivy text-white font-semibold rounded-lg hover:bg-ivy-light transition-colors"
     >
       Connect with me on LinkedIn
     </a>

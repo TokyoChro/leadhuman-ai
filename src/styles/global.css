@@ -1,1 +1,34 @@
 @import "tailwindcss";
+
+@theme {
+  --color-ecru: #eee8dd;
+  --color-surface: #e5dfd3;
+  --color-ivy: #1d5a3c;
+  --color-ivy-light: #267a52;
+  --color-indigo-accent: #4338ca;
+  --color-indigo-light: #5b50e0;
+  --color-heading: #1e1c16;
+  --color-body: #33302a;
+  --color-muted: #7f7a6c;
+  --color-nav: #1e1c16;
+}
+
+/* Prose styling for light ecru theme */
+.prose-ecru {
+  --tw-prose-body: #33302a;
+  --tw-prose-headings: #1e1c16;
+  --tw-prose-lead: #33302a;
+  --tw-prose-links: #1d5a3c;
+  --tw-prose-bold: #1e1c16;
+  --tw-prose-counters: #7f7a6c;
+  --tw-prose-bullets: #7f7a6c;
+  --tw-prose-hr: #e5dfd3;
+  --tw-prose-quotes: #1e1c16;
+  --tw-prose-quote-borders: #1d5a3c;
+  --tw-prose-captions: #7f7a6c;
+  --tw-prose-code: #1e1c16;
+  --tw-prose-pre-code: #eee8dd;
+  --tw-prose-pre-bg: #1e1c16;
+  --tw-prose-th-borders: #7f7a6c;
+  --tw-prose-td-borders: #e5dfd3;
+}
