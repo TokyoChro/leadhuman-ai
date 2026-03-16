@@ -42,11 +42,7 @@ I've seen this play out dozens of times: a leader who moves fast and "gets thing
 
 ---
 
-The leaders who changed my career weren't the ones with the best ideas but the ones who made me feel like my ideas mattered. That feeling came from one thing: they listened like what I was saying was important and then they acted on it. When's the last time you felt truly heard by someone at work? I think the answer says more about your organization's culture than any engagement survey ever could.
-
----
-
-*I write about leadership and communication on [LinkedIn](https://linkedin.com/in/vergarajay/). Come say hi.*
+The leaders who changed my career weren't the ones with the best ideas but the ones who made me feel like my ideas mattered. That feeling came from one thing: they listened like what I was saying was important and then they acted on it. That says more about an organization's culture than any engagement survey ever could.
 
 ---
 

@@ -54,11 +54,7 @@ Knowing the difference between AI that enhances learning and AI that simulates i
 
 ---
 
-How are you seeing AI show up in your L&D work? Curious whether others are seeing the same patterns.
-
----
-
-*I write about L&D and AI on [LinkedIn](https://linkedin.com/in/vergarajay/). Come say hi.*
+The window between 'early adopter' and 'too late' is shorter than most L&D leaders think. The ones who start experimenting now will define what good looks like for everyone else.
 
 ---
 

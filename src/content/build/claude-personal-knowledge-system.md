@@ -95,10 +95,6 @@ And here's what surprised me most. Building the system forced me to articulate t
 
 ---
 
-*Have you tried building a personal knowledge system with AI? I'd love to hear what worked for you.* [*Find me on LinkedIn.*](https://www.linkedin.com/in/jayvergara)
-
----
-
 **Sources:**
 
 - [Claude Projects Documentation](https://docs.anthropic.com/en/docs/build-with-claude/projects) — how to use Projects for persistent context in Claude.

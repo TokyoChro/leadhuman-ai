@@ -42,11 +42,7 @@ I've tested this myself, and in a workshop last year I shared specific feedback 
 
 ---
 
-Psychological safety doesn't come from saying the right words but from doing the uncomfortable thing repeatedly and showing your team that nothing bad happened. Sharing feedback you've received is one of the simplest, most powerful ways to start. What's the last piece of feedback you received that actually changed how you lead? I think the answer usually isn't the most flattering one.
-
----
-
-*I write about leadership and psychological safety on [LinkedIn](https://linkedin.com/in/vergarajay/). Come say hi.*
+Psychological safety doesn't come from saying the right words but from doing the uncomfortable thing repeatedly and showing your team that nothing bad happened. Sharing feedback you've received is one of the simplest and most powerful ways to start.
 
 ---
 

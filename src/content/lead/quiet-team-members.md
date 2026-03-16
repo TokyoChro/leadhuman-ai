@@ -42,11 +42,7 @@ I see this constantly working across Japan and North America where my Japanese c
 
 ---
 
-The most valuable insight in your next meeting might come from the person who doesn't say it out loud, and your job as a leader isn't to make everyone talk but to make sure everyone can. How does your team handle silence in meetings? I'd love to hear whether this resonates differently depending on where you're working from.
-
----
-
-*I write about leadership and cross-cultural communication on [LinkedIn](https://linkedin.com/in/vergarajay/). Come say hi.*
+The most valuable insight in your next meeting might come from the person who doesn't say it out loud, and your job as a leader isn't to make everyone talk but to make sure everyone can.
 
 ---
 

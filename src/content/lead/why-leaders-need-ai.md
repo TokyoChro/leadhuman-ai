@@ -60,12 +60,6 @@ And it means modeling curiosity. The single biggest barrier to AI adoption in or
 
 The leaders who thrive in the next decade won't be the most technical but the most adaptive. They'll know enough about AI to ask sharper questions and create environments where human talent and artificial intelligence both do their best work.
 
-How are you thinking about the line between what AI should touch and what it shouldn't? Genuinely curious.
-
----
-
-*I write about leadership and AI on [LinkedIn](https://linkedin.com/in/vergarajay/). Come say hi.*
-
 ---
 
 **Sources:**

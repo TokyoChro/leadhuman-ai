@@ -74,10 +74,6 @@ Build yours and start small and let it grow and you'll wonder how you ever worke
 
 ---
 
-*What does your version of the council look like? I'd love to hear how you'd structure yours.* [*Find me on LinkedIn.*](https://www.linkedin.com/in/jayvergara)
-
----
-
 **Sources:**
 
 - [Claude Projects Documentation](https://docs.anthropic.com/en/docs/build-with-claude/projects) — set up persistent context for each councilor in Claude.

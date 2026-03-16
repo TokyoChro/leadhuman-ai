@@ -56,12 +56,6 @@ Every language has these untranslatable concepts. The Filipino 'pakikisama' whic
 
 The untranslatable words are the keys, and they just don't fit any lock you already own.
 
-What untranslatable concepts have changed how you see another culture? I collect these and I'm always looking for more.
-
----
-
-*I write about cross-cultural communication on [LinkedIn](https://linkedin.com/in/vergarajay/). Come say hi.*
-
 ---
 
 **Sources:**

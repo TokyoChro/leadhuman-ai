@@ -42,11 +42,7 @@ This is where Stone and Heen's feedback triggers framework becomes useful becaus
 
 ---
 
-Feedback isn't about finding the perfect words but about closing the gap between what you see and what they know. Most of the time the other person already senses something is off and they just need you to name it. What's the hardest feedback conversation you've been putting off? I'm curious whether it's the giving or the receiving that feels harder for most people.
-
----
-
-*I write about leadership and feedback on [LinkedIn](https://linkedin.com/in/vergarajay/). Come say hi.*
+Feedback isn't about finding the perfect words but about closing the gap between what you see and what they know. Most of the time the other person already senses something is off and they just need you to name it.
 
 ---
 

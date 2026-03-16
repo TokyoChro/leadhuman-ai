@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import AuthorBio from "../../components/AuthorBio.astro";
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
@@ -87,5 +88,6 @@ const jsonLd = JSON.stringify({
     <div class="prose prose-lg prose-ecru max-w-none">
       <Content />
     </div>
+    <AuthorBio />
   </article>
 </BaseLayout>

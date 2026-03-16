@@ -60,12 +60,6 @@ Before your next big leadership meeting sit down one on one with the people who 
 
 You'll walk into that meeting with much better information, and the colleagues who communicate more indirectly will feel like they actually had a say.
 
-What communication gaps have you noticed inside leadership teams from different cultures? Would love to hear what others are navigating.
-
----
-
-*I write about cross-cultural leadership on [LinkedIn](https://linkedin.com/in/vergarajay/). Come say hi.*
-
 ---
 
 **Sources:**
