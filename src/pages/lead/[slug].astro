@@ -55,7 +55,8 @@ const jsonLd = JSON.stringify({
         <img
           src={post.data.image}
           alt={post.data.title}
-          class="w-full max-h-[500px] object-cover object-top rounded-lg mt-4 mb-6 shadow-sm"
+          class="w-full max-h-[500px] object-cover rounded-lg mt-4 mb-6 shadow-sm"
+          style={`object-position: ${post.data.imagePosition || 'center'}`}
           width="1792"
           height="1024"
           loading="eager"

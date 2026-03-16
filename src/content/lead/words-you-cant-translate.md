@@ -5,6 +5,7 @@ pubDate: 2026-03-11
 tags: ["cross-cultural", "japan", "leadership", "communications"]
 author: "Jay Vergara"
 image: "/images/posts/post06-untranslatable_2.png"
+imagePosition: "center"
 draft: false
 ---
 

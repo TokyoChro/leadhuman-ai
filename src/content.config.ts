@@ -8,6 +8,7 @@ const postSchema = z.object({
   tags: z.array(z.string()),
   author: z.string().default("Jay Vergara"),
   image: z.string().optional(),
+  imagePosition: z.string().optional(),
   draft: z.boolean().default(false),
 });
 

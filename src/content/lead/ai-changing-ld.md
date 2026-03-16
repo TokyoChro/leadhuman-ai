@@ -5,6 +5,7 @@ pubDate: 2026-03-13
 tags: ["ai-tools", "l-and-d", "leadership"]
 author: "Jay Vergara"
 image: "/images/posts/post04-ld-changing_4.png"
+imagePosition: "center"
 draft: false
 ---
 

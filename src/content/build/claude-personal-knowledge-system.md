@@ -5,6 +5,7 @@ pubDate: 2026-03-14
 tags: ["ai-tools", "claude", "tutorial", "workflow", "beginner"]
 author: "Jay Vergara"
 image: "/images/posts/post02-knowledge-system_1.png"
+imagePosition: "center"
 draft: false
 ---
 

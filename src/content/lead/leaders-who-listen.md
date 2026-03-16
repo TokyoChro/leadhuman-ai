@@ -5,6 +5,7 @@ pubDate: 2026-03-10
 tags: ["leadership", "communications", "l-and-d"]
 author: "Jay Vergara"
 image: "/images/posts/post07-quiet-leader_2.png"
+imagePosition: "center"
 draft: false
 ---
 

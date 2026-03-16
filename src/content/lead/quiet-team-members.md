@@ -5,6 +5,7 @@ pubDate: 2026-03-08
 tags: ["cross-cultural", "japan", "leadership", "communications"]
 author: "Jay Vergara"
 image: "/images/posts/post09-quiet-contributors_1.png"
+imagePosition: "center"
 draft: false
 ---
 

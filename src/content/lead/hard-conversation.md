@@ -5,6 +5,7 @@ pubDate: 2026-03-09
 tags: ["leadership", "communications", "l-and-d"]
 author: "Jay Vergara"
 image: "/images/posts/post08-hard-conversation_4.png"
+imagePosition: "center"
 draft: false
 ---
 
