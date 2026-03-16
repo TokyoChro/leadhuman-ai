@@ -4,7 +4,7 @@ description: "Most L&D leaders still think of AI as a faster way to write course
 pubDate: 2026-03-13
 tags: ["ai-tools", "l-and-d", "leadership"]
 author: "Jay Vergara"
-image: "/images/posts/post04-ld-changing_4.png"
+image: "/images/posts/v2-post04-ld-changing_3.png"
 draft: false
 ---
 
