@@ -104,4 +104,4 @@ And here's what surprised me most. Building the system forced me to articulate t
 
 ---
 
-*Part of the Build with AI series on [leadhuman.ai](http://leadhuman.ai). Difficulty: beginner.*
+*Part of the Build with AI series on [leadhuman.ai](http://leadhuman.ai).*
