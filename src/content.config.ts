@@ -7,6 +7,7 @@ const postSchema = z.object({
   pubDate: z.coerce.date(),
   tags: z.array(z.string()),
   author: z.string().default("Jay Vergara"),
+  image: z.string().optional(),
   draft: z.boolean().default(false),
 });
 

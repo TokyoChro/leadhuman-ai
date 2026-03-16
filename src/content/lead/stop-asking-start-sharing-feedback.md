@@ -4,6 +4,7 @@ description: "Every leadership book tells you to ask for feedback. The research 
 pubDate: 2026-03-07
 tags: ["leadership", "communications", "l-and-d"]
 author: "Jay Vergara"
+image: "/images/posts/post10-sharing-feedback_2.png"
 draft: false
 ---
 

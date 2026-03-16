@@ -46,6 +46,7 @@ function getReadingTime(body: string | undefined) {
           href={`/lead/${post.id}/`}
           category="lead"
           readingTime={getReadingTime(post.body)}
+          image={post.data.image}
         />
       ))}
     </div>
@@ -66,6 +67,7 @@ function getReadingTime(body: string | undefined) {
           href={`/build/${post.id}/`}
           category="build"
           readingTime={getReadingTime(post.body)}
+          image={post.data.image}
         />
       ))}
     </div>

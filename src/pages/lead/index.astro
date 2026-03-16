@@ -25,6 +25,7 @@ function getReadingTime(body: string | undefined) {
         href={`/lead/${post.id}/`}
         category="lead"
         readingTime={getReadingTime(post.body)}
+        image={post.data.image}
       />
     ))}
   </div>

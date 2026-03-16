@@ -27,6 +27,7 @@ const jsonLd = JSON.stringify({
   "@type": "Article",
   "headline": post.data.title,
   "description": post.data.description,
+  "image": post.data.image ? new URL(post.data.image, Astro.site).href : undefined,
   "author": {
     "@type": "Person",
     "name": "Jay Vergara",
@@ -45,11 +46,21 @@ const jsonLd = JSON.stringify({
 });
 ---
 
-<BaseLayout title={post.data.title} description={post.data.description}>
+<BaseLayout title={post.data.title} description={post.data.description} image={post.data.image}>
   <script type="application/ld+json" set:html={jsonLd} slot="head" />
   <article>
     <a href="/lead/" class="text-sm text-emerald-800 hover:text-emerald-600 transition-colors">&larr; Lead Humanly</a>
     <header class="mt-6 mb-8">
+      {post.data.image && (
+        <img
+          src={post.data.image}
+          alt={post.data.title}
+          class="w-full rounded-lg mb-8 shadow-sm"
+          width="1792"
+          height="1024"
+          loading="eager"
+        />
+      )}
       <div class="mb-3">
         <span class="text-xs font-semibold px-2 py-0.5 rounded-full text-white bg-ivy">LEAD HUMANLY</span>
       </div>

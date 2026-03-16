@@ -4,6 +4,7 @@ description: "What if instead of one AI chat for everything, you had a personal 
 pubDate: 2026-03-15
 tags: ["ai-tools", "claude", "automation", "workflow", "tutorial"]
 author: "Jay Vergara"
+image: "/images/posts/council-of-ai-advisors.png"
 draft: false
 ---
 
