@@ -74,11 +74,16 @@ Build yours and start small and let it grow and you'll wonder how you ever worke
 
 ---
 
-**Further reading:**
-- [Claude Projects Documentation](https://docs.anthropic.com/en/docs/build-with-claude/projects) is where you'd set up persistent context for each councilor if you're using Claude.
-- [Anthropic's Prompt Engineering Guide](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview) covers best practices for writing the kind of detailed system prompts that make councilors effective.
-- [How to Use Claude to Build a Personal Knowledge System in 30 Minutes](https://leadhuman.ai/build/claude-personal-knowledge-system) is the prerequisite tutorial for setting up your foundation before building a council.
-- [The Culture Map by Erin Meyer](https://erinmeyer.com/books/the-culture-map/) is one of the frameworks my Cross-Cultural Councilor draws from constantly.
+*What does your version of the council look like? I'd love to hear how you'd structure yours.* [*Find me on LinkedIn.*](https://www.linkedin.com/in/jayvergara)
+
+---
+
+**Sources:**
+
+- [Claude Projects Documentation](https://docs.anthropic.com/en/docs/build-with-claude/projects) — set up persistent context for each councilor in Claude.
+- [Anthropic's Prompt Engineering Guide](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview) — best practices for the detailed system prompts that make councilors effective.
+- [How to Use Claude to Build a Personal Knowledge System in 30 Minutes](https://leadhuman.ai/build/claude-personal-knowledge-system) — the prerequisite tutorial for setting up your foundation before building a council.
+- [The Culture Map by Erin Meyer](https://erinmeyer.com/books/the-culture-map/) — one of the frameworks my Cross-Cultural Councilor draws from constantly.
 
 ---
 

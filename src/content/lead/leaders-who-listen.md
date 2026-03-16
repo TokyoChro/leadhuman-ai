@@ -17,7 +17,9 @@ Most leaders think they're good listeners, and I thought I was too until I start
 [Kluger & Itzchakov (2021)](https://consensus.app/papers/the-power-of-listening-at-work-kluger-itzchakov/746e2d8afbfa5ee290ddda37309972bc/) published research on listening in the *Annual Review of Organizational Psychology* and the findings are striking. **Listening is associated with and a likely cause of better job performance, stronger leadership, higher quality relationships, deeper job knowledge, and greater well-being** for both the listener and the person being heard. They propose something called 'episodic listening theory' where when two people are genuinely listening to each other, they enter a state of togetherness and mutual creative thought process. It generates clarity, new ideas, and a stronger attachment to the conversation partner. That's not soft skill territory but a performance mechanism.
 
 ---
+
 > 🔑 **Listening isn't passive. It's the most underrated leadership behavior in organizations.** The research is clear: when leaders listen well, their teams perform better, trust more, and stay longer. The hard part isn't understanding this. It's actually doing it when you're stressed, behind on deadlines, and convinced you already know the answer.
+
 ---
 
 ## What Happens When Leaders Don't Listen
@@ -41,3 +43,18 @@ I've seen this play out dozens of times: a leader who moves fast and "gets thing
 ---
 
 The leaders who changed my career weren't the ones with the best ideas but the ones who made me feel like my ideas mattered. That feeling came from one thing: they listened like what I was saying was important and then they acted on it. When's the last time you felt truly heard by someone at work? I think the answer says more about your organization's culture than any engagement survey ever could.
+
+---
+
+*I write about leadership and communication on [LinkedIn](https://linkedin.com/in/vergarajay/). Come say hi.*
+
+---
+
+**Sources:**
+
+- [Kluger & Itzchakov (2021)](https://consensus.app/papers/the-power-of-listening-at-work-kluger-itzchakov/746e2d8afbfa5ee290ddda37309972bc/) — "The Power of Listening at Work," *Annual Review of Organizational Psychology and Organizational Behavior*.
+- [Belgasm et al. (2025)](https://consensus.app/papers/interpersonal-conflict-and-employee-behavior-in-the-belgasm-alzubi/1ce52fd9117d5f8caef0f9c4781e74f7/) — "Interpersonal Conflict and Employee Behavior in the Public Sector."
+
+---
+
+*Part of the Lead Humanly series on [leadhuman.ai](http://leadhuman.ai).*

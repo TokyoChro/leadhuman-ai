@@ -15,7 +15,9 @@ There's a pattern I notice in almost every workshop I run with global teams: the
 Employee silence is one of the most studied topics in organizational behavior over the past decade. [Morrison (2022)](https://consensus.app/papers/employee-voice-and-silence-taking-stock-a-decade-later-morrison/70fcfaf6ab7e53f980df610ea96bb4dd/) reviewed hundreds of studies in the *Annual Review of Organizational Psychology* and found that **employees choose silence for very specific reasons: fear of negative consequences, belief that speaking up won't make a difference, and a calculation that the social cost of voicing an idea outweighs the potential benefit**. Notice what's not on that list: "they have nothing to say." Silence is almost never about having nothing to contribute but about whether the environment makes it safe and worthwhile to contribute.
 
 ---
+
 > 🔑 **Silence is not agreement. It's not disengagement. It's a strategic decision employees make when they believe the cost of speaking up is higher than the cost of staying quiet.** The question isn't "why aren't they talking?" It's "what have we built that makes them not want to?"
+
 ---
 
 ## The Cultural Layer Nobody Talks About
@@ -41,3 +43,19 @@ I see this constantly working across Japan and North America where my Japanese c
 ---
 
 The most valuable insight in your next meeting might come from the person who doesn't say it out loud, and your job as a leader isn't to make everyone talk but to make sure everyone can. How does your team handle silence in meetings? I'd love to hear whether this resonates differently depending on where you're working from.
+
+---
+
+*I write about leadership and cross-cultural communication on [LinkedIn](https://linkedin.com/in/vergarajay/). Come say hi.*
+
+---
+
+**Sources:**
+
+- [Morrison (2022)](https://consensus.app/papers/employee-voice-and-silence-taking-stock-a-decade-later-morrison/70fcfaf6ab7e53f980df610ea96bb4dd/) — "Employee Voice and Silence: Taking Stock a Decade Later," *Annual Review of Organizational Psychology*.
+- [Kwon & Farndale (2020)](https://consensus.app/papers/employee-voice-viewed-through-a-crosscultural-lens-kwon-farndale/6c03aab7a4815912bd66b244b3b008fe/) — "Employee Voice Viewed Through a Cross-Cultural Lens."
+- [Nechanska, Hughes & Dundon (2020)](https://consensus.app/papers/towards-an-integration-of-employee-voice-and-silence-nechanska-hughes/54f03565f3a65d2cbceaa6219a98e09b/) — "Towards an Integration of Employee Voice and Silence."
+
+---
+
+*Part of the Lead Humanly series on [leadhuman.ai](http://leadhuman.ai).*

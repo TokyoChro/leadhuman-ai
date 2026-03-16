@@ -17,7 +17,9 @@ Every leadership book tells you the same thing: be vulnerable, ask your team for
 **Leaders who shared feedback they'd already received saw a significant increase in team psychological safety one year later while leaders who asked for feedback did not.** The researchers dug into why: when leaders asked for feedback, it created an initial moment of vulnerability that dissolved quickly because leaders got defensive and didn't act on what they heard and team members noticed and stopped offering honest input. When leaders shared feedback ("My last 360 said I tend to dominate discussions. I'm working on it."), something different happened: the vulnerability stuck and it normalized the idea that everyone has things to work on and team members started reciprocating and the door opened for more actionable, ongoing feedback conversations.
 
 ---
+
 > 🔑 **Asking for feedback initiates vulnerability. Sharing feedback normalizes it.** The difference matters. Your team doesn't need to see you ask for help. They need to see you openly working on something. That's what makes it safe for them to do the same.
+
 ---
 
 ## Why This Changes Everything About Psychological Safety
@@ -41,3 +43,18 @@ I've tested this myself, and in a workshop last year I shared specific feedback 
 ---
 
 Psychological safety doesn't come from saying the right words but from doing the uncomfortable thing repeatedly and showing your team that nothing bad happened. Sharing feedback you've received is one of the simplest, most powerful ways to start. What's the last piece of feedback you received that actually changed how you lead? I think the answer usually isn't the most flattering one.
+
+---
+
+*I write about leadership and psychological safety on [LinkedIn](https://linkedin.com/in/vergarajay/). Come say hi.*
+
+---
+
+**Sources:**
+
+- [Coutifaris & Grant (2021)](https://consensus.app/papers/taking-your-team-behind-the-curtain-the-effects-of-leader-coutifaris-grant/33750b08cfff5843a1b4672821332e4b/) — "Taking Your Team Behind the Curtain: The Effects of Leader Feedback Sharing," *Organization Science*.
+- [Westover (2024)](https://consensus.app/papers/how-to-create-and-maintain-psychological-safety-to-ignite-westover/4546dc8e45a059d6a9848894dbf77e2d/) — "How to Create and Maintain Psychological Safety to Ignite Innovation."
+
+---
+
+*Part of the Lead Humanly series on [leadhuman.ai](http://leadhuman.ai).*

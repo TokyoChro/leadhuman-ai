@@ -36,10 +36,10 @@ Open a doc. Notion, Google Docs, plain text, whatever you actually use. Cover fo
 
 Here's a simplified version of mine:
 
-```javascript
+```
 I'm Jay Vergara. L&D strategist and cross-cultural communication
-specialist based in Tokyo. I run Peak Potential Consulting and I'm
-building leadhuman.ai.
+specialist based in Tokyo. I run leadhuman.ai and consult on
+leadership development and intercultural communication.
 
 Priorities: 3-5 content pieces per week. MBA at GLOBIS. New
 cross-cultural workshops for Q2.
@@ -95,11 +95,16 @@ And here's what surprised me most. Building the system forced me to articulate t
 
 ---
 
-**Further reading:**
-- [Claude Projects Documentation](https://docs.anthropic.com/en/docs/build-with-claude/projects) explains how to use Projects for persistent context in Claude.
-- [Tiago Forte's "Building a Second Brain"](https://www.buildingasecondbrain.com/) is the framework that inspired the knowledge management approach behind this system.
-- [How I Built a Council of AI Advisors](https://leadhuman.ai/build/council-of-ai-advisors) takes this concept further by creating specialized AI personas with deep domain context.
-- [Why Every Leader Needs to Understand AI](https://leadhuman.ai/lead/why-leaders-need-ai) covers the leadership case for building AI fluency, starting with systems like this one.
+*Have you tried building a personal knowledge system with AI? I'd love to hear what worked for you.* [*Find me on LinkedIn.*](https://www.linkedin.com/in/jayvergara)
+
+---
+
+**Sources:**
+
+- [Claude Projects Documentation](https://docs.anthropic.com/en/docs/build-with-claude/projects) — how to use Projects for persistent context in Claude.
+- [Tiago Forte's "Building a Second Brain"](https://www.buildingasecondbrain.com/) — the framework that inspired the knowledge management approach behind this system.
+- [How I Built a Council of AI Advisors](https://leadhuman.ai/build/council-of-ai-advisors) — takes this concept further by creating specialized AI personas with deep domain context.
+- [Why Every Leader Needs to Understand AI](https://leadhuman.ai/lead/why-leaders-need-ai) — the leadership case for building AI fluency, starting with systems like this one.
 
 ---
 
