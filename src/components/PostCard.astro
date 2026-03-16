@@ -7,10 +7,9 @@ interface Props {
   category?: "build" | "lead";
   readingTime?: number;
   image?: string;
-  imagePosition?: string;
 }
 
-const { title, description, pubDate, href, category, readingTime, image, imagePosition } = Astro.props;
+const { title, description, pubDate, href, category, readingTime, image } = Astro.props;
 const formattedDate = pubDate.toLocaleDateString("en-US", {
   year: "numeric",
   month: "short",
@@ -28,8 +27,8 @@ const borderColor = category === "build" ? "border-sky-700" : "border-emerald-80
       <img
         src={image}
         alt={title}
-        class="w-full h-52 object-cover"
-        style={`object-position: ${imagePosition || 'center'}`}
+        class="w-full h-52 object-cover rounded-t-lg"
+        style="object-position: center 20%;"
         width="400"
         height="200"
         loading="lazy"

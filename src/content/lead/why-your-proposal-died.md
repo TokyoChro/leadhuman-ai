@@ -5,7 +5,6 @@ pubDate: 2026-03-12
 tags: ["cross-cultural", "japan", "leadership", "communications"]
 author: "Jay Vergara"
 image: "/images/posts/post05-proposal-died_4.png"
-imagePosition: "center"
 draft: false
 ---
 

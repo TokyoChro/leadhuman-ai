@@ -5,7 +5,6 @@ pubDate: 2026-03-15
 tags: ["ai-tools", "leadership", "l-and-d"]
 author: "Jay Vergara"
 image: "/images/posts/post03-leader-ai_4.png"
-imagePosition: "top"
 draft: false
 ---
 
