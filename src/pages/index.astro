@@ -20,29 +20,49 @@ function getReadingTime(body: string | undefined) {
 <BaseLayout title="Home">
   <!-- Hero -->
   <section class="py-16 md:py-24 hero-text">
-    <div class="flex flex-col md:flex-row md:items-center gap-10">
-      <div class="flex-1">
-        <h1 class="text-4xl sm:text-5xl font-bold tracking-tight leading-tight text-heading">
+    <div class="grid md:grid-cols-[2fr_3fr] items-center gap-10">
+      <div>
+        <h1 class="text-3xl sm:text-4xl font-bold tracking-tight leading-tight text-heading">
           Lead humanly.<br />Learn constantly.<br />Build with AI.
         </h1>
         <p class="mt-6 text-lg text-muted max-w-xl">
-          Thoughts on AI, leadership, learning, and building things that matter.
-        </p>
-        <p class="text-sm text-stone-500 mt-2">
-          Jay Vergara &middot; Leadership, AI, and cross-cultural insights from Tokyo
+          I'm Jay Vergara, an L&D leader in Tokyo writing about AI, leadership, and how people actually grow at work.
         </p>
       </div>
-      <div class="flex-1">
+      <div>
         <div class="relative w-full rounded-2xl overflow-hidden shadow-md" style="aspect-ratio: 16/9;">
           <iframe
             src="https://www.youtube.com/embed/7q2wFn8qZEU"
             title="Welcome to leadhuman.ai"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
             class="absolute inset-0 w-full h-full"
           ></iframe>
         </div>
       </div>
+    </div>
+  </section>
+
+  <hr class="my-12 border-none h-px" style="background: linear-gradient(to right, transparent, #c4b99a, transparent);" />
+
+  <!-- Latest from Build with AI -->
+  <section class="mb-16">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-2xl font-bold text-ivy">Latest from Build with AI</h2>
+      <a href="/build/" class="text-sm text-ivy hover:text-ivy-light transition-colors">View all &rarr;</a>
+    </div>
+    <div class="grid gap-4 sm:grid-cols-2">
+      {buildPosts.map((post) => (
+        <PostCard
+          title={post.data.title}
+          description={post.data.description}
+          pubDate={post.data.pubDate}
+          href={`/build/${post.id}/`}
+          category="build"
+          readingTime={getReadingTime(post.body)}
+          image={post.data.image}
+        />
+      ))}
     </div>
   </section>
 
@@ -60,27 +80,6 @@ function getReadingTime(body: string | undefined) {
           pubDate={post.data.pubDate}
           href={`/lead/${post.id}/`}
           category="lead"
-          readingTime={getReadingTime(post.body)}
-          image={post.data.image}
-        />
-      ))}
-    </div>
-  </section>
-
-  <!-- Latest from Build with AI -->
-  <section class="mb-16">
-    <div class="flex items-center justify-between mb-6">
-      <h2 class="text-2xl font-bold text-ivy">Latest from Build with AI</h2>
-      <a href="/build/" class="text-sm text-ivy hover:text-ivy-light transition-colors">View all &rarr;</a>
-    </div>
-    <div class="grid gap-4 sm:grid-cols-2">
-      {buildPosts.map((post) => (
-        <PostCard
-          title={post.data.title}
-          description={post.data.description}
-          pubDate={post.data.pubDate}
-          href={`/build/${post.id}/`}
-          category="build"
           readingTime={getReadingTime(post.body)}
           image={post.data.image}
         />
