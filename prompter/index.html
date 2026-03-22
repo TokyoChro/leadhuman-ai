@@ -289,6 +289,23 @@ html, body {
   50% { box-shadow: 0 0 0 10px rgba(255,59,59,0); }
 }
 
+/* Voice follow */
+.tp-btn.voice-active {
+  background: rgba(74, 222, 128, 0.4);
+  animation: voicePulse 1.2s ease-in-out infinite;
+}
+
+@keyframes voicePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.prompter-word { transition: color 0.15s, opacity 0.15s; display: inline; }
+.word-spoken { opacity: 0.35; }
+.word-active { color: #4ade80; }
+
+#scrollContainer { touch-action: manipulation; }
+
 #recTimer {
   font-size: 14px;
   font-weight: 700;
@@ -402,6 +419,7 @@ html, body {
     <div class="tp-row">
       <button class="tp-btn" id="flipBtn">&#128260;</button>
       <button class="tp-btn" id="fillToggle">&#9728;</button>
+      <button class="tp-btn" id="voiceBtn" title="Voice Follow">&#127908;</button>
       <button class="tp-btn record-btn" id="recBtn">&#9679;</button>
       <span id="recTimer">00:00</span>
     </div>
@@ -521,7 +539,7 @@ html, body {
   let lastTime = 0;
 
   function scrollLoop(time) {
-    if (lastTime && scrolling) {
+    if (lastTime && scrolling && !userScrolling && !voiceActive) {
       const dt = (time - lastTime) / 1000;
       scrollY += state.speed * 30 * dt;
       scriptText.style.transform = `translateY(-${scrollY}px)`;
@@ -635,6 +653,269 @@ html, body {
     }, 1000);
   }
 
+  // ── Touch / Mouse Scrolling ──
+  let userScrolling = false;
+  let userScrollTimer = null;
+  let touchStartY = 0;
+  let touchLastY = 0;
+  let touchVelocity = 0;
+  let momentumRAF = null;
+
+  function pauseAutoScrollBriefly() {
+    userScrolling = true;
+    clearTimeout(userScrollTimer);
+    userScrollTimer = setTimeout(() => { userScrolling = false; }, 3000);
+  }
+
+  function setupTouchHandlers() {
+    const container = $('scrollContainer');
+
+    container.addEventListener('touchstart', (e) => {
+      touchStartY = e.touches[0].clientY;
+      touchLastY = touchStartY;
+      touchVelocity = 0;
+      pauseAutoScrollBriefly();
+      if (momentumRAF) cancelAnimationFrame(momentumRAF);
+    }, { passive: true });
+
+    container.addEventListener('touchmove', (e) => {
+      const y = e.touches[0].clientY;
+      const delta = touchLastY - y;
+      touchVelocity = delta;
+      touchLastY = y;
+      scrollY += delta;
+      if (scrollY < 0) scrollY = 0;
+      scriptText.style.transform = `translateY(-${scrollY}px)`;
+      e.preventDefault();
+    }, { passive: false });
+
+    container.addEventListener('touchend', () => {
+      let velocity = touchVelocity;
+      function momentum() {
+        if (Math.abs(velocity) < 0.5) return;
+        velocity *= 0.95;
+        scrollY += velocity;
+        if (scrollY < 0) scrollY = 0;
+        scriptText.style.transform = `translateY(-${scrollY}px)`;
+        momentumRAF = requestAnimationFrame(momentum);
+      }
+      momentumRAF = requestAnimationFrame(momentum);
+    }, { passive: true });
+
+    // Mouse wheel
+    container.addEventListener('wheel', (e) => {
+      pauseAutoScrollBriefly();
+      scrollY += e.deltaY;
+      if (scrollY < 0) scrollY = 0;
+      scriptText.style.transform = `translateY(-${scrollY}px)`;
+      e.preventDefault();
+    }, { passive: false });
+  }
+
+  // ── Keyboard Shortcuts ──
+  document.addEventListener('keydown', (e) => {
+    if (tpEl.style.display !== 'block') return;
+    switch (e.code) {
+      case 'Space':
+        e.preventDefault();
+        $('playPauseBtn').click();
+        break;
+      case 'ArrowUp':
+        e.preventDefault();
+        $('tpSpeedUp').click();
+        break;
+      case 'ArrowDown':
+        e.preventDefault();
+        $('tpSpeedDown').click();
+        break;
+      case 'Escape':
+        e.preventDefault();
+        $('backBtn').click();
+        break;
+      case 'KeyV':
+        $('voiceBtn').click();
+        break;
+    }
+  });
+
+  // ── Voice Follow ──
+  const hasSpeechAPI = !!(window.SpeechRecognition || window.webkitSpeechRecognition);
+  let voiceRecognition = null;
+  let voiceActive = false;
+  let scriptWords = [];
+  let wordSpans = [];
+  let currentWordIndex = 0;
+  let recognitionRestarts = 0;
+  let recognitionRestartWindow = 0;
+
+  // Hide voice button if not supported
+  if (!hasSpeechAPI) {
+    $('voiceBtn').style.display = 'none';
+  }
+
+  function normalizeWord(w) {
+    return w.toLowerCase().replace(/[^a-z0-9']/g, '');
+  }
+
+  function renderWordsForVoice(text) {
+    const paragraphs = text.split(/\n\s*\n/);
+    scriptText.innerHTML = '';
+    scriptWords = [];
+    wordSpans = [];
+
+    paragraphs.forEach((para) => {
+      const paraWords = para.replace(/\n/g, ' ').split(/\s+/).filter(Boolean);
+      const paraDiv = document.createElement('div');
+      paraDiv.style.marginBottom = '1em';
+
+      paraWords.forEach((w) => {
+        const span = document.createElement('span');
+        span.className = 'prompter-word';
+        span.dataset.index = scriptWords.length;
+        span.textContent = w + ' ';
+        paraDiv.appendChild(span);
+        scriptWords.push(w);
+        wordSpans.push(span);
+      });
+
+      scriptText.appendChild(paraDiv);
+    });
+  }
+
+  function startVoiceFollow() {
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SR) return;
+
+    voiceActive = true;
+    currentWordIndex = 0;
+    recognitionRestarts = 0;
+    recognitionRestartWindow = Date.now();
+
+    // Render words as spans for highlighting
+    renderWordsForVoice(state.script);
+    scriptText.style.fontSize = state.fontSize + 'px';
+
+    voiceRecognition = new SR();
+    voiceRecognition.continuous = true;
+    voiceRecognition.interimResults = true;
+    voiceRecognition.lang = 'en-US';
+
+    voiceRecognition.onresult = (event) => {
+      let transcript = '';
+      for (let i = event.resultIndex; i < event.results.length; i++) {
+        transcript += event.results[i][0].transcript;
+      }
+
+      const spokenWords = transcript.trim().split(/\s+/).map(normalizeWord).filter(Boolean);
+      if (spokenWords.length === 0) return;
+
+      const matchWords = spokenWords.slice(-4);
+      const windowStart = Math.max(0, currentWordIndex - 2);
+      const windowEnd = Math.min(scriptWords.length, currentWordIndex + 60);
+
+      let bestIndex = -1;
+      let bestScore = 0;
+
+      for (let i = windowStart; i <= windowEnd - matchWords.length; i++) {
+        let score = 0;
+        for (let j = 0; j < matchWords.length; j++) {
+          const sw = normalizeWord(scriptWords[i + j] || '');
+          if (sw === matchWords[j]) {
+            score += 1;
+          } else if (sw.startsWith(matchWords[j]) || matchWords[j].startsWith(sw)) {
+            score += 0.5;
+          }
+        }
+        if (score > bestScore) {
+          bestScore = score;
+          bestIndex = i + matchWords.length - 1;
+        }
+      }
+
+      if (bestScore >= 1.5 && bestIndex >= currentWordIndex - 2) {
+        currentWordIndex = bestIndex;
+        highlightWord(currentWordIndex);
+        scrollToWord(currentWordIndex);
+      }
+    };
+
+    voiceRecognition.onerror = (e) => {
+      if (e.error === 'no-speech' || e.error === 'audio-capture' || e.error === 'network') {
+        restartVoiceRecognition();
+      }
+    };
+
+    voiceRecognition.onend = () => {
+      if (voiceActive) restartVoiceRecognition();
+    };
+
+    try { voiceRecognition.start(); } catch (e) {}
+    $('voiceBtn').classList.add('voice-active');
+  }
+
+  function stopVoiceFollow() {
+    voiceActive = false;
+    if (voiceRecognition) {
+      try { voiceRecognition.stop(); } catch (e) {}
+      voiceRecognition = null;
+    }
+    $('voiceBtn').classList.remove('voice-active');
+    // Remove word highlighting
+    wordSpans.forEach(s => { s.classList.remove('word-spoken', 'word-active'); });
+  }
+
+  function restartVoiceRecognition() {
+    const now = Date.now();
+    if (now - recognitionRestartWindow > 10000) {
+      recognitionRestarts = 0;
+      recognitionRestartWindow = now;
+    }
+    recognitionRestarts++;
+    if (recognitionRestarts > 5) {
+      $('voiceBtn').classList.remove('voice-active');
+      return;
+    }
+    setTimeout(() => {
+      if (voiceActive) {
+        try { voiceRecognition?.start(); } catch (e) {
+          startVoiceFollow();
+        }
+      }
+    }, 500);
+  }
+
+  function highlightWord(index) {
+    wordSpans.forEach((span, i) => {
+      span.classList.toggle('word-spoken', i < index);
+      span.classList.toggle('word-active', i === index);
+    });
+  }
+
+  function scrollToWord(index) {
+    const span = wordSpans[index];
+    if (!span) return;
+    const rect = span.getBoundingClientRect();
+    const containerRect = $('scrollContainer').getBoundingClientRect();
+    const targetScrollY = scrollY + rect.top - containerRect.top - (containerRect.height * 0.35);
+    // Smooth interpolation
+    const diff = targetScrollY - scrollY;
+    scrollY += diff * 0.3;
+    if (scrollY < 0) scrollY = 0;
+    scriptText.style.transform = `translateY(-${scrollY}px)`;
+  }
+
+  // ── Voice Button ──
+  $('voiceBtn').onclick = () => {
+    if (voiceActive) {
+      stopVoiceFollow();
+      // Restore plain text
+      scriptText.textContent = state.script;
+      scriptText.style.fontSize = state.fontSize + 'px';
+    } else {
+      startVoiceFollow();
+    }
+  };
+
   // ── Start Teleprompter ──
   $('startBtn').onclick = async () => {
     state.script = scriptInput.value;
@@ -666,13 +947,16 @@ html, body {
       fillSliderRow.style.display = 'flex';
     }
 
+    setupTouchHandlers();
     animFrame = requestAnimationFrame(scrollLoop);
   };
 
   // ── Back button ──
   $('backBtn').onclick = () => {
+    if (voiceActive) stopVoiceFollow();
     if (isRecording) stopRecording();
     if (animFrame) cancelAnimationFrame(animFrame);
+    if (momentumRAF) cancelAnimationFrame(momentumRAF);
     releaseWakeLock();
     if (currentStream) {
       currentStream.getTracks().forEach(t => t.stop());
