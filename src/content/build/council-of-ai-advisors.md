@@ -8,7 +8,7 @@ image: "/images/posts/v2-post01-council_1.png"
 draft: false
 ---
 
-I run a consulting business and I write across three platforms and I'm doing an MBA and I'm trying to be a present dad through all of it.
+I run a consulting business and I write across three platforms and I'm trying to be a present dad through all of it.
 
 A year ago all of that lived in my head and a growing pile of half finished notes. I was using AI the way most people do. Open Claude, ask a question, get an answer, move on. Every conversation started from zero.
 
@@ -22,7 +22,7 @@ I call it the Council of Jays. And it changed how I work more than any productiv
 
 Most people use AI like a search engine with better grammar. That works for small tasks but it falls apart when you need deep, consistent support across multiple areas of your life.
 
-Here's what kept happening. I'd ask Claude to help draft a LinkedIn post and the output was great. Then I'd switch to MBA case study prep and it was decent, but it had no memory of my writing voice. Then career strategy and I was starting from scratch again.
+Here's what kept happening. I'd ask Claude to help draft a LinkedIn post and the output was great. Then I'd switch to career strategy work and it was decent, but it had no memory of my writing voice. Then leadership content and I was starting from scratch again.
 
 The AI was smart but it had no specialization and no context about what mattered to me in each domain. Every conversation felt like meeting a brilliant stranger who forgot we'd ever spoken.
 
