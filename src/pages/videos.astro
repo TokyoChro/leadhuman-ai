@@ -1,0 +1,161 @@
+---
+export const prerender = false;
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const YOUTUBE_API_KEY = import.meta.env.YOUTUBE_API_KEY;
+const CHANNEL_ID = "UC056Cwn3Wl4iuJ9vDZzcIVg";
+
+interface YouTubeVideo {
+  id: string;
+  title: string;
+  thumbnail: string;
+  publishedAt: string;
+  isShort: boolean;
+}
+
+let longForm: YouTubeVideo[] = [];
+let shortForm: YouTubeVideo[] = [];
+let error = "";
+
+try {
+  // Step 1: Fetch all videos from the channel (up to 50)
+  const searchUrl = `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&channelId=${CHANNEL_ID}&part=snippet&order=date&maxResults=50&type=video`;
+  const searchRes = await fetch(searchUrl);
+
+  if (!searchRes.ok) {
+    throw new Error(`YouTube API error: ${searchRes.status}`);
+  }
+
+  const searchData = await searchRes.json();
+  const videoIds = searchData.items?.map((item: any) => item.id.videoId).filter(Boolean);
+
+  if (videoIds && videoIds.length > 0) {
+    // Step 2: Get video details (duration) for all videos
+    const detailsUrl = `https://www.googleapis.com/youtube/v3/videos?key=${YOUTUBE_API_KEY}&id=${videoIds.join(",")}&part=contentDetails,snippet`;
+    const detailsRes = await fetch(detailsUrl);
+
+    if (!detailsRes.ok) {
+      throw new Error(`YouTube API error: ${detailsRes.status}`);
+    }
+
+    const detailsData = await detailsRes.json();
+
+    const allVideos: YouTubeVideo[] = detailsData.items?.map((item: any) => {
+      // Parse ISO 8601 duration (e.g. PT1M30S, PT15S, PT1H2M3S)
+      const duration = item.contentDetails.duration;
+      const match = duration.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
+      const hours = parseInt(match?.[1] || "0");
+      const minutes = parseInt(match?.[2] || "0");
+      const seconds = parseInt(match?.[3] || "0");
+      const totalSeconds = hours * 3600 + minutes * 60 + seconds;
+
+      return {
+        id: item.id,
+        title: item.snippet.title,
+        thumbnail: item.snippet.thumbnails?.high?.url || item.snippet.thumbnails?.medium?.url || item.snippet.thumbnails?.default?.url,
+        publishedAt: item.snippet.publishedAt,
+        isShort: totalSeconds <= 60,
+      };
+    }) || [];
+
+    longForm = allVideos.filter((v) => !v.isShort);
+    shortForm = allVideos.filter((v) => v.isShort);
+  }
+} catch (e: any) {
+  error = e.message || "Failed to load videos.";
+}
+
+function formatDate(dateStr: string) {
+  return new Date(dateStr).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+}
+---
+
+<BaseLayout title="Videos" description="Tutorials, commentary, and short-form video content from leadhuman.ai.">
+  <h1 class="text-3xl font-bold mb-2 text-heading">Videos</h1>
+  <p class="text-muted mb-10">Tutorials, commentary, and shorts — straight from the YouTube channel.</p>
+
+  {error && (
+    <div class="border border-red-300 bg-red-50 text-red-800 rounded-lg p-4 mb-8">
+      <p>Something went wrong loading videos. Please try again later.</p>
+    </div>
+  )}
+
+  <!-- Long Form -->
+  <section class="mb-14">
+    <h2 class="text-xl font-bold text-heading mb-4">Long Form</h2>
+    {longForm.length > 0 ? (
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {longForm.map((video) => (
+          <a
+            href={`https://www.youtube.com/watch?v=${video.id}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group bg-surface border border-card-border rounded-lg overflow-hidden hover:border-ivy transition-colors"
+          >
+            <div class="relative w-full" style="aspect-ratio: 16/9;">
+              <img
+                src={video.thumbnail}
+                alt={video.title}
+                class="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                <svg class="w-12 h-12 text-white opacity-0 group-hover:opacity-80 transition-opacity drop-shadow-lg" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+            <div class="p-4">
+              <h3 class="text-sm font-semibold text-heading leading-snug line-clamp-2">{video.title}</h3>
+              <p class="text-xs text-muted mt-1">{formatDate(video.publishedAt)}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    ) : !error && (
+      <div class="border border-dashed border-muted/40 rounded-lg p-8 text-center">
+        <p class="text-muted">Long form videos coming soon.</p>
+      </div>
+    )}
+  </section>
+
+  <!-- Short Form -->
+  <section>
+    <h2 class="text-xl font-bold text-heading mb-4">Short Form</h2>
+    {shortForm.length > 0 ? (
+      <div class="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
+        {shortForm.map((video) => (
+          <a
+            href={`https://www.youtube.com/shorts/${video.id}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group bg-surface border border-card-border rounded-lg overflow-hidden hover:border-ivy transition-colors"
+          >
+            <div class="relative w-full" style="aspect-ratio: 9/16;">
+              <img
+                src={video.thumbnail}
+                alt={video.title}
+                class="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                <svg class="w-10 h-10 text-white opacity-0 group-hover:opacity-80 transition-opacity drop-shadow-lg" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+            <div class="p-3">
+              <h3 class="text-xs font-semibold text-heading leading-snug line-clamp-2">{video.title}</h3>
+              <p class="text-xs text-muted mt-1">{formatDate(video.publishedAt)}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    ) : !error && (
+      <div class="border border-dashed border-muted/40 rounded-lg p-8 text-center">
+        <p class="text-muted">Short form videos coming soon.</p>
+      </div>
+    )}
+  </section>
+</BaseLayout>
