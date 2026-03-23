@@ -41,7 +41,7 @@ I'm Jay Vergara. L&D strategist and cross-cultural communication
 specialist based in Tokyo. I run leadhuman.ai and consult on
 leadership development and intercultural communication.
 
-Priorities: 3-5 content pieces per week. MBA at GLOBIS. New
+Priorities: 3-5 content pieces per week. New
 cross-cultural workshops for Q2.
 
 How I work: Challenge me. I think in frameworks. Keep it practical.
