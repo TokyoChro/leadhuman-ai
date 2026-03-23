@@ -64,7 +64,7 @@ The untranslatable words are the keys, and they just don't fit any lock you alre
 - [Kumar (2024)](https://consensus.app/papers/understanding-cultural-differences-in-innovation-a-kumar/83922667d9ce57ef9306d6076d82d731/) — "Understanding Cultural Differences in Innovation: A Conceptual Framework."
 - [The Culture Map by Erin Meyer](https://erinmeyer.com/books/the-culture-map/) — maps how cultural dimensions shape business communication across borders.
 - [Takeo Doi's "The Anatomy of Dependence"](https://en.wikipedia.org/wiki/The_Anatomy_of_Dependence) — the foundational text on *amae* and its role in Japanese social relationships.
-- [Why Your Proposal Died Before the Meeting Started](https://leadhuman.ai/lead/proposal-died-nemawashi) — goes deeper into nemawashi and how it shapes Japanese business decisions.
+- [Why Your Proposal Died Before the Meeting Started](https://leadhuman.ai/lead/why-your-proposal-died) — goes deeper into nemawashi and how it shapes Japanese business decisions.
 
 ---
 

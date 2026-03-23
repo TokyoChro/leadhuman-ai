@@ -54,4 +54,4 @@ Feedback isn't about finding the perfect words but about closing the gap between
 
 ---
 
-*Part of the Lead Humanly series on [leadhuman.ai](http://leadhuman.ai).*
+*Part of the Lead Humanly series on [leadhuman.ai](https://leadhuman.ai).*

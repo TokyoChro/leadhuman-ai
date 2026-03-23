@@ -54,4 +54,4 @@ The most valuable insight in your next meeting might come from the person who do
 
 ---
 
-*Part of the Lead Humanly series on [leadhuman.ai](http://leadhuman.ai).*
+*Part of the Lead Humanly series on [leadhuman.ai](https://leadhuman.ai).*

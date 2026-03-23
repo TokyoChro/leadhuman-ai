@@ -53,4 +53,4 @@ The leaders who changed my career weren't the ones with the best ideas but the o
 
 ---
 
-*Part of the Lead Humanly series on [leadhuman.ai](http://leadhuman.ai).*
+*Part of the Lead Humanly series on [leadhuman.ai](https://leadhuman.ai).*

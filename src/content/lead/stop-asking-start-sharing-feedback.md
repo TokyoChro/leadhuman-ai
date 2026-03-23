@@ -53,4 +53,4 @@ Psychological safety doesn't come from saying the right words but from doing the
 
 ---
 
-*Part of the Lead Humanly series on [leadhuman.ai](http://leadhuman.ai).*
+*Part of the Lead Humanly series on [leadhuman.ai](https://leadhuman.ai).*

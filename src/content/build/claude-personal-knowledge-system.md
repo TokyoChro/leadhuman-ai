@@ -67,7 +67,7 @@ Break your knowledge into 2 to 3 domains. For each one capture:
 
 ## Step 3: Connect it (5 minutes)
 
-**[Claude.ai](http://Claude.ai):** Use Projects. Upload your docs as project knowledge. Every conversation in that project gets your full context automatically.
+**[Claude.ai](https://claude.ai):** Use Projects. Upload your docs as project knowledge. Every conversation in that project gets your full context automatically.
 
 **Claude Code or Desktop with MCP:** Connect Claude directly to your Notion or Google Drive. It reads the docs at session start.
 
@@ -97,11 +97,11 @@ And here's what surprised me most. Building the system forced me to articulate t
 
 **Sources:**
 
-- [Claude Projects Documentation](https://docs.anthropic.com/en/docs/build-with-claude/projects) — how to use Projects for persistent context in Claude.
+- [Claude Projects Documentation](https://docs.anthropic.com/en/docs/about-claude/models) — how to use Projects for persistent context in Claude.
 - [Tiago Forte's "Building a Second Brain"](https://www.buildingasecondbrain.com/) — the framework that inspired the knowledge management approach behind this system.
 - [How I Built a Council of AI Advisors](https://leadhuman.ai/build/council-of-ai-advisors) — takes this concept further by creating specialized AI personas with deep domain context.
 - [Why Every Leader Needs to Understand AI](https://leadhuman.ai/lead/why-leaders-need-ai) — the leadership case for building AI fluency, starting with systems like this one.
 
 ---
 
-*Part of the Build with AI series on [leadhuman.ai](http://leadhuman.ai).*
+*Part of the Build with AI series on [leadhuman.ai](https://leadhuman.ai).*
