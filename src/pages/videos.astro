@@ -75,9 +75,9 @@ function formatDate(dateStr: string) {
 }
 ---
 
-<BaseLayout title="Videos" description="Tutorials, commentary, and short-form video content from leadhuman.ai.">
+<BaseLayout title="Videos" description="Watch AI tutorials, leadership insights, and practical workflow breakdowns from Jay Vergara. Long-form guides and short-form tips for professionals building with AI and leading across cultures.">
   <h1 class="text-3xl font-bold mb-2 text-heading">Videos</h1>
-  <p class="text-muted mb-10">Tutorials, commentary, and shorts — straight from the YouTube channel.</p>
+  <p class="text-body mb-10 max-w-2xl">Practical AI tutorials, leadership insights, and workflow breakdowns — everything I publish on the <a href="https://www.youtube.com/@leadhumanai" target="_blank" rel="noopener noreferrer" class="text-ivy hover:text-ivy-light transition-colors underline">leadhuman.ai YouTube channel</a>, organized in one place.</p>
 
   {error && (
     <div class="border border-red-300 bg-red-50 text-red-800 rounded-lg p-4 mb-8">
@@ -87,7 +87,8 @@ function formatDate(dateStr: string) {
 
   <!-- Long Form -->
   <section class="mb-14">
-    <h2 class="text-xl font-bold text-heading mb-4">Long Form</h2>
+    <h2 class="text-xl font-bold text-heading mb-2">Long Form</h2>
+    <p class="text-sm text-muted mb-4">Full-length tutorials, deep dives, and commentary on AI, leadership, and learning development.</p>
     {longForm.length > 0 ? (
       <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {longForm.map((video) => (
@@ -124,7 +125,8 @@ function formatDate(dateStr: string) {
 
   <!-- Short Form -->
   <section>
-    <h2 class="text-xl font-bold text-heading mb-4">Short Form</h2>
+    <h2 class="text-xl font-bold text-heading mb-2">Short Form</h2>
+    <p class="text-sm text-muted mb-4">Quick tips, clips, and takeaways — bite-sized insights you can use right away.</p>
     {shortForm.length > 0 ? (
       <div class="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
         {shortForm.map((video) => (
