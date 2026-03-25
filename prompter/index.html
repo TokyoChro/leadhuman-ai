@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#111111">
+<link rel="manifest" href="/manifest.json">
+<title>Prompter</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #111;
+  --surface: #1a1a1a;
+  --border: #333;
+  --text: #eee;
+  --muted: #888;
+  --accent: #4a9eff;
+  --danger: #ff3b3b;
+}
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  overflow: hidden;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ── Setup Screen ── */
+#setup {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: env(safe-area-inset-top) 16px env(safe-area-inset-bottom);
+}
+
+.setup-header {
+  text-align: center;
+  padding: 16px 0 8px;
+}
+
+.setup-header h1 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.setup-header p {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+#scriptInput {
+  flex: 1;
+  width: 100%;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 16px;
+  line-height: 1.5;
+  resize: none;
+  outline: none;
+  margin: 12px 0;
+  -webkit-appearance: none;
+}
+
+#scriptInput::placeholder { color: var(--muted); }
+
+.controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 8px 0;
+  flex-wrap: wrap;
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--surface);
+  border-radius: 10px;
+  padding: 6px 10px;
+}
+
+.control-group label {
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ctrl-btn {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 8px;
+  background: var(--border);
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-appearance: none;
+}
+
+.ctrl-btn:active { opacity: 0.7; }
+
+.ctrl-val {
+  min-width: 32px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+#startBtn {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 14px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  margin: 12px 0 16px;
+  -webkit-appearance: none;
+}
+
+#startBtn:active { opacity: 0.8; }
+
+/* ── Teleprompter Screen ── */
+#teleprompter {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #000;
+  overflow: hidden;
+}
+
+#cameraPreview {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+  z-index: 1;
+}
+
+#fillLight {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+#scrollContainer {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+#scriptText {
+  position: absolute;
+  width: 88%;
+  max-width: 600px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.7);
+  line-height: 1.6;
+  padding-top: 100vh;
+  padding-bottom: 60vh;
+  will-change: transform;
+}
+
+#eyeLine {
+  position: absolute;
+  top: 38%;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.25);
+  z-index: 4;
+  pointer-events: none;
+}
+
+#eyeLineLabel {
+  position: absolute;
+  top: 38%;
+  right: 12%;
+  transform: translateY(-20px);
+  font-size: 10px;
+  color: rgba(255,255,255,0.3);
+  z-index: 4;
+  pointer-events: none;
+}
+
+#countdown {
+  display: none;
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  background: rgba(0,0,0,0.7);
+  font-size: 120px;
+  font-weight: 800;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ── Teleprompter Controls ── */
+.tp-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  padding: 8px 10px calc(env(safe-area-inset-bottom) + 10px);
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tp-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.tp-btn {
+  height: 42px;
+  min-width: 42px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 0 10px;
+  -webkit-appearance: none;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.tp-btn:active { opacity: 0.7; }
+.tp-btn.active { background: rgba(74, 158, 255, 0.4); }
+.tp-btn.recording { background: rgba(255, 59, 59, 0.5); }
+
+.tp-btn.record-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--danger);
+  font-size: 22px;
+}
+
+.tp-btn.record-btn.recording {
+  background: var(--danger);
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,59,59,0.5); }
+  50% { box-shadow: 0 0 0 10px rgba(255,59,59,0); }
+}
+
+#recTimer {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--danger);
+  min-width: 60px;
+  text-align: center;
+  display: none;
+}
+
+.tp-slider-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: rgba(255,255,255,0.6);
+}
+
+.tp-slider-row input[type="range"] {
+  flex: 1;
+  height: 4px;
+  -webkit-appearance: none;
+  background: rgba(255,255,255,0.2);
+  border-radius: 2px;
+  outline: none;
+}
+
+.tp-slider-row input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+#backBtn {
+  position: absolute;
+  top: env(safe-area-inset-top, 12px);
+  left: 12px;
+  z-index: 6;
+  height: 38px;
+  min-width: 38px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 0 8px;
+  margin-top: 12px;
+}
+</style>
+</head>
+<body>
+
+<!-- ── Setup Screen ── -->
+<div id="setup">
+  <div class="setup-header">
+    <h1>PROMPTER</h1>
+    <p>Paste your script below</p>
+  </div>
+
+  <textarea id="scriptInput" placeholder="Paste or type your script here..."></textarea>
+
+  <div class="controls-row">
+    <div class="control-group">
+      <label>Font</label>
+      <button class="ctrl-btn" id="fontDown">A-</button>
+      <span class="ctrl-val" id="fontVal">28</span>
+      <button class="ctrl-btn" id="fontUp">A+</button>
+    </div>
+    <div class="control-group">
+      <label>Speed</label>
+      <button class="ctrl-btn" id="speedDown">-</button>
+      <span class="ctrl-val" id="speedVal">3</span>
+      <button class="ctrl-btn" id="speedUp">+</button>
+    </div>
+  </div>
+
+  <button id="startBtn">Start Teleprompter</button>
+</div>
+
+<!-- ── Teleprompter Screen ── -->
+<div id="teleprompter">
+  <video id="cameraPreview" autoplay playsinline muted></video>
+  <div id="fillLight"></div>
+
+  <div id="scrollContainer">
+    <div id="scriptText"></div>
+  </div>
+
+  <div id="eyeLine"></div>
+  <span id="eyeLineLabel">eye line</span>
+
+  <div id="countdown"></div>
+
+  <button id="backBtn">&#x2190;</button>
+
+  <div class="tp-controls">
+    <div class="tp-row">
+      <button class="tp-btn" id="tpFontDown">A-</button>
+      <button class="tp-btn" id="tpFontUp">A+</button>
+      <button class="tp-btn" id="tpSpeedDown">&#9664;</button>
+      <span style="color:#fff;font-size:13px;min-width:20px;text-align:center" id="tpSpeedVal">3</span>
+      <button class="tp-btn" id="tpSpeedUp">&#9654;</button>
+      <button class="tp-btn" id="playPauseBtn">&#10074;&#10074;</button>
+      <button class="tp-btn" id="restartBtn">&#8634;</button>
+    </div>
+    <div class="tp-row">
+      <button class="tp-btn" id="flipBtn">&#128260;</button>
+      <button class="tp-btn" id="fillToggle">&#9728;</button>
+      <button class="tp-btn record-btn" id="recBtn">&#9679;</button>
+      <span id="recTimer">00:00</span>
+    </div>
+    <div class="tp-slider-row" id="fillSliderRow" style="display:none">
+      <span>Fill</span>
+      <input type="range" id="fillSlider" min="5" max="50" value="20">
+      <span id="fillVal">20%</span>
+    </div>
+  </div>
+</div>
+
+<script>
+(() => {
+  // ── State ──
+  const state = {
+    fontSize: 28,
+    speed: 3,
+    fillOn: false,
+    fillBrightness: 20,
+    facingMode: 'user',
+    script: ''
+  };
+
+  // Load saved state
+  try {
+    const saved = JSON.parse(localStorage.getItem('prompter_state'));
+    if (saved) Object.assign(state, saved);
+  } catch {}
+
+  function saveState() {
+    localStorage.setItem('prompter_state', JSON.stringify(state));
+  }
+
+  // ── Elements ──
+  const $ = id => document.getElementById(id);
+  const setupEl = $('setup');
+  const tpEl = $('teleprompter');
+  const scriptInput = $('scriptInput');
+  const fontVal = $('fontVal');
+  const speedVal = $('speedVal');
+  const tpSpeedVal = $('tpSpeedVal');
+  const video = $('cameraPreview');
+  const fillLight = $('fillLight');
+  const scriptText = $('scriptText');
+  const countdownEl = $('countdown');
+  const recTimer = $('recTimer');
+  const fillSliderRow = $('fillSliderRow');
+  const fillSlider = $('fillSlider');
+  const fillValEl = $('fillVal');
+  const recBtn = $('recBtn');
+
+  // ── Init UI from state ──
+  scriptInput.value = state.script;
+  fontVal.textContent = state.fontSize;
+  speedVal.textContent = state.speed;
+  tpSpeedVal.textContent = state.speed;
+  fillSlider.value = state.fillBrightness;
+  fillValEl.textContent = state.fillBrightness + '%';
+
+  // ── Setup Controls ──
+  function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); }
+
+  $('fontDown').onclick = () => {
+    state.fontSize = clamp(state.fontSize - 2, 16, 64);
+    fontVal.textContent = state.fontSize;
+    saveState();
+  };
+  $('fontUp').onclick = () => {
+    state.fontSize = clamp(state.fontSize + 2, 16, 64);
+    fontVal.textContent = state.fontSize;
+    saveState();
+  };
+  $('speedDown').onclick = () => {
+    state.speed = clamp(state.speed - 1, 1, 10);
+    speedVal.textContent = state.speed;
+    tpSpeedVal.textContent = state.speed;
+    saveState();
+  };
+  $('speedUp').onclick = () => {
+    state.speed = clamp(state.speed + 1, 1, 10);
+    speedVal.textContent = state.speed;
+    tpSpeedVal.textContent = state.speed;
+    saveState();
+  };
+
+  scriptInput.oninput = () => {
+    state.script = scriptInput.value;
+    saveState();
+  };
+
+  // ── Camera ──
+  let currentStream = null;
+
+  async function startCamera() {
+    if (currentStream) {
+      currentStream.getTracks().forEach(t => t.stop());
+    }
+
+    const videoConstraints = {
+      facingMode: state.facingMode,
+      width: { ideal: 1920 },
+      height: { ideal: 1080 },
+      frameRate: { ideal: 30 }
+    };
+
+    const highQualityAudio = {
+      echoCancellation: false,
+      noiseSuppression: false,
+      autoGainControl: false,
+      channelCount: { ideal: 1 },
+      sampleRate: { ideal: 48000 },
+      sampleSize: { ideal: 16 }
+    };
+
+    function applyStream(stream) {
+      currentStream = stream;
+      video.srcObject = stream;
+      video.style.transform = state.facingMode === 'user' ? 'scaleX(-1)' : 'scaleX(1)';
+    }
+
+    try {
+      // Best quality: disable all call-oriented audio processing
+      applyStream(await navigator.mediaDevices.getUserMedia({
+        video: videoConstraints,
+        audio: highQualityAudio
+      }));
+    } catch (err1) {
+      console.warn('High-quality audio constraints failed, trying fallback:', err1);
+      try {
+        // Fallback: disable processing but skip sample rate/size
+        applyStream(await navigator.mediaDevices.getUserMedia({
+          video: videoConstraints,
+          audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: false }
+        }));
+      } catch (err2) {
+        console.warn('Fallback audio constraints failed, using defaults:', err2);
+        try {
+          // Last resort: browser defaults
+          applyStream(await navigator.mediaDevices.getUserMedia({
+            video: { facingMode: state.facingMode },
+            audio: true
+          }));
+        } catch (err3) {
+          console.error('Camera error:', err3);
+          alert('Camera access is required. Please allow camera permissions.');
+        }
+      }
+    }
+  }
+
+  // ── Scroll ──
+  let scrollY = 0;
+  let scrolling = true;
+  let animFrame = null;
+  let lastTime = 0;
+
+  function scrollLoop(time) {
+    if (lastTime && scrolling) {
+      const dt = (time - lastTime) / 1000;
+      scrollY += state.speed * 30 * dt;
+      scriptText.style.transform = `translateY(-${scrollY}px)`;
+    }
+    lastTime = time;
+    animFrame = requestAnimationFrame(scrollLoop);
+  }
+
+  // ── Wake Lock ──
+  let wakeLock = null;
+  async function requestWakeLock() {
+    try {
+      if ('wakeLock' in navigator) {
+        wakeLock = await navigator.wakeLock.request('screen');
+      }
+    } catch {}
+  }
+
+  function releaseWakeLock() {
+    if (wakeLock) { wakeLock.release(); wakeLock = null; }
+  }
+
+  // ── Recording ──
+  let mediaRecorder = null;
+  let recordedChunks = [];
+  let recStartTime = 0;
+  let recInterval = null;
+  let isRecording = false;
+
+  function formatTime(ms) {
+    const s = Math.floor(ms / 1000);
+    const m = Math.floor(s / 60);
+    const sec = s % 60;
+    return String(m).padStart(2, '0') + ':' + String(sec).padStart(2, '0');
+  }
+
+  function startRecording() {
+    if (!currentStream) return;
+    recordedChunks = [];
+
+    // Try highest quality codec first, fall back progressively
+    const mimeTypes = [
+      'video/mp4;codecs=avc1.640028,mp4a.40.2',  // H.264 High Profile + AAC-LC
+      'video/mp4;codecs=avc1.4d0028,mp4a.40.2',  // H.264 Main Profile + AAC-LC
+      'video/mp4;codecs=avc1',
+      'video/mp4',
+      'video/webm;codecs=vp9,opus',
+      'video/webm;codecs=vp8,opus',
+      'video/webm'
+    ];
+    let mimeType = '';
+    for (const mt of mimeTypes) {
+      if (MediaRecorder.isTypeSupported(mt)) { mimeType = mt; break; }
+    }
+
+    const recorderOptions = {
+      videoBitsPerSecond: 10_000_000,  // 10 Mbps (browser default ~2.5 Mbps)
+      audioBitsPerSecond: 256_000      // 256 kbps (browser default ~128 kbps)
+    };
+    if (mimeType) recorderOptions.mimeType = mimeType;
+
+    try {
+      mediaRecorder = new MediaRecorder(currentStream, recorderOptions);
+    } catch {
+      mediaRecorder = new MediaRecorder(currentStream);
+    }
+
+    mediaRecorder.ondataavailable = e => {
+      if (e.data.size > 0) recordedChunks.push(e.data);
+    };
+
+    mediaRecorder.onstop = () => {
+      const ext = (mediaRecorder.mimeType || '').includes('mp4') ? 'mp4' : 'webm';
+      const blob = new Blob(recordedChunks, { type: mediaRecorder.mimeType || 'video/webm' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `prompter-${Date.now()}.${ext}`;
+      a.click();
+      setTimeout(() => URL.revokeObjectURL(url), 5000);
+    };
+
+    mediaRecorder.start(500);
+    isRecording = true;
+    recStartTime = Date.now();
+    recTimer.style.display = 'inline';
+    recBtn.classList.add('recording');
+    recBtn.innerHTML = '&#9632;';
+    recInterval = setInterval(() => {
+      recTimer.textContent = formatTime(Date.now() - recStartTime);
+    }, 500);
+  }
+
+  function stopRecording() {
+    if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+      mediaRecorder.stop();
+    }
+    isRecording = false;
+    clearInterval(recInterval);
+    recTimer.style.display = 'none';
+    recTimer.textContent = '00:00';
+    recBtn.classList.remove('recording');
+    recBtn.innerHTML = '&#9679;';
+  }
+
+  function doCountdown(cb) {
+    let count = 3;
+    countdownEl.style.display = 'flex';
+    countdownEl.textContent = count;
+    const iv = setInterval(() => {
+      count--;
+      if (count <= 0) {
+        clearInterval(iv);
+        countdownEl.style.display = 'none';
+        cb();
+      } else {
+        countdownEl.textContent = count;
+      }
+    }, 1000);
+  }
+
+  // ── Start Teleprompter ──
+  $('startBtn').onclick = async () => {
+    state.script = scriptInput.value;
+    saveState();
+
+    if (!state.script.trim()) {
+      alert('Please enter a script first.');
+      return;
+    }
+
+    setupEl.style.display = 'none';
+    tpEl.style.display = 'block';
+
+    scriptText.textContent = state.script;
+    scriptText.style.fontSize = state.fontSize + 'px';
+    scrollY = 0;
+    scrolling = true;
+    lastTime = 0;
+    scriptText.style.transform = 'translateY(0)';
+    $('playPauseBtn').innerHTML = '&#10074;&#10074;';
+
+    await startCamera();
+    await requestWakeLock();
+
+    // Apply fill light state
+    if (state.fillOn) {
+      fillLight.style.opacity = state.fillBrightness / 100;
+      $('fillToggle').classList.add('active');
+      fillSliderRow.style.display = 'flex';
+    }
+
+    animFrame = requestAnimationFrame(scrollLoop);
+  };
+
+  // ── Back button ──
+  $('backBtn').onclick = () => {
+    if (isRecording) stopRecording();
+    if (animFrame) cancelAnimationFrame(animFrame);
+    releaseWakeLock();
+    if (currentStream) {
+      currentStream.getTracks().forEach(t => t.stop());
+      currentStream = null;
+    }
+    tpEl.style.display = 'none';
+    setupEl.style.display = 'flex';
+  };
+
+  // ── TP Controls ──
+  $('tpFontDown').onclick = () => {
+    state.fontSize = clamp(state.fontSize - 2, 16, 64);
+    scriptText.style.fontSize = state.fontSize + 'px';
+    fontVal.textContent = state.fontSize;
+    saveState();
+  };
+  $('tpFontUp').onclick = () => {
+    state.fontSize = clamp(state.fontSize + 2, 16, 64);
+    scriptText.style.fontSize = state.fontSize + 'px';
+    fontVal.textContent = state.fontSize;
+    saveState();
+  };
+
+  $('tpSpeedDown').onclick = () => {
+    state.speed = clamp(state.speed - 1, 1, 10);
+    tpSpeedVal.textContent = state.speed;
+    speedVal.textContent = state.speed;
+    saveState();
+  };
+  $('tpSpeedUp').onclick = () => {
+    state.speed = clamp(state.speed + 1, 1, 10);
+    tpSpeedVal.textContent = state.speed;
+    speedVal.textContent = state.speed;
+    saveState();
+  };
+
+  $('playPauseBtn').onclick = () => {
+    scrolling = !scrolling;
+    $('playPauseBtn').innerHTML = scrolling ? '&#10074;&#10074;' : '&#9654;';
+  };
+
+  $('restartBtn').onclick = () => {
+    scrollY = 0;
+    scriptText.style.transform = 'translateY(0)';
+  };
+
+  $('flipBtn').onclick = async () => {
+    state.facingMode = state.facingMode === 'user' ? 'environment' : 'user';
+    saveState();
+    await startCamera();
+    // Re-attach stream to recorder if recording
+    if (isRecording) {
+      stopRecording();
+      startRecording();
+    }
+  };
+
+  // ── Fill Light ──
+  $('fillToggle').onclick = () => {
+    state.fillOn = !state.fillOn;
+    if (state.fillOn) {
+      fillLight.style.opacity = state.fillBrightness / 100;
+      $('fillToggle').classList.add('active');
+      fillSliderRow.style.display = 'flex';
+    } else {
+      fillLight.style.opacity = 0;
+      $('fillToggle').classList.remove('active');
+      fillSliderRow.style.display = 'none';
+    }
+    saveState();
+  };
+
+  fillSlider.oninput = () => {
+    state.fillBrightness = parseInt(fillSlider.value);
+    fillLight.style.opacity = state.fillBrightness / 100;
+    fillValEl.textContent = state.fillBrightness + '%';
+    saveState();
+  };
+
+  // ── Record ──
+  recBtn.onclick = () => {
+    if (isRecording) {
+      stopRecording();
+    } else {
+      doCountdown(() => {
+        startRecording();
+        // Auto-start scrolling on record
+        if (!scrolling) {
+          scrolling = true;
+          $('playPauseBtn').innerHTML = '&#10074;&#10074;';
+        }
+      });
+    }
+  };
+})();
+</script>
+</body>
+</html>
