@@ -9,6 +9,7 @@ interface Props {
 
 const { title, description = "Lead humanly. Learn constantly. Build with AI.", image } = Astro.props;
 
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
 const currentPath = Astro.url.pathname;
 const isHome = currentPath === "/";
 const pageTitle = isHome
@@ -36,7 +37,7 @@ const navLinks = [
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:site_name" content="leadhuman.ai" />
@@ -50,7 +51,7 @@ const navLinks = [
     {image && <meta name="twitter:image" content={new URL(image, Astro.site).href} />}
 
     <!-- Canonical URL -->
-    <link rel="canonical" href={Astro.url.href} />
+    <link rel="canonical" href={canonicalURL} />
 
     <slot name="head" />
   </head>

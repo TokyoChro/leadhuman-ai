@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/feed/:path*",
+      "destination": "/lead/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/feed",
+      "destination": "/lead",
+      "permanent": true
+    }
+  ]
+}
