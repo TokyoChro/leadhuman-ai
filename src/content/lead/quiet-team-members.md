@@ -4,7 +4,7 @@ description: "Your quietest team members might be your most insightful. Research
 pubDate: 2026-03-08
 tags: ["cross-cultural", "japan", "leadership", "communications"]
 author: "Jay Vergara"
-image: "/images/posts/v2-post09-quiet-contrib_3.png"
+image: "../../assets/images/posts/v2-post09-quiet-contrib_3.png"
 draft: false
 ---
 

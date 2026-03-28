@@ -1,17 +1,41 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import jayAuthor from "../assets/images/jay-author.jpg";
+
+const personJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Jay Vergara",
+  "url": "https://leadhuman.ai/about/",
+  "jobTitle": "L&D Strategist",
+  "worksFor": { "@type": "Organization", "name": "Peak Potential Consulting" },
+  "sameAs": [
+    "https://linkedin.com/in/vergarajay/",
+    "https://www.youtube.com/@leadhumanai",
+    "https://www.tiktok.com/@leadhuman.ai"
+  ],
+  "knowsAbout": ["Leadership Development", "AI", "Cross-Cultural Communication"],
+  "image": "https://leadhuman.ai" + jayAuthor.src
+});
 ---
 
 <BaseLayout title="About" description="About Jay Vergara — L&D strategist, cross-cultural communication specialist, and AI builder based in Tokyo.">
+  <script type="application/ld+json" set:html={personJsonLd} slot="head" />
   <article class="max-w-2xl">
     <h1 class="text-3xl sm:text-4xl font-bold mb-8 text-heading">Lead humanly. Learn constantly. Build with AI.</h1>
 
     <div class="flex justify-center my-8">
-      <img
-        src="/images/jay-author.jpg"
+      <Image
+        src={jayAuthor}
         alt="Jay Vergara"
-        class="rounded-lg shadow-sm"
-        style="width: 55%; object-fit: cover; object-position: center 20%;"
+        width={500}
+        height={500}
+        format="webp"
+        quality={80}
+        class="rounded-lg shadow-sm w-[55%] object-cover"
+        style="object-position: center 20%;"
+        loading="eager"
       />
     </div>
 

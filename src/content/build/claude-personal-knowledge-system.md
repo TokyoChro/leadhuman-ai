@@ -4,7 +4,7 @@ description: "Most people use AI like a search engine. I turned Claude into a pe
 pubDate: 2026-03-14
 tags: ["ai-tools", "claude", "tutorial", "workflow", "beginner"]
 author: "Jay Vergara"
-image: "/images/posts/v2-post02-knowledge_2.png"
+image: "../../assets/images/posts/v2-post02-knowledge_2.png"
 draft: false
 ---
 

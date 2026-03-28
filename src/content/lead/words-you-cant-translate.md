@@ -4,7 +4,7 @@ description: "Some of the most powerful leadership concepts don't translate into
 pubDate: 2026-03-11
 tags: ["cross-cultural", "japan", "leadership", "communications"]
 author: "Jay Vergara"
-image: "/images/posts/v2-post06-untranslatable_2.png"
+image: "../../assets/images/posts/v2-post06-untranslatable_2.png"
 draft: false
 ---
 

@@ -1,6 +1,8 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import AuthorBio from "../../components/AuthorBio.astro";
+import RelatedPosts from "../../components/RelatedPosts.astro";
+import { Image } from "astro:assets";
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
@@ -28,13 +30,16 @@ const jsonLd = JSON.stringify({
   "@type": "Article",
   "headline": post.data.title,
   "description": post.data.description,
-  "image": post.data.image ? new URL(post.data.image, Astro.site).href : undefined,
+  "image": post.data.image ? new URL(post.data.image.src, Astro.site).href : undefined,
   "author": {
     "@type": "Person",
     "name": "Jay Vergara",
     "url": "https://linkedin.com/in/vergarajay/"
   },
   "datePublished": post.data.pubDate.toISOString(),
+  "dateModified": post.data.pubDate.toISOString(),
+  "wordCount": words,
+  "articleSection": "Lead Humanly",
   "publisher": {
     "@type": "Organization",
     "name": "leadhuman.ai",
@@ -45,21 +50,34 @@ const jsonLd = JSON.stringify({
     "@id": Astro.url.href
   }
 });
+
+const breadcrumbJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://leadhuman.ai/" },
+    { "@type": "ListItem", "position": 2, "name": "Lead Humanly", "item": "https://leadhuman.ai/lead/" },
+    { "@type": "ListItem", "position": 3, "name": post.data.title }
+  ]
+});
 ---
 
-<BaseLayout title={post.data.title} description={post.data.description} image={post.data.image}>
+<BaseLayout title={post.data.title} description={post.data.description} image={post.data.image?.src} ogType="article">
   <script type="application/ld+json" set:html={jsonLd} slot="head" />
+  <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
   <article>
     <a href="/lead/" class="text-sm text-emerald-800 hover:text-emerald-600 transition-colors">&larr; Lead Humanly</a>
     <header class="mt-6 mb-8">
       {post.data.image && (
-        <img
+        <Image
           src={post.data.image}
           alt={post.data.title}
+          width={896}
+          height={512}
+          format="webp"
+          quality={80}
           class="w-full max-h-[500px] object-cover rounded-lg mt-4 mb-6 shadow-sm"
           style="object-position: center 20%;"
-          width="1792"
-          height="1024"
           loading="eager"
         />
       )}
@@ -89,5 +107,6 @@ const jsonLd = JSON.stringify({
       <Content />
     </div>
     <AuthorBio />
+    <RelatedPosts currentId={post.id} currentTags={post.data.tags} collection="lead" />
   </article>
 </BaseLayout>

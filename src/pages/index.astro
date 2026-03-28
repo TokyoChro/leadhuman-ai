@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PostCard from "../components/PostCard.astro";
+import YouTubeLite from "../components/YouTubeLite.astro";
 import { getCollection } from "astro:content";
 
 const buildPosts = (await getCollection("build", ({ data }) => !data.draft))
@@ -30,15 +31,7 @@ function getReadingTime(body: string | undefined) {
         </p>
       </div>
       <div>
-        <div class="relative w-full rounded-2xl overflow-hidden shadow-md" style="aspect-ratio: 16/9;">
-          <iframe
-            src="https://www.youtube.com/embed/7q2wFn8qZEU"
-            title="Welcome to leadhuman.ai"
-            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-            class="absolute inset-0 w-full h-full"
-          ></iframe>
-        </div>
+        <YouTubeLite videoId="7q2wFn8qZEU" title="Welcome to leadhuman.ai" />
       </div>
     </div>
   </section>

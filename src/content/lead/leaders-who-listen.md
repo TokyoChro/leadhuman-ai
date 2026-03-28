@@ -4,7 +4,7 @@ description: "Listening isn't passive. It's the most underrated leadership behav
 pubDate: 2026-03-10
 tags: ["leadership", "communications", "l-and-d"]
 author: "Jay Vergara"
-image: "/images/posts/v2-post07-quiet-leader_2.png"
+image: "../../assets/images/posts/v2-post07-quiet-leader_2.png"
 draft: false
 ---
 
