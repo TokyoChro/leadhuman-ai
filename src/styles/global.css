@@ -13,7 +13,9 @@
   --color-coral-dark: #a8482e;
   --color-heading: #1e1c16;
   --color-body: #33302a;
-  --color-muted: #7f7a6c;
+  --color-muted: #6b6559;
+  --color-surface-light: #f5f0e8;
+  --color-divider: #c4b99a;
 }
 
 /* Subtle paper texture background */
@@ -39,28 +41,28 @@ body {
 
 /* Prose styling for light ecru theme */
 .prose-ecru {
-  --tw-prose-body: #33302a;
-  --tw-prose-headings: #1e1c16;
-  --tw-prose-lead: #33302a;
-  --tw-prose-links: #1d5a3c;
-  --tw-prose-bold: #1e1c16;
-  --tw-prose-counters: #7f7a6c;
-  --tw-prose-bullets: #7f7a6c;
-  --tw-prose-hr: #e5dfd3;
-  --tw-prose-quotes: #1e1c16;
-  --tw-prose-quote-borders: #1d5a3c;
-  --tw-prose-captions: #7f7a6c;
-  --tw-prose-code: #1e1c16;
-  --tw-prose-pre-code: #eee8dd;
-  --tw-prose-pre-bg: #1e1c16;
-  --tw-prose-th-borders: #7f7a6c;
-  --tw-prose-td-borders: #e5dfd3;
+  --tw-prose-body: var(--color-body);
+  --tw-prose-headings: var(--color-heading);
+  --tw-prose-lead: var(--color-body);
+  --tw-prose-links: var(--color-ivy);
+  --tw-prose-bold: var(--color-heading);
+  --tw-prose-counters: var(--color-muted);
+  --tw-prose-bullets: var(--color-muted);
+  --tw-prose-hr: var(--color-surface);
+  --tw-prose-quotes: var(--color-heading);
+  --tw-prose-quote-borders: var(--color-ivy);
+  --tw-prose-captions: var(--color-muted);
+  --tw-prose-code: var(--color-heading);
+  --tw-prose-pre-code: var(--color-ecru);
+  --tw-prose-pre-bg: var(--color-heading);
+  --tw-prose-th-borders: var(--color-muted);
+  --tw-prose-td-borders: var(--color-surface);
 }
 
 /* Blockquotes as callout cards - !important to override Typography defaults */
 .prose blockquote {
-  background-color: #f5f0e8 !important;
-  border-left: 4px solid #1d5a3c !important;
+  background-color: var(--color-surface-light) !important;
+  border-left: 4px solid var(--color-ivy) !important;
   border-radius: 0.5rem !important;
   padding: 1.25rem 1.5rem !important;
   margin: 2rem 0 !important;
@@ -70,7 +72,7 @@ body {
 
 .prose blockquote p {
   margin: 0.5rem 0 !important;
-  color: #1e1c16 !important;
+  color: var(--color-heading) !important;
   font-style: normal !important;
 }
 
@@ -83,40 +85,47 @@ body {
 .prose hr {
   border: none !important;
   height: 1px !important;
-  background: linear-gradient(to right, transparent, #c4b99a, transparent) !important;
+  background: linear-gradient(to right, transparent, var(--color-divider), transparent) !important;
   margin: 2.5rem 0 !important;
+}
+
+/* Reusable gradient divider */
+.divider-gradient {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--color-divider), transparent);
 }
 
 /* Article links */
 .prose-ecru a {
-  color: #1d5a3c;
+  color: var(--color-ivy);
   text-decoration: none;
   border-bottom: 1px solid transparent;
   transition: border-color 0.2s;
 }
 
 .prose-ecru a:hover {
-  border-bottom-color: #1d5a3c;
+  border-bottom-color: var(--color-ivy);
 }
 
 /* Sources section styling */
 .prose-ecru strong:last-of-type + br + ul,
 .prose-ecru p:last-of-type + ul {
   font-size: 0.875rem;
-  color: #7f7a6c;
+  color: var(--color-muted);
 }
 
 .sources-section {
   font-size: 0.875rem;
-  color: #7f7a6c;
+  color: var(--color-muted);
 }
 
 .sources-section a {
-  color: #7f7a6c;
+  color: var(--color-muted);
 }
 
 .sources-section a:hover {
-  color: #1d5a3c;
+  color: var(--color-ivy);
 }
 
 /* Numbered callout blocks */
@@ -131,7 +140,7 @@ body {
   font-size: 2.5rem;
   font-weight: 700;
   line-height: 1;
-  color: #1d5a3c;
+  color: var(--color-ivy);
   min-width: 2.5rem;
   text-align: center;
   padding-top: 0.75rem;
@@ -139,8 +148,8 @@ body {
 }
 
 .callout-body {
-  background-color: #f5f0e8;
-  border-left: 4px solid #1d5a3c;
+  background-color: var(--color-surface-light);
+  border-left: 4px solid var(--color-ivy);
   border-radius: 0.375rem;
   padding: 1.25rem 1.5rem;
   flex: 1;
@@ -148,7 +157,7 @@ body {
 
 .callout-body p {
   margin: 0.5rem 0;
-  color: #1e1c16;
+  color: var(--color-heading);
 }
 
 .callout-body p:first-child {
