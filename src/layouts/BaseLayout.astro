@@ -61,7 +61,7 @@ const navLinks = [
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
+    <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
 
@@ -88,7 +88,8 @@ const navLinks = [
             return (
               <a
                 href={link.href}
-                class={`px-2.5 py-1.5 rounded-md transition-colors whitespace-nowrap ${isActive ? "text-ivy font-semibold border-b-2 border-ivy" : "hover:text-ivy"}`}
+                class={`px-2.5 py-1.5 rounded-md transition-colors whitespace-nowrap focus-visible:ring-2 focus-visible:ring-ivy focus-visible:ring-offset-2 focus-visible:ring-offset-ecru ${isActive ? "text-ivy font-semibold border-b-2 border-ivy" : "hover:text-ivy"}`}
+                {...(isActive ? { "aria-current": "page" } : {})}
               >
                 {link.label}
               </a>
@@ -103,8 +104,15 @@ const navLinks = [
     </main>
 
     <footer class="bg-ecru border-t border-stone-300">
-      <div class="max-w-4xl mx-auto px-4 py-6 text-center text-sm text-muted">
-        Jay Vergara &middot; Tokyo &middot; Lead humanly. Learn constantly. Build with AI.
+      <div class="max-w-4xl mx-auto px-4 py-6">
+        <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-sm text-muted mb-2">
+          <a href="/build/" class="hover:text-ivy transition-colors">Build with AI</a>
+          <a href="/lead/" class="hover:text-ivy transition-colors">Lead Humanly</a>
+          <a href="/about/" class="hover:text-ivy transition-colors">About</a>
+          <a href="/connect/" class="hover:text-ivy transition-colors">Connect</a>
+          <a href="/rss.xml" class="hover:text-ivy transition-colors">RSS</a>
+        </div>
+        <p class="text-center text-sm text-muted">Jay Vergara <span aria-hidden="true">&middot;</span> Tokyo <span aria-hidden="true">&middot;</span> Lead humanly. Learn constantly. Build with AI.</p>
       </div>
     </footer>
 

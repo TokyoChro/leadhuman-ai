@@ -2,6 +2,7 @@
 import PostCard from "./PostCard.astro";
 import { getCollection } from "astro:content";
 import type { ImageMetadata } from "astro";
+import { getReadingTime } from "../utils/reading-time";
 
 interface Props {
   currentId: string;
@@ -22,11 +23,6 @@ const related = allPosts
   .sort((a, b) => b.overlap - a.overlap)
   .slice(0, 3)
   .map(({ post }) => post);
-
-function getReadingTime(body: string | undefined) {
-  if (!body) return 0;
-  return Math.ceil(body.split(/\s+/).length / 200);
-}
 ---
 
 {related.length > 0 && (

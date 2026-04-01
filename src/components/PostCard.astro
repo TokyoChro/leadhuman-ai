@@ -42,7 +42,7 @@ const borderColor = category === "build" ? "border-sky-700" : "border-emerald-80
         {categoryLabel && (
           <span class={`text-xs font-semibold px-2 py-0.5 rounded-full text-white ${categoryColor}`}>{categoryLabel}</span>
         )}
-        <time class="text-xs text-muted">{formattedDate}</time>
+        <time class="text-xs text-muted" datetime={pubDate.toISOString()}>{formattedDate}</time>
         {readingTime && (
           <span class="text-xs text-muted">&middot; {readingTime} min read</span>
         )}
