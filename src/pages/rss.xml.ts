@@ -11,7 +11,7 @@ export async function GET(context: APIContext) {
 
   return rss({
     title: "leadhuman.ai",
-    description: "Lead humanly. Learn constantly. Build with AI.",
+    description: "Jay Vergara writes about AI, leadership, and how people actually grow at work. Practical tutorials, cross-cultural insights, and L&D strategy from Tokyo.",
     site: context.site!,
     items: allPosts.map((post) => {
       const collection = buildPosts.includes(post) ? "build" : "lead";
@@ -20,6 +20,7 @@ export async function GET(context: APIContext) {
         pubDate: post.data.pubDate,
         description: post.data.description,
         link: `/${collection}/${post.id}/`,
+        content: post.body,
       };
     }),
   });

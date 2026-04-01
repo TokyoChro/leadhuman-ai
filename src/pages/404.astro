@@ -1,0 +1,15 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Page Not Found" description="This page doesn't exist on leadhuman.ai.">
+  <div class="text-center py-20">
+    <h1 class="text-5xl font-bold text-heading mb-4">404</h1>
+    <p class="text-lg text-muted mb-8">This page doesn't exist. It might have been moved or you may have followed a broken link.</p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="/" class="px-5 py-2.5 bg-ivy text-white font-semibold rounded-lg hover:bg-ivy-light transition-colors">Go home</a>
+      <a href="/build/" class="px-5 py-2.5 bg-surface border border-card-border text-heading font-semibold rounded-lg hover:border-ivy transition-colors">Build with AI</a>
+      <a href="/lead/" class="px-5 py-2.5 bg-surface border border-card-border text-heading font-semibold rounded-lg hover:border-ivy transition-colors">Lead Humanly</a>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,53 @@
+# leadhuman.ai
+
+> Lead humanly. Learn constantly. Build with AI.
+
+## About
+
+leadhuman.ai is a thought leadership platform by Jay Vergara, an L&D strategist and cross-cultural communication specialist based in Tokyo, Japan. The site covers AI tutorials, leadership development, cross-cultural business, and organizational learning.
+
+Jay is a Partner and Lead Learning Consultant at Peak Potential Consulting, with experience at Indeed, Rakuten, TELUS, and Yellow Pages. He is currently completing his MBA at GLOBIS University.
+
+## Content
+
+The site publishes two types of content:
+
+### Build with AI (/build/)
+Practical tutorials and workflow breakdowns for professionals using AI in their work.
+
+- [How I Built a Council of AI Advisors (And Why You Should Too)](https://leadhuman.ai/build/council-of-ai-advisors/): What if instead of one AI chat for everything, you had a personal advisory council? Each specialist trained on your context, your voice, and your goals.
+- [How to Use Claude to Build a Personal Knowledge System in 30 Minutes](https://leadhuman.ai/build/claude-personal-knowledge-system/): A tutorial on turning Claude into a personal knowledge management system that remembers your context, career goals, and writing voice.
+
+### Lead Humanly (/lead/)
+Insights on leadership, cross-cultural communication, L&D strategy, and how people actually grow at work.
+
+- [Why Every Leader Needs to Understand AI (Even If They Never Write a Prompt)](https://leadhuman.ai/lead/why-leaders-need-ai/): You don't need to become an AI engineer. But you do need to understand what AI can and can't do well enough to make smart decisions.
+- [AI Is Changing L&D Faster Than Most Leaders Realize](https://leadhuman.ai/lead/ai-changing-ld/): The real shift is much bigger than faster course descriptions. Organizations that figure it out in the next 18 months will have a significant advantage.
+- [Why Your Proposal Died Before the Meeting Started](https://leadhuman.ai/lead/why-your-proposal-died/): In Japan the meeting isn't where decisions get made. It's where they get confirmed. The real work happened days ago.
+- [The Words You Can't Translate Are the Cultural Keys](https://leadhuman.ai/lead/words-you-cant-translate/): Words like nemawashi, kuuki wo yomu, and amae carry centuries of cultural wisdom that one-word translations can't capture.
+- [The Best Leaders I Know Talk Less Than Everyone Else](https://leadhuman.ai/lead/leaders-who-listen/): Listening isn't passive. It's the most underrated leadership behavior in organizations.
+- [Your Team Wants the Hard Conversation You Keep Avoiding](https://leadhuman.ai/lead/hard-conversation/): Most managers think they're protecting their team by softening feedback. The research says the opposite.
+- [When Your Quietest Team Members Have the Most to Say](https://leadhuman.ai/lead/quiet-team-members/): Silence in meetings doesn't mean disengagement. It often means the environment isn't designed for how they think.
+- [Stop Asking for Feedback. Start Sharing It.](https://leadhuman.ai/lead/stop-asking-start-sharing-feedback/): What actually builds psychological safety is sharing the feedback you've already received.
+
+## Content Pillars
+
+Japan and Cross-Cultural Business, HR and Learning & Development, AI and Technology, Leadership and Management, Career and Entrepreneurship.
+
+## Author
+
+Jay Vergara
+LinkedIn: https://linkedin.com/in/vergarajay/
+YouTube: https://www.youtube.com/@leadhumanai
+TikTok: https://www.tiktok.com/@leadhuman.ai
+
+## Key Pages
+
+- Homepage: https://leadhuman.ai/
+- About: https://leadhuman.ai/about/
+- Build with AI: https://leadhuman.ai/build/
+- Lead Humanly: https://leadhuman.ai/lead/
+- Videos: https://leadhuman.ai/videos/
+- Connect: https://leadhuman.ai/connect/
+- RSS: https://leadhuman.ai/rss.xml
+- Sitemap: https://leadhuman.ai/sitemap-index.xml
