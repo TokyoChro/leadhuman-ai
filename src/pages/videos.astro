@@ -55,7 +55,7 @@ try {
         title: item.snippet.title,
         thumbnail: item.snippet.thumbnails?.high?.url || item.snippet.thumbnails?.medium?.url || item.snippet.thumbnails?.default?.url,
         publishedAt: item.snippet.publishedAt,
-        isShort: totalSeconds <= 60,
+        isShort: totalSeconds <= 180,
       };
     }) || [];
 
