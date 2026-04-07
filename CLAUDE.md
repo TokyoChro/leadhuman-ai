@@ -36,6 +36,77 @@ This is an Astro (v6.0) site with:
 - When creating new pages or blog posts, follow the patterns already established in existing files.
 - Commit messages should be clear and descriptive. No generic "update" or "fix" messages.
 
+## Content Pipeline & Automation
+
+This project has a fully automated content pipeline that researches, writes, and publishes blog posts.
+
+### How It Works (Plain English)
+1. Monday and Thursday mornings, a cloud trigger automatically researches trending AI topics, searches for academic papers on Consensus, writes a "Lead Humanly" article, saves it to the Content Vault in Notion, and sends Jay a Telegram notification.
+2. Jay opens Claude Code and says "run the content pipeline." This generates 4 blog images, sends the article + images to Telegram, and stages a draft for publishing.
+3. Jay replies on Telegram with an image number (1, 2, 3, or 4). A background service called the Unified Bridge picks up the reply, copies the image, writes the markdown file, runs a build check, commits, and pushes to GitHub which triggers a Vercel deploy. The post goes live automatically.
+
+### Key Components
+
+**Cloud (runs without Jay's computer):**
+- Remote trigger `trig_01G4wG4UhoH1kjybdoZkuUCp` (Monday 8:03 AM JST)
+- Remote trigger `trig_01FmF5MK27E6mCHCGVZKFbTT` (Thursday 8:03 AM JST)
+- These do research + writing + Notion + Telegram ping. They run on Claude's servers.
+
+**Local (requires Jay's Mac to be on):**
+- Unified Telegram Bridge: `/Users/vergara/Desktop/Antigravity Projects/unified_bridge.py`
+  - Runs as a macOS LaunchAgent (auto starts on boot, restarts on crash)
+  - Plist: `~/Library/LaunchAgents/com.antigravity.unified-bridge.plist`
+  - Logs: `~/Library/Logs/unified-bridge.error.log`
+  - Handles publishing for BOTH leadhuman.ai and Peak Potential Consulting
+  - Listens on Telegram for Jay's approval, then publishes
+- Image Pipeline: `/Users/vergara/Desktop/Antigravity Projects/Image Pipeline/pipeline.py`
+  - Generates blog images using Gemini API
+  - Called during "run the content pipeline" step
+  - `python3 pipeline.py blog --prompt "..." --name "[slug]" --num 4`
+
+**Claude Code Skills:**
+- `/leadhuman-pipeline` — Full pipeline: research, write, images, Telegram preview
+- `/leadhuman-publish` — Publish after Jay approves (backup if Telegram bridge isn't available)
+
+**Notion:**
+- Content Vault database: `collection://f05c6994-f0c4-469b-8787-81ddb22e3952`
+- Under Mission Control > Jay Vergara Main Hub
+- Status flow: Idea → Drafting → Ready → Live
+- Every article gets logged here with research notes, sources, and the full draft
+
+**Telegram:**
+- Bot: Master Librarian (`@PeakPotentialPublisher_Bot`)
+- Jay's personal chat ID: 8313708098
+- Bot token: 8771669297:AAEQCDxM745GDTsqrKgDM_WIjgfW80jtBNE
+
+### Stopping and Starting the Bridge
+```bash
+# Stop
+launchctl unload ~/Library/LaunchAgents/com.antigravity.unified-bridge.plist
+
+# Start
+launchctl load ~/Library/LaunchAgents/com.antigravity.unified-bridge.plist
+
+# Check if running
+launchctl list | grep antigravity.unified
+
+# View logs
+tail -f ~/Library/Logs/unified-bridge.error.log
+```
+
+### Moving to a New Computer
+Copy these 4 things:
+1. `~/Desktop/Antigravity Projects/unified_bridge.py` (the bridge script)
+2. `~/Library/LaunchAgents/com.antigravity.unified-bridge.plist` (update Python path if different)
+3. The git repos (leadhuman-ai, peak-potential-consulting, Image Pipeline)
+4. Claude skills in `~/.claude/skills/` (leadhuman-pipeline, leadhuman-publish, publish-blog)
+
+Then: `pip3 install python-telegram-bot anthropic` and `launchctl load` the plist.
+The cloud triggers are on Jay's Claude account and don't need to move.
+
+### The Pending Draft Pattern
+When the pipeline runs, it writes a `.pending/draft.json` file in the project root. This file contains everything the bridge needs to publish (title, slug, tags, article content, image directory). When the bridge publishes, it deletes this file. If the file exists, there's a draft waiting for approval. If it doesn't, there's nothing pending.
+
 ## Content Pillars
 My content organizes around five pillars. Intersection posts (blending 2+ pillars) outperform single-pillar posts every time.
 
