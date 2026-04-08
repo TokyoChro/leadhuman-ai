@@ -48,11 +48,11 @@ const orgJsonLd = JSON.stringify({
 });
 
 const navLinks = [
+  { href: "/", label: "Home" },
   { href: "/build/", label: "Build with AI" },
   { href: "/lead/", label: "Lead Humanly" },
   { href: "/videos/", label: "Videos" },
   { href: "/about/", label: "About" },
-  { href: "/connect/", label: "Connect" },
 ];
 ---
 
@@ -103,7 +103,7 @@ const navLinks = [
         </a>
         <div class="flex flex-wrap items-center justify-center gap-1 sm:gap-2 text-sm text-body">
           {navLinks.map((link) => {
-            const isActive = currentPath.startsWith(link.href);
+            const isActive = link.href === "/" ? isHome : currentPath.startsWith(link.href);
             return (
               <a
                 href={link.href}
@@ -125,10 +125,10 @@ const navLinks = [
     <footer class="bg-ecru border-t border-stone-300">
       <div class="max-w-4xl mx-auto px-4 py-6">
         <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-sm text-muted mb-2">
+          <a href="/" class="hover:text-ivy transition-colors">Home</a>
           <a href="/build/" class="hover:text-ivy transition-colors">Build with AI</a>
           <a href="/lead/" class="hover:text-ivy transition-colors">Lead Humanly</a>
           <a href="/about/" class="hover:text-ivy transition-colors">About</a>
-          <a href="/connect/" class="hover:text-ivy transition-colors">Connect</a>
           <a href="/rss.xml" class="hover:text-ivy transition-colors">RSS</a>
         </div>
         <p class="text-center text-sm text-muted">Jay Vergara <span aria-hidden="true">&middot;</span> Tokyo <span aria-hidden="true">&middot;</span> Lead humanly. Learn constantly. Build with AI.</p>

@@ -328,6 +328,48 @@ a:focus-visible {
   }
 }
 
+/* Career timeline */
+.timeline-entry {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.timeline-entry:hover {
+  transform: translateX(4px);
+}
+
+.timeline-details {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.3s ease, margin 0.3s ease;
+}
+
+.timeline-details.expanded {
+  max-height: 500px;
+  opacity: 1;
+}
+
+/* Credential cards */
+.credential-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.credential-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Hobby cards */
+.hobby-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.hobby-card:hover {
+  transform: translateY(-3px) rotate(-1deg);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  border-color: var(--color-ivy);
+}
+
 /* Scroll animations */
 .animate-on-scroll {
   opacity: 0;
