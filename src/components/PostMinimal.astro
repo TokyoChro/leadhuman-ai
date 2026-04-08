@@ -1,0 +1,42 @@
+---
+/**
+ * Option C: Text-First Minimal
+ * No images on the listing. Clean, fast, content-focused.
+ * Title and description do all the work. Subtle left border accent.
+ */
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  href: string;
+  category?: "build" | "lead";
+  readingTime?: number;
+}
+
+const { title, description, pubDate, href, category, readingTime } = Astro.props;
+const formattedDate = pubDate.toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+});
+
+const categoryLabel = category === "build" ? "BUILD WITH AI" : category === "lead" ? "LEAD HUMANLY" : null;
+const categoryColor = category === "build" ? "text-indigo-accent" : "text-ivy";
+const borderColor = category === "build" ? "border-sky-700" : "border-emerald-800";
+---
+
+<a href={href} class="block group animate-on-scroll">
+  <article class={`border-l-4 ${borderColor} pl-6 py-4 transition-all duration-200 hover:pl-8`}>
+    <div class="flex items-center gap-3 mb-1">
+      {categoryLabel && (
+        <span class={`text-xs font-bold tracking-wider uppercase ${categoryColor}`}>{categoryLabel}</span>
+      )}
+      <time class="text-sm text-muted" datetime={pubDate.toISOString()}>{formattedDate}</time>
+      {readingTime && (
+        <span class="text-sm text-muted">&middot; {readingTime} min read</span>
+      )}
+    </div>
+    <h3 class="text-2xl font-bold text-heading group-hover:text-ivy transition-colors leading-snug">{title}</h3>
+    <p class="text-base text-stone-600 mt-2 leading-relaxed">{description}</p>
+  </article>
+</a>

@@ -1,36 +1,215 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import PostCard from "../components/PostCard.astro";
+import PostListRow from "../components/PostListRow.astro";
+import ExpertisePillar from "../components/ExpertisePillar.astro";
 import YouTubeLite from "../components/YouTubeLite.astro";
 import { getCollection } from "astro:content";
 import { getReadingTime } from "../utils/reading-time";
 
+const heroCount = 6;
+
 const buildPosts = (await getCollection("build", ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 2);
+  .slice(0, 3);
 
 const leadPosts = (await getCollection("lead", ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 2);
+  .slice(0, 3);
+
+const faqJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Who is Jay Vergara?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Jay Vergara is an L&D strategist, leadership development consultant, and AI trainer based in Tokyo, Japan. He helps organizations build corporate training programs, develop managers, and integrate AI into people development. He has worked at Indeed, Rakuten, TELUS, and Yellow Pages, and is completing his MBA at GLOBIS University."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is leadhuman.ai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "leadhuman.ai is a thought leadership platform by Jay Vergara covering AI tutorials for HR and L&D teams, leadership development frameworks, cross-cultural business communication, and corporate learning strategy. The site publishes practical guides, opinion pieces, and video tutorials."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What topics does Jay Vergara write about?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Jay writes about corporate learning and L&D strategy, manager and leadership development, AI for HR and L&D teams, and cross-cultural business communication. His content draws from over a decade of experience working across cultures in Tokyo."
+      }
+    }
+  ]
+});
+
+const personJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Jay Vergara",
+  "url": "https://leadhuman.ai",
+  "image": "https://leadhuman.ai/images/hero/hero-workspace.png",
+  "jobTitle": "L&D Strategist & Leadership Development Consultant",
+  "alumniOf": {
+    "@type": "EducationalOrganization",
+    "name": "GLOBIS University"
+  },
+  "knowsAbout": [
+    "Learning and Development",
+    "Leadership Development",
+    "AI Training",
+    "Cross-Cultural Communication",
+    "Manager Development",
+    "Corporate Learning Strategy"
+  ],
+  "sameAs": [
+    "https://linkedin.com/in/vergarajay/",
+    "https://www.youtube.com/@leadhumanai",
+    "https://www.tiktok.com/@leadhuman.ai"
+  ]
+});
 ---
 
-<BaseLayout title="leadhuman.ai — AI Tutorials & Leadership Insights by Jay Vergara" description="Jay Vergara writes about AI, leadership, and how people actually grow at work. Practical tutorials, cross-cultural insights, and L&D strategy from Tokyo.">
-  <!-- Hero -->
-  <section class="py-16 md:py-24 hero-text">
-    <div class="grid md:grid-cols-[2fr_3fr] items-center gap-10">
-      <div>
-        <h1 class="text-3xl sm:text-4xl font-bold tracking-tight leading-tight text-heading">
-          Lead humanly.<br />Learn constantly.<br />Build with AI.
+<BaseLayout
+  title="leadhuman.ai — AI Tutorials & Leadership Insights by Jay Vergara"
+  description="Jay Vergara is an L&D strategist, leadership development consultant, and AI trainer based in Tokyo. Practical tutorials, cross-cultural communication insights, and leadership strategy at leadhuman.ai."
+>
+  <script type="application/ld+json" set:html={personJsonLd} slot="head" />
+  <script type="application/ld+json" set:html={faqJsonLd} slot="head" />
+
+  <!-- Hero: Editorial Spread -->
+  <section class="py-12 md:py-20">
+    <div class="grid md:grid-cols-[1fr_auto] gap-8 md:gap-14 items-center">
+
+      <!-- Text column -->
+      <div class="order-2 md:order-1" id="hero-text-col">
+
+        <!-- === OPTION A: Two-dot locations with tagline as large italic statement === -->
+        <div class="hero-subtitle flex items-center gap-3 mb-5 text-xs tracking-[0.2em] uppercase text-muted font-medium">
+          <span class="hero-dot inline-block w-2 h-2 rounded-full bg-ivy"></span>
+          <span>Tokyo, Japan</span>
+          <span class="text-divider">—</span>
+          <span>Vancouver, Canada</span>
+        </div>
+
+        <h1 class="hero-name text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-heading" style="line-height: 1.05;">
+          Jay<br />Vergara
+          <span class="sr-only"> — L&amp;D Strategist, Leadership Development Consultant &amp; AI Trainer in Tokyo</span>
         </h1>
-        <p class="mt-6 text-lg text-muted max-w-xl">
-          I'm Jay Vergara, an L&D leader in Tokyo writing about AI, leadership, and how people actually grow at work.
+
+        <div class="hero-line h-px bg-divider my-6 max-w-[200px]"></div>
+
+        <p class="hero-tagline text-ivy font-medium italic whitespace-nowrap" style="font-style: italic; font-size: clamp(0.75rem, 2.5vw, 1.5rem);">
+          Lead humanly. Learn constantly. Build with AI.
         </p>
+
+        <p class="hero-subtitle mt-4 text-base text-muted leading-relaxed max-w-md">
+          L&D Strategist · Leadership Development · AI Trainer<br />
+          Cross-Cultural Communications · Corporate Learning · MBA
+        </p>
+
+        <p class="hero-body mt-4 text-body leading-relaxed max-w-md">
+          I help organizations <a href="/lead/" class="text-ivy hover:text-ivy-light transition-colors underline decoration-ivy/30">build leaders</a>, design corporate training programs, and develop <a href="/build/" class="text-ivy hover:text-ivy-light transition-colors underline decoration-ivy/30">AI fluency</a> that works across borders. Over a decade of experience in learning and development, manager coaching, and building teams across cultures.
+        </p>
+
+        <div class="hero-body mt-6 flex justify-start">
+          <a href="https://linkedin.com/in/vergarajay/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 border border-ivy text-ivy text-sm font-medium rounded hover:bg-ivy hover:text-ecru transition-colors">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            Connect on LinkedIn
+          </a>
+        </div>
       </div>
-      <div>
-        <YouTubeLite videoId="7q2wFn8qZEU" title="Welcome to leadhuman.ai" />
+
+      <!-- Image column: framed illustration -->
+      <div class="order-1 md:order-2 flex justify-center">
+        <div class="hero-image-wrap relative w-[280px] sm:w-[320px] md:w-[360px]">
+          <div class="relative overflow-hidden rounded" id="hero-frame" style="aspect-ratio: 3/4;">
+            {[
+              { src: "/images/hero/hero-workspace.png", alt: "Jay Vergara at his desk in Tokyo, thinking with notebook and laptop" },
+              { src: "/images/hero/hero-facilitating.png", alt: "Jay Vergara presenting a workshop diagram to a group of professionals" },
+              { src: "/images/hero/hero-training.png", alt: "Jay Vergara leading a corporate training session at a whiteboard" },
+              { src: "/images/hero/hero-building-ai.png", alt: "Jay Vergara building with AI tools on a laptop in his home office" },
+              { src: "/images/hero/hero-ai-human.png", alt: "Jay Vergara working with AI holographic interfaces in a cozy workspace" },
+              { src: "/images/hero/hero-consulting.png", alt: "Jay Vergara consulting with a colleague over AI dashboards on laptop" },
+            ].map((img, i) => (
+              <img
+                src={img.src}
+                alt={img.alt}
+                class:list={["hero-crossfade hero-image-drift absolute inset-0 w-full h-full object-cover object-center", { "active": i === 0 }]}
+                loading={i === 0 ? "eager" : "lazy"}
+                data-hero-index={i}
+              />
+            ))}
+          </div>
+          <!-- Image counter -->
+          <div class="absolute bottom-3 right-3 z-10 flex gap-1.5" id="hero-dots">
+            {Array.from({ length: heroCount }, (_, i) => (
+              <button
+                class:list={["relative w-3 h-3 rounded-full transition-all duration-500 before:absolute before:-inset-3 before:content-['']", i === 0 ? "bg-ivy scale-125" : "bg-divider"]}
+                data-dot={i}
+                aria-label={`Show image ${i + 1}`}
+              />
+            ))}
+          </div>
+        </div>
       </div>
+
     </div>
   </section>
+
+  <script is:inline define:vars={{ heroCount }}>
+    // Hero image crossfade rotation
+    (function() {
+      const images = document.querySelectorAll('.hero-crossfade');
+      const dots = document.querySelectorAll('[data-dot]');
+      if (!images.length) return;
+
+      let current = Math.floor(Math.random() * images.length);
+
+      // Set initial random image
+      images.forEach((img, i) => {
+        img.classList.toggle('active', i === current);
+      });
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('bg-ivy', i === current);
+        dot.classList.toggle('scale-125', i === current);
+        dot.classList.toggle('bg-divider', i !== current);
+      });
+
+      // Cycle every 8 seconds
+      setInterval(() => {
+        const prev = current;
+        current = (current + 1) % images.length;
+
+        images[prev].classList.remove('active');
+        images[current].classList.add('active');
+
+        dots[prev].classList.remove('bg-ivy', 'scale-125');
+        dots[prev].classList.add('bg-divider');
+        dots[current].classList.remove('bg-divider');
+        dots[current].classList.add('bg-ivy', 'scale-125');
+      }, 8000);
+
+      // Click dots to jump
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+          if (i === current) return;
+          images[current].classList.remove('active');
+          dots[current].classList.remove('bg-ivy', 'scale-125');
+          dots[current].classList.add('bg-divider');
+
+          current = i;
+          images[current].classList.add('active');
+          dots[current].classList.remove('bg-divider');
+          dots[current].classList.add('bg-ivy', 'scale-125');
+        });
+      });
+    })();
+  </script>
 
   <hr class="my-12 divider-gradient" />
 
@@ -40,9 +219,9 @@ const leadPosts = (await getCollection("lead", ({ data }) => !data.draft))
       <h2 class="text-2xl font-bold text-ivy">Latest from Build with AI</h2>
       <a href="/build/" class="text-sm text-ivy hover:text-ivy-light transition-colors">View all &rarr;</a>
     </div>
-    <div class="grid gap-4 sm:grid-cols-2">
+    <div class="flex flex-col gap-4">
       {buildPosts.map((post) => (
-        <PostCard
+        <PostListRow
           title={post.data.title}
           description={post.data.description}
           pubDate={post.data.pubDate}
@@ -61,9 +240,9 @@ const leadPosts = (await getCollection("lead", ({ data }) => !data.draft))
       <h2 class="text-2xl font-bold text-ivy">Latest from Lead Humanly</h2>
       <a href="/lead/" class="text-sm text-ivy hover:text-ivy-light transition-colors">View all &rarr;</a>
     </div>
-    <div class="grid gap-4 sm:grid-cols-2">
+    <div class="flex flex-col gap-4">
       {leadPosts.map((post) => (
-        <PostCard
+        <PostListRow
           title={post.data.title}
           description={post.data.description}
           pubDate={post.data.pubDate}
@@ -76,9 +255,92 @@ const leadPosts = (await getCollection("lead", ({ data }) => !data.draft))
     </div>
   </section>
 
+  <hr class="my-12 divider-gradient" />
+
+  <!-- Expertise Pillars -->
+  <section class="mb-16">
+    <h2 class="text-2xl font-bold text-heading mb-2">Leadership, L&D, AI, and Cross-Cultural Insights</h2>
+    <p class="text-sm text-muted mb-6 max-w-2xl">
+      I write about what I work on every day: building corporate training programs, developing managers, using AI in people development, and communicating across cultures.
+    </p>
+    <div class="grid sm:grid-cols-2 gap-4">
+      <ExpertisePillar
+        title="Corporate Learning & L&D Strategy"
+        description="How to design training programs that actually change behavior. Instructional design, learning measurement, onboarding frameworks, and why most corporate L&D programs don't stick."
+        accentColor="ivy"
+        href="/lead/"
+      />
+      <ExpertisePillar
+        title="Manager & Leadership Development"
+        description="Practical frameworks for developing first-time managers and senior leaders. Coaching, feedback, psychological safety, and building high-performing teams across levels."
+        accentColor="ivy"
+        href="/lead/"
+      />
+      <ExpertisePillar
+        title="AI for HR & L&D Teams"
+        description="Hands-on tutorials for using AI in corporate training, talent development, and people operations. Real tools, real workflows, no hype."
+        accentColor="indigo"
+        href="/build/"
+      />
+      <ExpertisePillar
+        title="Cross-Cultural Business Communication"
+        description="Working across cultures, languages, and time zones. What a decade in Tokyo taught me about Japanese business culture, global teams, and the communication gaps no textbook covers."
+        accentColor="coral"
+        href="/lead/"
+      />
+    </div>
+  </section>
+
+  <hr class="my-12 divider-gradient" />
+
+  <!-- About Jay -->
+  <section class="mb-16">
+    <h2 class="text-2xl font-bold text-heading mb-6">About Jay Vergara</h2>
+    <div class="flex flex-col sm:flex-row gap-6 items-start">
+      <div class="about-image-wrap relative w-32 sm:w-36 shrink-0">
+        <div class="relative overflow-hidden rounded" style="aspect-ratio: 3/4;">
+          <img
+            src="/images/jay-profile.png"
+            alt="Jay Vergara"
+            class="absolute inset-0 w-full h-full object-cover"
+            style="object-position: 50% 15%;"
+            loading="lazy"
+          />
+        </div>
+      </div>
+      <div class="space-y-3 text-body leading-relaxed">
+        <p>
+          I grew up in Vancouver, B.C. and I've been in Tokyo for over a decade now. My career has been in learning and development at companies like Indeed, Rakuten, and TELUS, building training programs and leading L&D teams across borders.
+        </p>
+        <p>
+          I'm finishing an MBA at GLOBIS University and I use AI every single day to build systems, create content, and figure out how it all fits into developing people.
+        </p>
+        <p>
+          <a href="/about/" class="text-ivy hover:text-ivy-light transition-colors underline">Read the full story</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="my-12 divider-gradient" />
+
+  <!-- Featured Video -->
+  <section class="mb-16">
+    <h2 class="text-2xl font-bold text-heading mb-2 text-center">AI Tutorials, Leadership Talks, and Quick Takes</h2>
+    <p class="text-center text-muted text-sm mb-6 max-w-lg mx-auto">
+      I make videos about using AI in corporate training, leading teams across cultures, and building real tools with AI. New tutorials drop weekly.
+    </p>
+    <div class="max-w-2xl mx-auto">
+      <YouTubeLite videoId="7q2wFn8qZEU" title="Welcome to leadhuman.ai" />
+      <p class="text-center mt-4">
+        <a href="/videos/" class="text-sm text-ivy hover:text-ivy-light transition-colors">Browse all videos &rarr;</a>
+      </p>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="text-center py-12">
-    <p class="text-sm text-muted mb-4">Follow along</p>
+    <p class="text-sm text-muted mb-4">Find me on LinkedIn for L&D and leadership insights, YouTube for AI tutorials, and TikTok for quick takes.</p>
     <div class="flex justify-center gap-4">
       <a
         href="https://linkedin.com/in/vergarajay/"

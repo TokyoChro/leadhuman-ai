@@ -1,20 +1,22 @@
 ---
 // AuthorBio.astro — appears at the bottom of every blog post
 import { Image } from "astro:assets";
-import jayAuthor from "../assets/images/jay-author.jpg";
+import jayAuthor from "../assets/images/jay-profile.png";
 ---
 <div class="flex items-center gap-6 py-6 mt-8 border-t border-stone-300">
-  <Image
-    src={jayAuthor}
-    alt="Jay Vergara"
-    width={128}
-    height={128}
-    format="webp"
-    quality={80}
-    class="w-32 h-32 rounded-full object-cover shrink-0"
-    style="object-position: center 20%;"
-    loading="lazy"
-  />
+  <div class="w-28 h-36 rounded-lg overflow-hidden shrink-0 border border-stone-300">
+    <Image
+      src={jayAuthor}
+      alt="Jay Vergara"
+      width={224}
+      height={288}
+      format="webp"
+      quality={80}
+      class="w-full h-full object-cover"
+      style="object-position: 50% 15%;"
+      loading="lazy"
+    />
+  </div>
   <p class="text-[0.95rem] leading-relaxed text-stone-500">
     <strong>Jay Vergara</strong> is an L&D strategist and cross-cultural communication specialist based in Tokyo. He writes about leadership, learning, and building with AI at <a href="https://leadhuman.ai" class="text-ivy hover:text-ivy-light transition-colors underline">leadhuman.ai</a> and on <a href="https://linkedin.com/in/vergarajay/" class="text-ivy hover:text-ivy-light transition-colors underline">LinkedIn</a>.
   </p>

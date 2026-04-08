@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
-import jayAuthor from "../assets/images/jay-author.jpg";
+import jayAuthor from "../assets/images/jay-profile.png";
 
 const personJsonLd = JSON.stringify({
   "@context": "https://schema.org",
@@ -22,27 +22,44 @@ const personJsonLd = JSON.stringify({
 
 <BaseLayout title="About Jay Vergara, L&D Leader in Tokyo" description="About Jay Vergara — L&D strategist, cross-cultural communication specialist, and AI builder based in Tokyo. Partner at Peak Potential Consulting.">
   <script type="application/ld+json" set:html={personJsonLd} slot="head" />
-  <article class="max-w-2xl">
-    <h1 class="text-3xl sm:text-4xl font-bold mb-8 text-heading">Lead humanly. Learn constantly. Build with AI.</h1>
+  <article class="max-w-3xl">
 
-    <div class="flex justify-center my-8">
-      <Image
-        src={jayAuthor}
-        alt="Jay Vergara"
-        width={500}
-        height={500}
-        format="webp"
-        quality={80}
-        class="rounded-lg shadow-sm w-[55%] object-cover"
-        style="object-position: center 20%;"
-        loading="eager"
-      />
+    <!-- Hero: Name + Image side by side -->
+    <div class="flex flex-col sm:flex-row gap-8 items-center sm:items-start mb-12">
+      <div class="about-image-wrap relative w-[200px] sm:w-[220px] shrink-0">
+        <div class="relative overflow-hidden rounded" style="aspect-ratio: 3/4;">
+          <Image
+            src={jayAuthor}
+            alt="Jay Vergara"
+            width={440}
+            height={587}
+            format="webp"
+            quality={80}
+            class="absolute inset-0 w-full h-full object-cover"
+            style="object-position: 50% 15%;"
+            loading="eager"
+          />
+        </div>
+      </div>
+      <div class="flex-1 text-center sm:text-left">
+        <p class="text-ivy font-medium italic mb-3" style="font-size: clamp(1rem, 2.5vw, 1.35rem);">
+          Lead&nbsp;humanly. Learn&nbsp;constantly. Build&nbsp;with&nbsp;AI.
+        </p>
+        <h1 class="text-3xl sm:text-4xl font-bold text-heading mb-4" style="line-height: 1.1;">
+          Jay Vergara
+        </h1>
+        <p class="text-sm text-muted tracking-wide uppercase mb-4">
+          L&D Strategist · Leadership Development · AI Trainer<br />
+          Tokyo, Japan · Vancouver, Canada
+        </p>
+        <p class="text-body leading-relaxed">
+          I grew up in Vancouver, B.C. and I've been living in Tokyo for over a decade now. Came thinking I'd stay a year or two and then... well, you know how that goes.
+        </p>
+      </div>
     </div>
 
-    <div class="space-y-4 text-body leading-relaxed">
-      <p>
-        I'm Jay Vergara. I grew up in Vancouver, B.C. and I've been living in Tokyo for over a decade now. Came thinking I'd stay a year or two and then... well, you know how that goes.
-      </p>
+    <!-- Career story -->
+    <div class="space-y-4 text-body leading-relaxed mb-10">
       <p>
         I've spent most of my career in learning and development. Indeed, Rakuten, TELUS, Yellow Pages. Building training programs and leading L&D teams and trying to figure out why most corporate learning doesn't actually stick.
       </p>
@@ -54,43 +71,122 @@ const personJsonLd = JSON.stringify({
       </p>
     </div>
 
-    <hr class="my-8 divider-gradient" />
+    <hr class="my-10 divider-gradient" />
 
-    <h2 class="text-2xl font-bold mt-12 mb-4 text-heading">What you'll find here</h2>
-    <div class="space-y-4 text-body leading-relaxed">
-      <p>
-        <strong class="text-heading">Lead Humanly</strong> is the human side. Cross-cultural communication, leadership development, corporate learning strategy. The stuff I've spent my career figuring out, often by getting it wrong first.
-      </p>
-      <p>
-        <strong class="text-heading">Build with AI</strong> is the practical side. Tutorials, workflow breakdowns, honest takes on what AI can and can't do for people in HR, L&D, and leadership. Not theory but things I've actually built and used.
-      </p>
-      <p>
-        The thesis behind all of it is simple. The leaders who will matter most in the next decade are the ones who are deeply human AND technologically fluent. Not one or the other but both.
-      </p>
+    <!-- What I do — expertise areas -->
+    <h2 class="text-2xl font-bold mb-3 text-heading">What I Actually Do</h2>
+    <p class="text-body leading-relaxed mb-6">
+      I wear a few hats and they overlap more than you'd expect. Here's where I spend most of my time.
+    </p>
+
+    <div class="grid gap-4 mb-6">
+      <div class="bg-surface border border-card-border border-l-4 border-l-emerald-800 rounded-lg p-5">
+        <h3 class="text-lg font-bold text-heading mb-2">Leadership & Manager Development</h3>
+        <p class="text-sm text-body leading-relaxed">
+          I design and deliver leadership development programs for first-time managers and senior leaders. That includes coaching frameworks, giving and receiving feedback, building psychological safety, and the messy human stuff that makes or breaks a team. Most of my work here is with global organizations where the people doing the leading are spread across cultures, time zones, and languages.
+        </p>
+      </div>
+      <div class="bg-surface border border-card-border border-l-4 border-l-emerald-800 rounded-lg p-5">
+        <h3 class="text-lg font-bold text-heading mb-2">Corporate Learning & L&D Strategy</h3>
+        <p class="text-sm text-body leading-relaxed">
+          I've built onboarding programs, designed instructional content, run learning measurement initiatives, and led L&D teams at companies with thousands of employees. The question I keep coming back to: why does most corporate training not change behavior? I write about what I've learned trying to answer that and the frameworks that actually work.
+        </p>
+      </div>
+      <div class="bg-surface border border-card-border border-l-4 border-l-sky-700 rounded-lg p-5">
+        <h3 class="text-lg font-bold text-heading mb-2">AI for HR & People Development</h3>
+        <p class="text-sm text-body leading-relaxed">
+          I build AI systems into my actual work. Not demos and not proofs of concept but real tools I use every day. Content pipelines, knowledge management systems, coaching assistants, and workflow automation for L&D teams. I teach other HR and L&D professionals how to do the same without losing the human side of people development.
+        </p>
+      </div>
+      <div class="bg-surface border border-card-border border-l-4 border-l-orange-700 rounded-lg p-5">
+        <h3 class="text-lg font-bold text-heading mb-2">Cross-Cultural Business Communication</h3>
+        <p class="text-sm text-body leading-relaxed">
+          A decade in Tokyo working across Japanese, North American, and Southeast Asian business cultures taught me things no textbook covers. I write about navigating high-context and low-context communication, running meetings across cultures, and the translation gaps that cause real problems in global teams. If you've ever had a meeting where everyone nodded and nothing happened, I've been there.
+        </p>
+      </div>
     </div>
 
-    <hr class="my-8 divider-gradient" />
+    <hr class="my-10 divider-gradient" />
 
-    <h2 class="text-2xl font-bold mt-12 mb-4 text-heading">The personal stuff</h2>
-    <div class="space-y-4 text-body leading-relaxed">
+    <!-- What you'll find here — card layout -->
+    <h2 class="text-2xl font-bold mb-6 text-heading">What You'll Find on This Site</h2>
+    <div class="grid sm:grid-cols-2 gap-4 mb-6">
+      <a href="/lead/" class="block bg-surface border border-card-border border-l-4 border-l-emerald-800 rounded-lg p-5 hover:bg-surface-light transition-colors">
+        <h3 class="text-lg font-bold text-heading mb-2">Lead Humanly</h3>
+        <p class="text-sm text-body leading-relaxed">
+          Articles on leadership, cross-cultural communication, corporate learning strategy, and the human skills that matter more as AI takes over the rest.
+        </p>
+        <span class="text-xs text-ivy font-medium mt-3 inline-block">Read articles &rarr;</span>
+      </a>
+      <a href="/build/" class="block bg-surface border border-card-border border-l-4 border-l-sky-700 rounded-lg p-5 hover:bg-surface-light transition-colors">
+        <h3 class="text-lg font-bold text-heading mb-2">Build with AI</h3>
+        <p class="text-sm text-body leading-relaxed">
+          Hands-on tutorials for using AI in corporate training, talent development, and people operations. Real tools, real workflows, no hype.
+        </p>
+        <span class="text-xs text-ivy font-medium mt-3 inline-block">Read tutorials &rarr;</span>
+      </a>
+    </div>
+    <p class="text-body leading-relaxed mb-2">
+      The thesis behind all of it is simple. The leaders who will matter most in the next decade are the ones who are deeply human AND technologically fluent. Not one or the other but both.
+    </p>
+
+    <hr class="my-10 divider-gradient" />
+
+    <!-- Background -->
+    <h2 class="text-2xl font-bold mb-6 text-heading">Background</h2>
+    <div class="flex flex-wrap gap-3 mb-6">
+      <span class="px-4 py-2 bg-surface border border-card-border rounded-full text-sm text-body">Dad</span>
+      <span class="px-4 py-2 bg-surface border border-card-border rounded-full text-sm text-body">English (native)</span>
+      <span class="px-4 py-2 bg-surface border border-card-border rounded-full text-sm text-body">Japanese (professional)</span>
+      <span class="px-4 py-2 bg-surface border border-card-border rounded-full text-sm text-body">MBA @ GLOBIS University</span>
+      <span class="px-4 py-2 bg-surface border border-card-border rounded-full text-sm text-body">Tokyo since 2014</span>
+    </div>
+    <div class="space-y-3 text-body leading-relaxed mb-4">
       <p>
-        I'm a dad. I speak English natively and Japanese professionally. I'm pursuing an MBA not because I needed the credential but because I genuinely wanted to understand what I didn't know.
+        I've worked at <strong class="text-heading">Indeed</strong> (talent development), <strong class="text-heading">Rakuten</strong> (global L&D), <strong class="text-heading">TELUS</strong> (training design), and <strong class="text-heading">Yellow Pages</strong> (learning strategy). Each one taught me something different about how organizations actually develop people versus how they say they do.
       </p>
       <p>
-        I believe the best content comes from experience. Not expertise performed for an audience.
+        Now I run <a href="https://peakpotentialconsulting.com" target="_blank" rel="noopener noreferrer" class="text-ivy hover:text-ivy-light transition-colors underline">Peak Potential Consulting</a> with my partner Matt Gates, ACC. We work with companies across Japan and North America on leadership development, team building, and cross-cultural training.
       </p>
     </div>
+    <p class="text-body leading-relaxed italic text-muted">
+      "I believe the best content comes from experience. Not expertise performed for an audience."
+    </p>
 
-    <hr class="my-8 divider-gradient" />
+    <hr class="my-10 divider-gradient" />
 
-    <h2 class="text-2xl font-bold mt-12 mb-4 text-heading">Connect</h2>
-    <div class="space-y-4 text-body leading-relaxed">
-      <p>Find me on
-        <a href="https://linkedin.com/in/vergarajay/" target="_blank" rel="noopener noreferrer me" class="text-ivy hover:text-ivy-light transition-colors underline">LinkedIn</a>,
-        <a href="https://www.youtube.com/@leadhumanai" target="_blank" rel="noopener noreferrer me" class="text-ivy hover:text-ivy-light transition-colors underline">YouTube</a>, and
-        <a href="https://www.tiktok.com/@leadhuman.ai" target="_blank" rel="noopener noreferrer me" class="text-ivy hover:text-ivy-light transition-colors underline">TikTok</a>
-        — or visit the <a href="/connect/" class="text-ivy hover:text-ivy-light transition-colors underline">Connect page</a> for everything.
-      </p>
+    <!-- Connect — with buttons -->
+    <h2 class="text-2xl font-bold mb-4 text-heading">Connect</h2>
+    <p class="text-body leading-relaxed mb-6">Find me on the platforms where I share the most, or visit the <a href="/connect/" class="text-ivy hover:text-ivy-light transition-colors underline">Connect page</a> for everything.</p>
+    <div class="flex flex-wrap gap-3">
+      <a
+        href="https://linkedin.com/in/vergarajay/"
+        target="_blank"
+        rel="noopener noreferrer me"
+        class="inline-flex items-center gap-2 px-5 py-2.5 border border-ivy text-ivy text-sm font-medium rounded hover:bg-ivy hover:text-ecru transition-colors"
+      >
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+      <a
+        href="https://www.youtube.com/@leadhumanai"
+        target="_blank"
+        rel="noopener noreferrer me"
+        class="inline-flex items-center gap-2 px-5 py-2.5 border border-ivy text-ivy text-sm font-medium rounded hover:bg-ivy hover:text-ecru transition-colors"
+      >
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        YouTube
+      </a>
+      <a
+        href="https://www.tiktok.com/@leadhuman.ai"
+        target="_blank"
+        rel="noopener noreferrer me"
+        class="inline-flex items-center gap-2 px-5 py-2.5 border border-ivy text-ivy text-sm font-medium rounded hover:bg-ivy hover:text-ecru transition-colors"
+      >
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        TikTok
+      </a>
     </div>
+
   </article>
 </BaseLayout>

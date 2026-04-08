@@ -25,8 +25,26 @@ const websiteJsonLd = JSON.stringify({
   "@type": "WebSite",
   "name": "leadhuman.ai",
   "url": "https://leadhuman.ai",
-  "description": "Lead humanly. Learn constantly. Build with AI.",
+  "description": "AI tutorials, leadership development, L&D strategy, and cross-cultural communication insights by Jay Vergara from Tokyo.",
   "author": { "@type": "Person", "name": "Jay Vergara" }
+});
+
+const orgJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "leadhuman.ai",
+  "url": "https://leadhuman.ai",
+  "logo": "https://leadhuman.ai/leadhuman-icon-1200.png",
+  "founder": {
+    "@type": "Person",
+    "name": "Jay Vergara",
+    "url": "https://leadhuman.ai/about/"
+  },
+  "sameAs": [
+    "https://linkedin.com/in/vergarajay/",
+    "https://www.youtube.com/@leadhumanai",
+    "https://www.tiktok.com/@leadhuman.ai"
+  ]
 });
 
 const navLinks = [
@@ -69,8 +87,9 @@ const navLinks = [
     <link rel="canonical" href={canonicalURL} />
     <link rel="alternate" type="application/rss+xml" title="leadhuman.ai" href="/rss.xml" />
 
-    <!-- WebSite Schema -->
+    <!-- WebSite & Organization Schema -->
     <script type="application/ld+json" set:html={websiteJsonLd} />
+    <script type="application/ld+json" set:html={orgJsonLd} />
 
     <ClientRouter />
     <slot name="head" />
@@ -88,7 +107,7 @@ const navLinks = [
             return (
               <a
                 href={link.href}
-                class={`px-2.5 py-1.5 rounded-md transition-colors whitespace-nowrap focus-visible:ring-2 focus-visible:ring-ivy focus-visible:ring-offset-2 focus-visible:ring-offset-ecru ${isActive ? "text-ivy font-semibold border-b-2 border-ivy" : "hover:text-ivy"}`}
+                class={`px-3 py-2.5 rounded-md transition-colors whitespace-nowrap ${isActive ? "text-ivy font-semibold border-b-2 border-ivy" : "hover:text-ivy"}`}
                 {...(isActive ? { "aria-current": "page" } : {})}
               >
                 {link.label}

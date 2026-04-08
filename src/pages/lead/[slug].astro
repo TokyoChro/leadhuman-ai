@@ -79,15 +79,19 @@ const breadcrumbJsonLd = JSON.stringify({
     <a href="/lead/" class="text-sm text-emerald-800 hover:text-emerald-600 transition-colors">&larr; Lead Humanly</a>
     <header class="mt-6 mb-8">
       {post.data.image && (
-        <Image
-          src={post.data.image}
-          alt={post.data.title}
-          width={896}
-          format="webp"
-          quality={80}
-          class="w-full rounded-lg mt-4 mb-6 shadow-sm"
-          loading="eager"
-        />
+        <div class="about-image-wrap relative mt-4 mb-6">
+          <div class="relative overflow-hidden rounded">
+            <Image
+              src={post.data.image}
+              alt={post.data.title}
+              width={896}
+              format="webp"
+              quality={80}
+              class="w-full"
+              loading="eager"
+            />
+          </div>
+        </div>
       )}
       <div class="mb-3">
         <span class="text-xs font-semibold px-2 py-0.5 rounded-full text-white bg-ivy">LEAD HUMANLY</span>
