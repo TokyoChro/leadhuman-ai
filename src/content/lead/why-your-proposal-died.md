@@ -4,7 +4,7 @@ description: "In Japan the meeting isn't where decisions get made. It's where th
 pubDate: 2026-03-12
 tags: ["cross-cultural", "japan", "leadership", "communications"]
 author: "Jay Vergara"
-image: "../../assets/images/posts/v2-post05-proposal_2.png"
+image: "../../assets/images/posts/why-your-proposal-died.png"
 draft: false
 ---
 

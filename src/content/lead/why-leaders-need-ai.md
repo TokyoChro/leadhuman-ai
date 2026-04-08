@@ -4,7 +4,7 @@ description: "You don't need to become an AI engineer. But you do need to unders
 pubDate: 2026-03-15
 tags: ["ai-tools", "leadership", "l-and-d"]
 author: "Jay Vergara"
-image: "../../assets/images/posts/v2-post03-leader-ai_1.png"
+image: "../../assets/images/posts/why-leaders-need-ai.png"
 draft: false
 ---
 
