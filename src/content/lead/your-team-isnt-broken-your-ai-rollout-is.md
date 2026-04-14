@@ -1,15 +1,16 @@
 ---
-title: "Your Team Isn't Broken. Your AI Rollout Is."
-description: "I've been reflecting on a pattern I keep seeing in leadership conversations right now and it surprises me every time. Someone in a C-suite meeting pro"
+title: "AI 'Brain Fry' and the Rollout Problem Nobody Budgeted For"
+description: "Companies celebrate record AI adoption rates while their best employees quietly burn out from managing five tools at once. The hidden labor of verifying, correcting, and contextualizing AI output is real work that nobody put into the budget."
 pubDate: 2026-04-14
 tags: ["ai-tools", "leadership", "l-and-d"]
 author: "Jay Vergara"
+image: "../../assets/images/posts/your-team-isnt-broken-your-ai-rollout-is.png"
 draft: false
 ---
 
-I've been reflecting on a pattern I keep seeing in leadership conversations right now and it surprises me every time. Someone in a C-suite meeting proudly announces their company is "fully AI integrated" and then five minutes later a manager on the same call quietly admits half their team has stopped submitting AI-assisted work because they don't trust the outputs and they're exhausted from fact checking everything.
+I've been reflecting on a pattern I keep seeing in leadership conversations right now and it surprises me every time. Someone in a C-suite meeting proudly announces their company is "fully AI integrated" and then five minutes later a manager on the same call quietly admits half their team has stopped submitting AI assisted work because they don't trust the outputs and they're exhausted from fact checking everything.
 
-That gap right there is the whole story.
+That gap tells you everything about where most AI rollouts actually stand.
 
 ---
 
@@ -17,11 +18,11 @@ The thing about AI adoption is that we keep treating it like a software rollout 
 
 What's actually happening on the ground is what researchers are now calling 'AI brain fry': a state of cognitive overload that hits workers not because they're resistant to change but because managing, verifying, correcting, and contextualizing AI output is genuinely hard work that nobody put into the budget.
 
-The employees who embrace AI the hardest are often the ones burning out fastest. A Boston Consulting Group study found that workers using four or more AI tools simultaneously saw self-reported productivity plummet, even while their companies celebrated record adoption rates. And 41% of millennial and Gen Z employees in one survey admitted to actively sabotaging their company's AI program, not because they're Luddites, but because the rollout was designed for a dashboard and not for them.
+The employees who embrace AI the hardest are often the ones burning out fastest. A Boston Consulting Group study found that workers using four or more AI tools simultaneously saw self reported productivity plummet, even while their companies celebrated record adoption rates. And 41% of millennial and Gen Z employees in one survey admitted to actively sabotaging their company's AI program, not because they're Luddites, but because the rollout was designed for a dashboard and not for them.
 
 ---
 
-A daily diary study by Shao et al. in the Journal of Management (2024) found that while frequent AI tool use during the workday was linked to genuine knowledge gain, the same usage triggered information overload that impaired both task performance and end-of-day recovery. The people learning the most from AI were also the people least able to switch off when the day ended.
+A daily diary study by Shao et al. in the Journal of Management (2024) found that while frequent AI tool use during the workday was linked to genuine knowledge gain, the same usage triggered information overload that impaired both task performance and end of day recovery. The people learning the most from AI were also the people least able to switch off when the day ended.
 
 > The problem isn't that your people aren't using AI. It's that they're using it in ways nobody designed for and recovering from it in ways nobody planned for.
 
@@ -44,6 +45,12 @@ To be frank, the companies getting this right aren't the ones with the most tool
 What's one AI task your team is doing right now that secretly costs more time than it saves? I'm genuinely curious what you're seeing out there.
 
 If this resonated, let's connect on LinkedIn and keep the conversation going.
+
+*I write about leadership and AI at the intersection of human development on [LinkedIn](https://linkedin.com/in/vergarajay/). Come say hi.*
+
+---
+
+*Part of the Lead Humanly series on [leadhuman.ai](https://leadhuman.ai).*
 
 ---
 

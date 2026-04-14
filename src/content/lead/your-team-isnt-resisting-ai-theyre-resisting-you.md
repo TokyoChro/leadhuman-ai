@@ -1,9 +1,10 @@
 ---
-title: "Your Team Isn't Resisting AI. They're Resisting You."
-description: "I have a theory about why AI adoption keeps stalling in organizations and it has almost nothing to do with the technology.  Something I see constantly"
+title: "The Trust Gap Behind Every Failed AI Rollout"
+description: "Employees don't resist AI because they fear the technology. They resist it because they don't believe the leaders deploying it actually care whether they're okay. Research shows the problem isn't capability but perceived benevolence."
 pubDate: 2026-04-14
 tags: ["leadership", "ai-tools", "l-and-d", "communications"]
 author: "Jay Vergara"
+image: "../../assets/images/posts/your-team-isnt-resisting-ai-theyre-resisting-you.png"
 draft: false
 ---
 
@@ -41,9 +42,15 @@ What would it take for someone on your team to tell you honestly that an AI tool
 
 If this resonates, I'd love to continue the conversation on LinkedIn.
 
+*I write about leadership and AI at the intersection of human development on [LinkedIn](https://linkedin.com/in/vergarajay/). Come say hi.*
+
 ---
 
-Sources
+*Part of the Lead Humanly series on [leadhuman.ai](https://leadhuman.ai).*
+
+---
+
+## Sources
 
 - Li, M., et al. (2024). How perceived lack of benevolence harms trust of artificial intelligence management. Journal of Applied Psychology. Read the paper
 
