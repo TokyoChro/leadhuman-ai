@@ -1,23 +1,17 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm create:*)",
-      "Bash(cp:*)",
-      "Bash(npx astro:*)",
-      "Bash(npm run:*)",
-      "Bash(git add:*)",
-      "Bash(git branch:*)",
-      "Bash(git commit:*)",
-      "Bash(gh repo:*)",
-      "Bash(where gh:*)",
-      "Bash(find:*)",
-      "Bash(grep:*)",
-      "Bash(git push:*)",
-      "Bash(npm install:*)",
-      "Read(//c/Users/jfver/Desktop/**)",
-      "Bash(echo \"EXIT: $?\")",
-      "Bash(cmd.exe /c \"dir /b %USERPROFILE%\\\\Desktop\\\\rewrites\" 2>&1)",
-      "Bash(npm ls:*)"
+      "Bash(*)",
+      "Read(*)",
+      "Write(*)",
+      "Edit(*)",
+      "Glob(*)",
+      "Grep(*)",
+      "Skill(*)",
+      "Agent(*)",
+      "WebFetch(*)",
+      "WebSearch(*)",
+      "mcp__claude_ai_Vercel__*"
     ]
   }
 }

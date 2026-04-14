@@ -25,13 +25,13 @@ A 2021 study by Frick and colleagues in the Journal of Decision Systems found th
 
 So what do you actually do?
 
-> 1. Name the fear before you name the tool. Before your next AI rollout, ask your team directly what they're worried about. Not a survey. A real conversation. You'll hear things like "I'm scared my judgment won't matter anymore" and these aren't irrational fears. They deserve a real answer and not just reassurance that everything will be fine.
+**1. Name the fear before you name the tool.** Before your next AI rollout, ask your team directly what they're worried about. Not a survey. A real conversation. You'll hear things like "I'm scared my judgment won't matter anymore" and these aren't irrational fears. They deserve a real answer and not just reassurance that everything will be fine.
 
-> 2. Let teams own the use case discovery. Don't hand down a list of approved AI applications. Ask people where they're spending time on work that feels repetitive and let them experiment. When people choose their own tools for their own problems, adoption isn't a mandate. It's a solution.
+**2. Let teams own the use case discovery.** Don't hand down a list of approved AI applications. Ask people where they're spending time on work that feels repetitive and let them experiment. When people choose their own tools for their own problems, adoption isn't a mandate. It's a solution.
 
-> 3. Create explicit 'high empathy' zones. The Li et al. research found that employees specifically want human management in situations that demand empathy. Be honest about where AI doesn't belong: performance conversations, feedback on creative work, anything touching someone's career path. Protecting those spaces sends a signal that you get it.
+**3. Create explicit 'high empathy' zones.** The Li et al. research found that employees specifically want human management in situations that demand empathy. Be honest about where AI doesn't belong: performance conversations, feedback on creative work, anything touching someone's career path. Protecting those spaces sends a signal that you get it.
 
-> 4. Be visibly honest about your own AI experience. If you're mandating AI adoption, your team is watching how you actually use it. Share the failures. Tell them about the output you had to rewrite three times and the prompt that completely missed the nuance of a real situation. Authentic fallibility from leaders does more for 'psychological safety' than any training module.
+**4. Be visibly honest about your own AI experience.** If you're mandating AI adoption, your team is watching how you actually use it. Share the failures. Tell them about the output you had to rewrite three times and the prompt that completely missed the nuance of a real situation. Authentic fallibility from leaders does more for 'psychological safety' than any training module.
 
 The thing about AI adoption is that it's never really about AI. It's about whether people feel safe enough to be honest with you when something isn't working and valued enough to believe the change is for them and not just for the quarterly productivity numbers.
 

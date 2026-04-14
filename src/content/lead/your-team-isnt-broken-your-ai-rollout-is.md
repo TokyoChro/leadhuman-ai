@@ -29,21 +29,13 @@ A daily diary study by Shao et al. in the Journal of Management (2024) found tha
 
 So what does a leader actually do with this?
 
-> 1. Audit the load, not just the adoption rate.
+**1. Audit the load, not just the adoption rate.** Pull your AI tool usage data and ask a different question: not "are people using it?" but "how many tools are they toggling between in a single workday?" Research consistently shows one to three AI tools can improve output, but four or more is where cognitive strain overtakes any efficiency gain. If your team is running five AI platforms and three browser extensions, you've got a tool sprawl problem disguised as a training problem.
 
-> Pull your AI tool usage data and ask a different question: not "are people using it?" but "how many tools are they toggling between in a single workday?" Research consistently shows one to three AI tools can improve output, but four or more is where cognitive strain overtakes any efficiency gain. If your team is running five AI platforms and three browser extensions, you've got a tool sprawl problem disguised as a training problem.
+**2. Make verification time visible and valued.** The hidden labor of AI adoption is the editing, checking, rewriting, and contextualizing that follows every AI output. One analysis found that employees lost 40% of AI's efficiency gains just in correction work. If you haven't built that time into your team's workflow, you haven't changed the workload at all and you've just added steps. Say it out loud in your next team meeting: reviewing AI work is real work and it counts.
 
-> 2. Make verification time visible and valued.
+**3. Let people narrow before they scale.** Fenwick et al. in Discover Artificial Intelligence (2024) found that AI failures in organizations are almost never technical. They're human. They happen when adoption is divorced from how people actually work and what they actually value. The practical move: let each team member own one AI use case deeply before asking them to spread across the whole suite. Depth first. Breadth later.
 
-> The hidden labor of AI adoption is the editing, checking, rewriting, and contextualizing that follows every AI output. One analysis found that employees lost 40% of AI's efficiency gains just in correction work. If you haven't built that time into your team's workflow, you haven't changed the workload at all and you've just added steps. Say it out loud in your next team meeting: reviewing AI work is real work and it counts.
-
-> 3. Let people narrow before they scale.
-
-> Fenwick et al. in Discover Artificial Intelligence (2024) found that AI failures in organizations are almost never technical. They're human. They happen when adoption is divorced from how people actually work and what they actually value. The practical move: let each team member own one AI use case deeply before asking them to spread across the whole suite. Depth first. Breadth later.
-
-> 4. Have the 'brain fry' conversation before the exit interview.
-
-> I have a theory that the number one reason AI adoption programs quietly fail is that nobody made it safe to say "I'm overwhelmed." One survey found 34% of workers experiencing AI cognitive overload were actively planning to leave, which means you've got a retention crisis hiding inside an innovation initiative. In your next one on one, ask: "What part of our AI workflow costs you the most energy?" Then listen like the answer matters, because it does.
+**4. Have the 'brain fry' conversation before the exit interview.** I have a theory that the number one reason AI adoption programs quietly fail is that nobody made it safe to say "I'm overwhelmed." One survey found 34% of workers experiencing AI cognitive overload were actively planning to leave, which means you've got a retention crisis hiding inside an innovation initiative. In your next one on one, ask: "What part of our AI workflow costs you the most energy?" Then listen like the answer matters, because it does.
 
 ---
 
