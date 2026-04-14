@@ -56,6 +56,6 @@ If this resonated, let's connect on LinkedIn and keep the conversation going.
 
 ## Sources
 
-- Shao, Y., et al. (2024). Using Augmentation-Based AI Tool at Work: A Daily Investigation of Learning-Based Benefit and Challenge. Journal of Management.
+- Shao, Y., et al. (2024). [Using Augmentation-Based AI Tool at Work: A Daily Investigation of Learning-Based Benefit and Challenge](https://consensus.app/papers/details/8d3d48234eee5f6fa8518c81c4c062e2/?utm_source=claude_desktop). Journal of Management.
 
-- Fenwick, A., et al. (2024). The critical role of HRM in AI-driven digital transformation: a paradigm shift to enable firms to move from AI implementation to human-centric adoption. Discover Artificial Intelligence.
+- Fenwick, A., et al. (2024). [The critical role of HRM in AI-driven digital transformation: a paradigm shift to enable firms to move from AI implementation to human-centric adoption](https://consensus.app/papers/details/755492dc656152d5a2ba5dffe3c76f2c/?utm_source=claude_desktop). Discover Artificial Intelligence.

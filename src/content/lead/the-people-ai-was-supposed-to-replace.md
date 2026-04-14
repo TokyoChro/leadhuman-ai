@@ -64,6 +64,6 @@ I write about leadership, AI adoption, and the human side of organizational chan
 
 ## Sources
 
-[1] Tughanbulut Kurtulush et al. (2025). The Evolutionary Influence Of Generative AI On Middle Management Roles And Competencies. IOSR Journal of Computer Engineering.
+[1] Tughanbulut Kurtulush et al. (2025). [The Evolutionary Influence Of Generative AI On Middle Management Roles And Competencies](https://consensus.app/papers/details/49ce973ba5fd59e8a7ec9dfe388594ec/?utm_source=claude_desktop). IOSR Journal of Computer Engineering.
 
-[2] Jonna Koponen et al. (2023). Work Characteristics Needed by Middle Managers When Leading AI-Integrated Service Teams. Journal of Service Research, 17 citations.
+[2] Jonna Koponen et al. (2023). [Work Characteristics Needed by Middle Managers When Leading AI-Integrated Service Teams](https://consensus.app/papers/details/ce30ef450ff35d66b65ecf92d93b98f2/?utm_source=claude_desktop). Journal of Service Research.

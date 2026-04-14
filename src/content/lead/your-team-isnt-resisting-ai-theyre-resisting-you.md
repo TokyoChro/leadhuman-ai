@@ -52,8 +52,8 @@ If this resonates, I'd love to continue the conversation on LinkedIn.
 
 ## Sources
 
-- Li, M., et al. (2024). How perceived lack of benevolence harms trust of artificial intelligence management. Journal of Applied Psychology. Read the paper
+- Li, M., et al. (2024). [How perceived lack of benevolence harms trust of artificial intelligence management](https://consensus.app/papers/details/99999cdfb1315d48bac2e32f6b690a28/?utm_source=claude_desktop). Journal of Applied Psychology.
 
-- Frick, N. R. J., et al. (2021). Maneuvering through the stormy seas of digital transformation: the impact of empowering leadership on the AI readiness of enterprises. Journal of Decision Systems. Read the paper
+- Frick, N. R. J., et al. (2021). [Maneuvering through the stormy seas of digital transformation: the impact of empowering leadership on the AI readiness of enterprises](https://consensus.app/papers/details/6b4926b44c425c338b95409c6c96663b/?utm_source=claude_desktop). Journal of Decision Systems.
 
-- Checkr (2026). Under Tension: The Manager-Employee AI Divide Report. Read the report
+- Checkr (2026). Under Tension: The Manager-Employee AI Divide Report.
