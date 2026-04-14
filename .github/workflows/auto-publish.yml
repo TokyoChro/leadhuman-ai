@@ -1,0 +1,71 @@
+name: Auto-Publish Check
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'  # Every 30 minutes
+  workflow_dispatch:  # Manual trigger for testing
+
+permissions:
+  contents: write
+
+jobs:
+  check-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check Notion for ready drafts
+        id: check
+        env:
+          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
+        run: |
+          RESPONSE=$(curl -s -X POST "https://api.notion.com/v1/databases/fdaa0716068f4318899bb188de1fe816/query" \
+            -H "Authorization: Bearer $NOTION_API_KEY" \
+            -H "Content-Type: application/json" \
+            -H "Notion-Version: 2022-06-28" \
+            -d '{"filter":{"and":[{"property":"Status","select":{"equals":"Ready"}},{"property":"Platform","select":{"equals":"leadhuman.ai"}},{"property":"Content Type","select":{"equals":"Article"}}]},"page_size":1}')
+
+          COUNT=$(echo "$RESPONSE" | python3 -c "import sys,json; print(len(json.load(sys.stdin).get('results',[])))")
+          echo "found=$COUNT" >> "$GITHUB_OUTPUT"
+
+          if [ "$COUNT" -gt "0" ]; then
+            echo "Draft found in Notion — proceeding to publish"
+          else
+            echo "No ready drafts — nothing to do"
+          fi
+
+      - name: Checkout repo
+        if: steps.check.outputs.found != '0'
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        if: steps.check.outputs.found != '0'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        if: steps.check.outputs.found != '0'
+        run: pip install -r scripts/image-pipeline/requirements.txt anthropic
+
+      - name: Publish blog post
+        if: steps.check.outputs.found != '0'
+        env:
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          cd scripts/image-pipeline
+          python publish.py
+
+      - name: Commit and push
+        if: steps.check.outputs.found != '0'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A src/content/ src/assets/images/posts/
+          git diff --cached --quiet && echo "Nothing to commit" && exit 0
+          git commit -m "Auto-publish blog post"
+          git push
