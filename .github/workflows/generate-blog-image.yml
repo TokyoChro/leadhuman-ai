@@ -1,0 +1,57 @@
+name: Generate Blog Image
+
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: 'Post slug (used as image filename, e.g. "my-blog-post")'
+        required: true
+        type: string
+      prompt:
+        description: 'Scene description for the Ivy Boys illustration'
+        required: true
+        type: string
+      vibe:
+        description: 'Outfit vibe (smart ivy, rugged casual, summer ivy, etc.)'
+        required: false
+        type: string
+      season:
+        description: 'Season filter (summer, winter, spring, fall)'
+        required: false
+        type: string
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r scripts/image-pipeline/requirements.txt
+
+      - name: Generate blog image
+        env:
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+        run: |
+          cd scripts/image-pipeline
+          python generate.py \
+            --slug "${{ inputs.slug }}" \
+            --prompt "${{ inputs.prompt }}" \
+            ${{ inputs.vibe && format('--vibe "{0}"', inputs.vibe) || '' }} \
+            ${{ inputs.season && format('--season "{0}"', inputs.season) || '' }}
+
+      - name: Commit and push image
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add "src/assets/images/posts/${{ inputs.slug }}.png"
+          git commit -m "Add blog image: ${{ inputs.slug }}"
+          git push
