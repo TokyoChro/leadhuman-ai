@@ -1,7 +1,7 @@
 ---
 title: "AI Is Changing L&D Faster Than Most Leaders Realize"
 description: "Most L&D leaders still think of AI as a faster way to write course descriptions. The real shift is much bigger and organizations that figure it out in the next 18 months will have a significant advantage in talent development."
-pubDate: 2026-03-13
+pubDate: 2026-03-17
 tags: ["ai-tools", "l-and-d", "leadership"]
 author: "Jay Vergara"
 image: "../../assets/images/posts/ai-changing-ld.png"

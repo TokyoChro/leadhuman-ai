@@ -1,7 +1,7 @@
 ---
 title: "Your Team Is Using AI Behind Your Back and That's on You"
 description: "57% of employees are hiding their AI usage from their employers. The AI trust gap isn't a technology problem. It's a leadership and communication failure."
-pubDate: 2026-04-07
+pubDate: 2026-04-03
 tags: ["leadership", "ai-tools", "communications"]
 author: "Jay Vergara"
 image: "../../assets/images/posts/your-team-is-using-ai-behind-your-back.png"

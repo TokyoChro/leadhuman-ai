@@ -1,7 +1,7 @@
 ---
 title: "AI 'Brain Fry' and the Rollout Problem Nobody Budgeted For"
 description: "Companies celebrate record AI adoption rates while their best employees quietly burn out from managing five tools at once. The hidden labor of verifying, correcting, and contextualizing AI output is real work that nobody put into the budget."
-pubDate: 2026-04-14
+pubDate: 2026-04-07
 tags: ["ai-tools", "leadership", "l-and-d"]
 author: "Jay Vergara"
 image: "../../assets/images/posts/your-team-isnt-broken-your-ai-rollout-is.png"

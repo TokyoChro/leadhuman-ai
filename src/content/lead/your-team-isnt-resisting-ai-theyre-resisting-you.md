@@ -1,7 +1,7 @@
 ---
 title: "The Trust Gap Behind Every Failed AI Rollout"
 description: "Employees don't resist AI because they fear the technology. They resist it because they don't believe the leaders deploying it actually care whether they're okay. Research shows the problem isn't capability but perceived benevolence."
-pubDate: 2026-04-14
+pubDate: 2026-04-10
 tags: ["leadership", "ai-tools", "l-and-d", "communications"]
 author: "Jay Vergara"
 image: "../../assets/images/posts/your-team-isnt-resisting-ai-theyre-resisting-you.png"

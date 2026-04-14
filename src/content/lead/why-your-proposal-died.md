@@ -1,7 +1,7 @@
 ---
 title: "Why Your Proposal Died Before the Meeting Started"
 description: "In Japan the meeting isn't where decisions get made. It's where they get confirmed. The real work happened days ago and you missed it."
-pubDate: 2026-03-12
+pubDate: 2026-03-13
 tags: ["cross-cultural", "japan", "leadership", "communications"]
 author: "Jay Vergara"
 image: "../../assets/images/posts/why-your-proposal-died.png"

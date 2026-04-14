@@ -1,7 +1,7 @@
 ---
 title: "The Part of Management AI Can't Automate"
 description: "Everyone is talking about replacing middle managers with AI. But the things AI replaces were never the point of management and organizations are about to learn that the hard way."
-pubDate: 2026-04-07
+pubDate: 2026-03-31
 tags: ["leadership", "ai-tools", "l-and-d"]
 author: "Jay Vergara"
 image: "../../assets/images/posts/the-part-of-management-ai-cant-automate.png"

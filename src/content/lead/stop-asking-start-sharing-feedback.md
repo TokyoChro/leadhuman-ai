@@ -1,7 +1,7 @@
 ---
 title: "Stop Asking for Feedback. Start Sharing It."
 description: "Every leadership book tells you to ask for feedback. The research says that's the wrong approach. What actually builds psychological safety is sharing the feedback you've already received and it changes how your team communicates about hard topics."
-pubDate: 2026-03-07
+pubDate: 2026-02-24
 tags: ["leadership", "communications", "l-and-d"]
 author: "Jay Vergara"
 image: "../../assets/images/posts/stop-asking-start-sharing-feedback.png"

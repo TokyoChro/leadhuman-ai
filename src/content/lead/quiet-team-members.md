@@ -1,7 +1,7 @@
 ---
 title: "When Your Quietest Team Members Have the Most to Say"
 description: "Your quietest team members might be your most insightful. Research shows that silence in meetings doesn't mean disengagement but often means the environment isn't designed for how they think. Here's how to unlock their contribution."
-pubDate: 2026-03-08
+pubDate: 2026-02-27
 tags: ["cross-cultural", "japan", "leadership", "communications"]
 author: "Jay Vergara"
 image: "../../assets/images/posts/quiet-team-members.png"

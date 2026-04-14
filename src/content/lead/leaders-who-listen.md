@@ -1,7 +1,7 @@
 ---
 title: "The Best Leaders I Know Talk Less Than Everyone Else"
 description: "Listening isn't passive. It's the most underrated leadership behavior in organizations and a likely cause of better job performance, stronger relationships, and greater well-being. The research is clear and most leaders still get it wrong."
-pubDate: 2026-03-10
+pubDate: 2026-03-06
 tags: ["leadership", "communications", "l-and-d"]
 author: "Jay Vergara"
 image: "../../assets/images/posts/leaders-who-listen.png"

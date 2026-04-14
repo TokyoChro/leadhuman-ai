@@ -1,7 +1,7 @@
 ---
 title: "Your Team Wants the Hard Conversation You Keep Avoiding"
 description: "Most managers think they're protecting their team by softening feedback. The research says the opposite. Your people are starving for the conversation you keep dodging."
-pubDate: 2026-03-09
+pubDate: 2026-03-03
 tags: ["leadership", "communications", "l-and-d"]
 author: "Jay Vergara"
 image: "../../assets/images/posts/hard-conversation.png"
