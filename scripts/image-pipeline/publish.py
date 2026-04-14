@@ -1,0 +1,384 @@
+"""
+Cloud Publisher — fetches a draft from Notion, generates an Ivy Boys illustration,
+writes the markdown, and notifies via Telegram. Runs entirely in GitHub Actions.
+
+Usage:
+  python publish.py                          # Auto-find "Ready" draft in Notion
+  python publish.py --slug "my-post" --prompt "scene description"  # Manual override
+
+Required env vars: GOOGLE_API_KEY, NOTION_API_KEY, TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID
+Optional env var: ANTHROPIC_API_KEY (for auto scene prompt generation)
+"""
+
+import argparse
+import json
+import os
+import re
+import sys
+from datetime import datetime
+from pathlib import Path
+
+import requests
+
+SCRIPT_DIR = Path(__file__).parent
+REPO_ROOT = SCRIPT_DIR.parent.parent
+CONTENT_DIR = REPO_ROOT / "src" / "content"
+IMAGES_DIR = REPO_ROOT / "src" / "assets" / "images" / "posts"
+
+# Notion config
+NOTION_API_KEY = os.environ.get("NOTION_API_KEY", "")
+NOTION_BASE_URL = "https://api.notion.com/v1"
+NOTION_HEADERS = {
+    "Authorization": f"Bearer {NOTION_API_KEY}",
+    "Content-Type": "application/json",
+    "Notion-Version": "2022-06-28",
+}
+LH_CONTENT_VAULT_DB_ID = "fdaa0716068f4318899bb188de1fe816"
+
+# Telegram config
+TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
+TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
+
+
+# ─── Notion Helpers ──────────────────────────────────────────────────────────
+
+def notion_query_database(database_id, filter_obj):
+    resp = requests.post(
+        f"{NOTION_BASE_URL}/databases/{database_id}/query",
+        headers=NOTION_HEADERS,
+        json={
+            "filter": filter_obj,
+            "page_size": 1,
+            "sorts": [{"timestamp": "created_time", "direction": "descending"}],
+        },
+    )
+    if resp.status_code != 200:
+        print(f"Notion query failed: {resp.status_code} {resp.text[:300]}", file=sys.stderr)
+        return None
+    results = resp.json().get("results", [])
+    return results[0] if results else None
+
+
+def notion_get_page_blocks(page_id):
+    blocks = []
+    cursor = None
+    while True:
+        params = {"page_size": 100}
+        if cursor:
+            params["start_cursor"] = cursor
+        resp = requests.get(
+            f"{NOTION_BASE_URL}/blocks/{page_id}/children",
+            headers=NOTION_HEADERS,
+            params=params,
+        )
+        if resp.status_code != 200:
+            print(f"Notion blocks fetch failed: {resp.status_code}", file=sys.stderr)
+            return blocks
+        data = resp.json()
+        blocks.extend(data.get("results", []))
+        if not data.get("has_more"):
+            break
+        cursor = data.get("next_cursor")
+    return blocks
+
+
+def notion_update_status(page_id, status_name):
+    payload = {"properties": {"Status": {"select": {"name": status_name}}}}
+    resp = requests.patch(
+        f"{NOTION_BASE_URL}/pages/{page_id}",
+        headers=NOTION_HEADERS,
+        json=payload,
+    )
+    if resp.status_code != 200:
+        print(f"Notion status update failed: {resp.status_code} {resp.text[:200]}", file=sys.stderr)
+        return False
+    return True
+
+
+def extract_text(rich_text_array):
+    return "".join(item.get("plain_text", "") for item in rich_text_array)
+
+
+def blocks_to_text(blocks):
+    lines = []
+    for block in blocks:
+        block_type = block.get("type", "")
+        block_data = block.get(block_type, {})
+
+        if block_type == "paragraph":
+            lines.append(extract_text(block_data.get("rich_text", [])))
+        elif block_type == "heading_1":
+            lines.append(f"# {extract_text(block_data.get('rich_text', []))}")
+        elif block_type == "heading_2":
+            lines.append(f"## {extract_text(block_data.get('rich_text', []))}")
+        elif block_type == "heading_3":
+            lines.append(f"### {extract_text(block_data.get('rich_text', []))}")
+        elif block_type == "bulleted_list_item":
+            lines.append(f"- {extract_text(block_data.get('rich_text', []))}")
+        elif block_type == "numbered_list_item":
+            lines.append(f"1. {extract_text(block_data.get('rich_text', []))}")
+        elif block_type == "quote":
+            lines.append(f"> {extract_text(block_data.get('rich_text', []))}")
+        elif block_type == "callout":
+            text = extract_text(block_data.get("rich_text", []))
+            if text and text[0].isdigit() and ". " in text[:5]:
+                num_end = text.index(". ") + 2
+                rest = text[num_end:]
+                first_period = rest.find(". ")
+                if first_period > 0:
+                    title_part = rest[: first_period + 1]
+                    desc_part = rest[first_period + 2 :]
+                    lines.append(f"> **{text[:num_end]}{title_part}** {desc_part}")
+                else:
+                    lines.append(f"> **{text}**")
+            else:
+                lines.append(f"> {text}")
+        elif block_type == "code":
+            text = extract_text(block_data.get("rich_text", []))
+            lang = block_data.get("language", "")
+            lines.append(f"```{lang}\n{text}\n```")
+        elif block_type == "divider":
+            lines.append("---")
+        elif block_type == "image":
+            caption = extract_text(block_data.get("caption", []))
+            if caption:
+                lines.append(f"![{caption}]")
+
+    return "\n\n".join(lines)
+
+
+def generate_slug(title):
+    slug = title.lower()
+    for c in ["'", "\u2019", '"', ":", ".", ",", "?", "!", "(", ")", "&", "\u2018"]:
+        slug = slug.replace(c, "")
+    slug = slug.replace(" ", "-")
+    while "--" in slug:
+        slug = slug.replace("--", "-")
+    return slug.strip("-")
+
+
+# ─── Fetch Draft ─────────────────────────────────────────────────────────────
+
+def fetch_draft():
+    """Find the latest Ready or Drafting article in the LH Content Vault."""
+    for status in ("Ready", "Drafting"):
+        filter_obj = {
+            "and": [
+                {"property": "Status", "select": {"equals": status}},
+                {"property": "Platform", "select": {"equals": "leadhuman.ai"}},
+                {"property": "Content Type", "select": {"equals": "Article"}},
+            ]
+        }
+        page = notion_query_database(LH_CONTENT_VAULT_DB_ID, filter_obj)
+        if page:
+            break
+    else:
+        return None
+
+    page_id = page["id"]
+    props = page.get("properties", {})
+
+    title = extract_text(props.get("Title", {}).get("title", []))
+    if not title:
+        return None
+
+    slug = extract_text(props.get("Slug", {}).get("rich_text", []))
+    if not slug:
+        slug = generate_slug(title)
+
+    tags_prop = props.get("Tags", {}).get("multi_select", [])
+    tags = [t.get("name", "") for t in tags_prop] if tags_prop else []
+
+    hub = extract_text(props.get("Hub", {}).get("rich_text", [])) or "/lead/"
+
+    blocks = notion_get_page_blocks(page_id)
+    content = blocks_to_text(blocks)
+
+    # Strip frontmatter if present
+    fm_match = re.search(r"^(---\n.*?\n---)\s*\n", content, re.DOTALL)
+    if fm_match:
+        article_content = content[fm_match.end() :].strip()
+    else:
+        article_content = content
+
+    # Strip LinkedIn companion post
+    lm = article_content.find("## LinkedIn Companion Post")
+    if lm > 0:
+        sep = article_content.rfind("---", 0, lm)
+        if sep > 10:
+            article_content = article_content[:sep].rstrip()
+        else:
+            article_content = article_content[:lm].rstrip()
+
+    return {
+        "page_id": page_id,
+        "title": title,
+        "slug": slug,
+        "tags": tags,
+        "hub": hub,
+        "article_content": article_content,
+    }
+
+
+# ─── Scene Prompt ────────────────────────────────────────────────────────────
+
+def generate_scene_prompt(title, article_content):
+    """Use Claude to generate a scene description for the illustration."""
+    api_key = os.environ.get("ANTHROPIC_API_KEY", "")
+    if not api_key:
+        # Fallback: generic scene based on title
+        return f"A young Japanese-American professional man in a modern Tokyo office setting, contemplating the theme of '{title}'"
+
+    try:
+        import anthropic
+
+        client = anthropic.Anthropic(api_key=api_key)
+        response = client.messages.create(
+            model="claude-haiku-4-5-20251001",
+            max_tokens=200,
+            messages=[
+                {
+                    "role": "user",
+                    "content": (
+                        f"Generate a short scene description (1-2 sentences) for an editorial "
+                        f"illustration of a young Japanese-American professional man. The scene "
+                        f"should visually represent the theme of this blog post:\n\n"
+                        f"Title: {title}\n\n"
+                        f"Article excerpt: {article_content[:500]}\n\n"
+                        f"The scene should be a warm, everyday setting (office, cafe, park, "
+                        f"train station, meeting room, etc.) that metaphorically connects to "
+                        f"the article's theme. Just output the scene description, nothing else."
+                    ),
+                }
+            ],
+        )
+        return response.content[0].text.strip()
+    except Exception as e:
+        print(f"Claude scene prompt failed: {e}", file=sys.stderr)
+        return f"A young Japanese-American professional man in a modern Tokyo office setting, contemplating the theme of '{title}'"
+
+
+# ─── Telegram ────────────────────────────────────────────────────────────────
+
+def send_telegram(message):
+    if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
+        print("Telegram not configured, skipping notification")
+        return
+    try:
+        requests.post(
+            f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage",
+            json={
+                "chat_id": TELEGRAM_CHAT_ID,
+                "text": message,
+                "parse_mode": "Markdown",
+            },
+        )
+    except Exception as e:
+        print(f"Telegram send failed: {e}", file=sys.stderr)
+
+
+# ─── Main ────────────────────────────────────────────────────────────────────
+
+def main():
+    parser = argparse.ArgumentParser(description="Cloud Publisher for leadhuman.ai")
+    parser.add_argument("--slug", help="Post slug (overrides Notion)")
+    parser.add_argument("--prompt", help="Scene prompt (overrides auto-generation)")
+    parser.add_argument("--vibe", help="Outfit vibe")
+    parser.add_argument("--season", help="Season filter")
+    parser.add_argument("--skip-image", action="store_true", help="Publish without generating an image")
+    args = parser.parse_args()
+
+    # Step 1: Get the draft
+    print("=" * 50)
+    print("  CLOUD PUBLISHER — leadhuman.ai")
+    print("=" * 50)
+
+    print("\n[1/6] Fetching draft from Notion...")
+    draft = fetch_draft()
+    if not draft:
+        print("No drafts found in Notion Content Vault. Nothing to publish.")
+        sys.exit(0)
+
+    title = draft["title"]
+    slug = args.slug or draft["slug"]
+    tags = draft["tags"]
+    hub = draft["hub"]
+    article_content = draft["article_content"]
+    page_id = draft["page_id"]
+    hub_path = "build" if hub == "/build/" else "lead"
+
+    print(f"  Title: {title}")
+    print(f"  Slug: {slug}")
+    print(f"  Hub: /{hub_path}/")
+    print(f"  Tags: {tags}")
+
+    # Step 2: Generate image
+    has_image = False
+    if not args.skip_image:
+        print("\n[2/6] Generating scene prompt...")
+        scene_prompt = args.prompt or generate_scene_prompt(title, article_content)
+        print(f"  Scene: {scene_prompt}")
+
+        print("\n[3/6] Generating Ivy Boys illustration...")
+        try:
+            from generate import generate
+
+            output_path = generate(scene_prompt, slug, vibe=args.vibe, season=args.season)
+            if output_path and Path(output_path).exists():
+                has_image = True
+                print(f"  Image saved: {output_path}")
+            else:
+                print("  Image generation returned no file — publishing without image")
+        except Exception as e:
+            print(f"  Image generation failed: {e} — publishing without image", file=sys.stderr)
+    else:
+        print("\n[2/6] Skipping image generation (--skip-image)")
+        print("[3/6] Skipped")
+
+    # Step 3: Write markdown
+    print("\n[4/6] Writing markdown...")
+    content_path = CONTENT_DIR / hub_path / f"{slug}.md"
+    content_path.parent.mkdir(parents=True, exist_ok=True)
+
+    today = datetime.now().strftime("%Y-%m-%d")
+    tags_str = json.dumps(tags)
+    description = article_content[:150].replace('"', "'").replace("\n", " ").strip()
+
+    image_line = f'\nimage: "../../assets/images/posts/{slug}.png"' if has_image else ""
+    frontmatter = (
+        f'---\n'
+        f'title: "{title}"\n'
+        f'description: "{description}"\n'
+        f'pubDate: {today}\n'
+        f'tags: {tags_str}\n'
+        f'author: "Jay Vergara"'
+        f'{image_line}\n'
+        f'draft: false\n'
+        f'---\n\n'
+    )
+    content_path.write_text(frontmatter + article_content + "\n", encoding="utf-8")
+    print(f"  Wrote: {content_path}")
+
+    # Step 4: Update Notion
+    print("\n[5/6] Updating Notion status to 'Live'...")
+    notion_update_status(page_id, "Live")
+
+    # Step 5: Notify
+    url = f"https://leadhuman.ai/{hub_path}/{slug}"
+    print(f"\n[6/6] Sending Telegram notification...")
+    img_status = "with custom illustration" if has_image else "without image"
+    send_telegram(
+        f"\U0001f4dd *leadhuman.ai Auto-Published*\n\n"
+        f"*{title}*\n"
+        f"Published {img_status}\n\n"
+        f"{url}"
+    )
+
+    print(f"\n{'=' * 50}")
+    print(f"  PUBLISHED: {url}")
+    print(f"  Image: {'Yes' if has_image else 'No'}")
+    print(f"{'=' * 50}")
+
+
+if __name__ == "__main__":
+    main()
