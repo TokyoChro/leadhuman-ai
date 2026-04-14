@@ -56,4 +56,4 @@ If this resonates, I'd love to continue the conversation on LinkedIn.
 
 - Frick, N. R. J., et al. (2021). [Maneuvering through the stormy seas of digital transformation: the impact of empowering leadership on the AI readiness of enterprises](https://consensus.app/papers/details/6b4926b44c425c338b95409c6c96663b/?utm_source=claude_desktop). Journal of Decision Systems.
 
-- Checkr (2026). Under Tension: The Manager-Employee AI Divide Report.
+- Checkr (2026). [Under Tension: The Manager-Employee AI Divide Report](https://checkr.com/resources/articles/manager-employee-ai-divide-report-2026).
