@@ -8,6 +8,14 @@ leadhuman.ai is a thought leadership platform by Jay Vergara, an L&D strategist 
 
 Jay is a Partner and Lead Learning Consultant at Peak Potential Consulting, with experience at Indeed, Rakuten, TELUS, and Yellow Pages. He is currently completing his MBA at GLOBIS University.
 
+## Languages
+
+The site is available in English (default) and Japanese:
+- English: https://leadhuman.ai/
+- Japanese: https://leadhuman.ai/ja/
+
+All content, pages, and blog posts are fully translated and localized.
+
 ## Content
 
 The site publishes two types of content:
@@ -29,6 +37,11 @@ Insights on leadership, cross-cultural communication, L&D strategy, and how peop
 - [Your Team Wants the Hard Conversation You Keep Avoiding](https://leadhuman.ai/lead/hard-conversation/): Most managers think they're protecting their team by softening feedback. The research says the opposite.
 - [When Your Quietest Team Members Have the Most to Say](https://leadhuman.ai/lead/quiet-team-members/): Silence in meetings doesn't mean disengagement. It often means the environment isn't designed for how they think.
 - [Stop Asking for Feedback. Start Sharing It.](https://leadhuman.ai/lead/stop-asking-start-sharing-feedback/): What actually builds psychological safety is sharing the feedback you've already received.
+- [The Part of Management AI Can't Automate](https://leadhuman.ai/lead/the-part-of-management-ai-cant-automate/): AI can automate workflows but it can't navigate the messy human dynamics that make teams actually work.
+- [Your Team Is Using AI Behind Your Back](https://leadhuman.ai/lead/your-team-is-using-ai-behind-your-back/): 57% of employees hide their AI usage from employers. That's not a tech problem, it's a leadership problem.
+- [The People AI Was Supposed to Replace Are Running It](https://leadhuman.ai/lead/the-people-ai-was-supposed-to-replace/): Middle managers aren't overhead. They're the translation layer that makes AI adoption actually work.
+- [Your Team Isn't Broken, Your AI Rollout Is](https://leadhuman.ai/lead/your-team-isnt-broken-your-ai-rollout-is/): Most AI rollout failures aren't about the technology. They're about the gap between how leaders talk about AI and how teams experience it.
+- [The Trust Gap Behind Every Failed AI Rollout](https://leadhuman.ai/lead/your-team-isnt-resisting-ai-theyre-resisting-you/): When teams resist AI, they're usually not resisting the technology. They're resisting how it was introduced.
 
 ## Content Pillars
 
@@ -51,3 +64,11 @@ TikTok: https://www.tiktok.com/@leadhuman.ai
 - Connect: https://leadhuman.ai/connect/
 - RSS: https://leadhuman.ai/rss.xml
 - Sitemap: https://leadhuman.ai/sitemap-index.xml
+
+## Japanese Key Pages
+
+- Homepage: https://leadhuman.ai/ja/
+- About: https://leadhuman.ai/ja/about/
+- Build with AI: https://leadhuman.ai/ja/build/
+- Lead Humanly: https://leadhuman.ai/ja/lead/
+- Videos: https://leadhuman.ai/ja/videos/
