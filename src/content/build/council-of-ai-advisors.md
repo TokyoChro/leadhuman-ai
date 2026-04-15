@@ -8,7 +8,7 @@ image: "../../assets/images/posts/council-of-ai-advisors.png"
 draft: false
 ---
 
-I run a consulting business and I write across three platforms and I'm trying to be a present dad through all of it.
+I run [Peak Potential Consulting](https://peakpotentialconsulting.com/about) and I write across three platforms and I'm trying to be a present dad through all of it.
 
 A year ago all of that lived in my head and a growing pile of half finished notes. I was using AI the way most people do. Open Claude, ask a question, get an answer, move on. Every conversation started from zero.
 

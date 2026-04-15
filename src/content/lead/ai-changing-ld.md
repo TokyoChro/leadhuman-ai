@@ -54,7 +54,7 @@ Knowing the difference between AI that enhances learning and AI that simulates i
 
 ---
 
-The window between 'early adopter' and 'too late' is shorter than most L&D leaders think. The ones who start experimenting now will define what good looks like for everyone else.
+The window between 'early adopter' and 'too late' is shorter than most L&D leaders think. The ones who start experimenting now will define what good looks like for everyone else. It's exactly these challenges that I work on with L&D teams through [our workshops at Peak Potential](https://peakpotentialconsulting.com/services/team-workshops), helping them figure out what to automate, what to protect, and how to build the skills that actually matter right now.
 
 ---
 

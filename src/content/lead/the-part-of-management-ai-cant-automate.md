@@ -56,7 +56,7 @@ Here's what I'd actually do if I were leading an L&D function right now:
 
 The irony is that the companies cutting middle management to save money are going to spend more rebuilding the capabilities they lost. We saw it in the 90s with reengineering and we're going to see it again. The 42% of employees who expect their roles to change significantly need someone to help them through that change. AI can surface the data. It can't sit across from someone and help them figure out what they're actually afraid of.
 
-I don't think middle management is dead. I think it's being forced to become what it should have been all along.
+I don't think middle management is dead. I think it's being forced to become what it should have been all along. If you're trying to figure out what that looks like in practice for your organization, that's the kind of work [we do at Peak Potential Consulting](https://peakpotentialconsulting.com/services/organizational-consulting).
 
 What are you seeing in your organization? Are managers being supported through this shift or quietly shown the door?
 

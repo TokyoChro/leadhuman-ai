@@ -40,7 +40,7 @@ So what does a leader actually do with this?
 
 ---
 
-To be frank, the companies getting this right aren't the ones with the most tools. They're the ones where leadership treats cognitive load as a real operational constraint and not a soft skills problem. The technology was never the hard part and it still isn't.
+To be frank, the companies getting this right aren't the ones with the most tools. They're the ones where leadership treats cognitive load as a real operational constraint and not a soft skills problem. The technology was never the hard part and it still isn't. If your team is stuck in that gap between adoption and actual productivity, that's something [we help organizations work through in our workshops](https://peakpotentialconsulting.com/services/team-workshops).
 
 What's one AI task your team is doing right now that secretly costs more time than it saves? I'm genuinely curious what you're seeing out there.
 

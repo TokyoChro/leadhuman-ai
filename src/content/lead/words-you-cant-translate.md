@@ -54,7 +54,7 @@ Every language has these untranslatable concepts. The Filipino 'pakikisama' whic
 
 ---
 
-The untranslatable words are the keys, and they just don't fit any lock you already own.
+The untranslatable words are the keys, and they just don't fit any lock you already own. If your organization is trying to build that kind of cross cultural fluency (especially across Japanese and Western business contexts), that's something [we help teams develop at Peak Potential](https://peakpotentialconsulting.com/services/cross-cultural-services).
 
 ---
 
