@@ -22,4 +22,14 @@ const lead = defineCollection({
   schema: postSchema,
 });
 
-export const collections = { build, lead };
+const buildJa = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/build-ja" }),
+  schema: postSchema,
+});
+
+const leadJa = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/lead-ja" }),
+  schema: postSchema,
+});
+
+export const collections = { build, lead, buildJa, leadJa };

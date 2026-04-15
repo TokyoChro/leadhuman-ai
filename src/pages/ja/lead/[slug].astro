@@ -1,0 +1,124 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import AuthorBio from "../../../components/AuthorBio.astro";
+import RelatedPostsJa from "../../../components/RelatedPostsJa.astro";
+import { Image } from "astro:assets";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("leadJa");
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const formattedDate = post.data.pubDate.toLocaleDateString("ja-JP", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+
+const words = (post.body || "").split(/\s+/).length;
+const readingTime = Math.ceil(words / 200);
+
+const jsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": post.data.title,
+  "description": post.data.description,
+  "image": post.data.image ? new URL(post.data.image.src, Astro.site).href : undefined,
+  "inLanguage": "ja",
+  "author": {
+    "@type": "Person",
+    "name": "Jay Vergara",
+    "url": "https://leadhuman.ai/about/",
+    "sameAs": [
+      "https://linkedin.com/in/vergarajay/",
+      "https://www.youtube.com/@leadhumanai",
+      "https://www.tiktok.com/@leadhuman.ai"
+    ]
+  },
+  "datePublished": post.data.pubDate.toISOString(),
+  "dateModified": post.data.pubDate.toISOString(),
+  "wordCount": words,
+  "articleSection": "人間らしく導く",
+  "publisher": {
+    "@type": "Organization",
+    "name": "leadhuman.ai",
+    "url": "https://leadhuman.ai",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://leadhuman.ai/leadhuman-icon-1200.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": Astro.url.href
+  }
+});
+
+const breadcrumbJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://leadhuman.ai/ja/" },
+    { "@type": "ListItem", "position": 2, "name": "人間らしく導く", "item": "https://leadhuman.ai/ja/lead/" },
+    { "@type": "ListItem", "position": 3, "name": post.data.title }
+  ]
+});
+---
+
+<BaseLayout title={post.data.title} description={post.data.description} image={post.data.image?.src} ogType="article">
+  <script type="application/ld+json" set:html={jsonLd} slot="head" />
+  <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
+  <article>
+    <a href="/ja/lead/" class="text-sm text-emerald-800 hover:text-emerald-600 transition-colors">&larr; 人間らしく導く</a>
+    <header class="mt-6 mb-8">
+      {post.data.image && (
+        <div class="about-image-wrap relative mt-4 mb-6">
+          <div class="relative overflow-hidden rounded">
+            <Image
+              src={post.data.image}
+              alt={post.data.title}
+              width={896}
+              format="webp"
+              quality={80}
+              class="w-full"
+              loading="eager"
+            />
+          </div>
+        </div>
+      )}
+      <div class="mb-3">
+        <span class="text-xs font-semibold px-2 py-0.5 rounded-full text-white bg-ivy">人間らしく導く</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-bold text-heading">{post.data.title}</h1>
+      <div class="flex items-center gap-3 mt-4 mb-4 text-sm text-stone-500">
+        <div class="w-8 h-8 rounded-full bg-emerald-800 flex items-center justify-center text-white text-xs font-bold shrink-0">JV</div>
+        <div>
+          <span class="text-stone-700 font-medium">Jay Vergara</span>
+          <span class="mx-2">&middot;</span>
+          <span>{formattedDate}</span>
+          <span class="mx-2">&middot;</span>
+          <span>{readingTime}分で読める</span>
+        </div>
+      </div>
+      {post.data.tags.length > 0 && (
+        <div class="flex flex-wrap gap-2">
+          {post.data.tags.map((tag) => (
+            <span class="px-2 py-0.5 text-xs rounded-full bg-stone-200 text-stone-600">{tag}</span>
+          ))}
+        </div>
+      )}
+    </header>
+    <div class="prose prose-lg prose-ecru max-w-none">
+      <Content />
+    </div>
+    <AuthorBio />
+    <RelatedPostsJa currentId={post.id} currentTags={post.data.tags} collection="leadJa" />
+  </article>
+</BaseLayout>

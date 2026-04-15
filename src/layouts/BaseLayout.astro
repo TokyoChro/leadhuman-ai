@@ -1,6 +1,8 @@
 ---
 import "../styles/global.css";
 import { ClientRouter } from "astro:transitions";
+import { getLangFromUrl, useTranslations, getLocalePath, getAlternateLang } from "../i18n/utils";
+import { languages } from "../i18n/ui";
 
 interface Props {
   title: string;
@@ -9,23 +11,37 @@ interface Props {
   ogType?: string;
 }
 
-const { title, description = "Lead humanly. Learn constantly. Build with AI.", image, ogType = "website" } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const altLang = getAlternateLang(lang);
+
+const { title, description = t('hero.tagline'), image, ogType = "website" } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
 const currentPath = Astro.url.pathname;
-const isHome = currentPath === "/";
+const isHome = currentPath === "/" || currentPath === "/ja/" || currentPath === "/ja";
 const pageTitle = isHome
-  ? "leadhuman.ai — Lead humanly. Learn constantly. Build with AI."
+  ? `leadhuman.ai — ${t('hero.tagline')}`
   : `${title} | leadhuman.ai`;
 
+// Build alternate URL for hreflang
+const pathWithoutLang = lang === 'ja' ? currentPath.replace(/^\/ja/, '') || '/' : currentPath;
+const alternateURL = new URL(getLocalePath(altLang, pathWithoutLang), Astro.site).href;
+const currentLangURL = new URL(currentPath, Astro.site).href;
+
 const ogImageUrl = image ? new URL(image, Astro.site).href : new URL("/leadhuman-icon-1200.png", Astro.site).href;
+const ogLocale = lang === 'ja' ? 'ja_JP' : 'en_US';
+const ogLocaleAlt = lang === 'ja' ? 'en_US' : 'ja_JP';
 
 const websiteJsonLd = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "leadhuman.ai",
   "url": "https://leadhuman.ai",
-  "description": "AI tutorials, leadership development, L&D strategy, and cross-cultural communication insights by Jay Vergara from Tokyo.",
+  "inLanguage": lang,
+  "description": lang === 'ja'
+    ? "東京在住のJay VergaraによるAIチュートリアル、リーダーシップ開発、L&D戦略、異文化コミュニケーションの知見。"
+    : "AI tutorials, leadership development, L&D strategy, and cross-cultural communication insights by Jay Vergara from Tokyo.",
   "author": { "@type": "Person", "name": "Jay Vergara" }
 });
 
@@ -48,15 +64,15 @@ const orgJsonLd = JSON.stringify({
 });
 
 const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/build/", label: "Build with AI" },
-  { href: "/lead/", label: "Lead Humanly" },
-  { href: "/videos/", label: "Videos" },
-  { href: "/about/", label: "About" },
+  { href: getLocalePath(lang, "/"), label: t('nav.home') },
+  { href: getLocalePath(lang, "/build/"), label: t('nav.build') },
+  { href: getLocalePath(lang, "/lead/"), label: t('nav.lead') },
+  { href: getLocalePath(lang, "/videos/"), label: t('nav.videos') },
+  { href: getLocalePath(lang, "/about/"), label: t('nav.about') },
 ];
 ---
 
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="/leadhuman-icon-1200.png" />
@@ -74,7 +90,8 @@ const navLinks = [
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:site_name" content="leadhuman.ai" />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:locale:alternate" content={ogLocaleAlt} />
     <meta property="og:image" content={ogImageUrl} />
 
     <!-- Twitter -->
@@ -83,8 +100,11 @@ const navLinks = [
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
 
-    <!-- Canonical URL -->
+    <!-- Canonical & hreflang -->
     <link rel="canonical" href={canonicalURL} />
+    <link rel="alternate" hreflang={lang} href={currentLangURL} />
+    <link rel="alternate" hreflang={altLang} href={alternateURL} />
+    <link rel="alternate" hreflang="x-default" href={new URL(pathWithoutLang, Astro.site).href} />
     <link rel="alternate" type="application/rss+xml" title="leadhuman.ai" href="/rss.xml" />
 
     <!-- WebSite & Organization Schema -->
@@ -95,15 +115,16 @@ const navLinks = [
     <slot name="head" />
   </head>
   <body class="bg-ecru text-body min-h-screen flex flex-col font-sans">
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-ivy focus:text-white focus:px-4 focus:py-2 focus:rounded-md">Skip to content</a>
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-ivy focus:text-white focus:px-4 focus:py-2 focus:rounded-md">{t('common.skipToContent')}</a>
     <nav class="bg-ecru" style="box-shadow: 0 1px 3px rgba(0,0,0,0.06);" aria-label="Main navigation">
       <div class="max-w-4xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <a href="/" class="text-xl font-bold tracking-tight text-ivy hover:text-ivy-light transition-colors">
+        <a href={getLocalePath(lang, "/")} class="text-xl font-bold tracking-tight text-ivy hover:text-ivy-light transition-colors">
           leadhuman.ai
         </a>
         <div class="flex flex-wrap items-center justify-center gap-1 sm:gap-2 text-sm text-body">
           {navLinks.map((link) => {
-            const isActive = link.href === "/" ? isHome : currentPath.startsWith(link.href);
+            const homeHref = getLocalePath(lang, "/");
+            const isActive = link.href === homeHref ? isHome : currentPath.startsWith(link.href);
             return (
               <a
                 href={link.href}
@@ -114,6 +135,13 @@ const navLinks = [
               </a>
             );
           })}
+          <a
+            href={getLocalePath(altLang, pathWithoutLang)}
+            class="px-3 py-2.5 rounded-md transition-colors whitespace-nowrap text-muted hover:text-ivy border border-stone-300 text-xs font-medium ml-1"
+            aria-label={`Switch to ${languages[altLang]}`}
+          >
+            {t('lang.switch')}
+          </a>
         </div>
       </div>
     </nav>
@@ -125,13 +153,13 @@ const navLinks = [
     <footer class="bg-ecru border-t border-stone-300">
       <div class="max-w-4xl mx-auto px-4 py-6">
         <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-sm text-muted mb-2">
-          <a href="/" class="hover:text-ivy transition-colors">Home</a>
-          <a href="/build/" class="hover:text-ivy transition-colors">Build with AI</a>
-          <a href="/lead/" class="hover:text-ivy transition-colors">Lead Humanly</a>
-          <a href="/about/" class="hover:text-ivy transition-colors">About</a>
+          <a href={getLocalePath(lang, "/")} class="hover:text-ivy transition-colors">{t('nav.home')}</a>
+          <a href={getLocalePath(lang, "/build/")} class="hover:text-ivy transition-colors">{t('nav.build')}</a>
+          <a href={getLocalePath(lang, "/lead/")} class="hover:text-ivy transition-colors">{t('nav.lead')}</a>
+          <a href={getLocalePath(lang, "/about/")} class="hover:text-ivy transition-colors">{t('nav.about')}</a>
           <a href="/rss.xml" class="hover:text-ivy transition-colors">RSS</a>
         </div>
-        <p class="text-center text-sm text-muted">Jay Vergara <span aria-hidden="true">&middot;</span> Tokyo <span aria-hidden="true">&middot;</span> Lead humanly. Learn constantly. Build with AI.</p>
+        <p class="text-center text-sm text-muted">{t('footer.tagline')}</p>
       </div>
     </footer>
 

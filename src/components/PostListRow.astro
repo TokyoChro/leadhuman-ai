@@ -15,12 +15,14 @@ interface Props {
   category?: "build" | "lead";
   readingTime?: number;
   image?: ImageMetadata;
+  lang?: "en" | "ja";
 }
 
-const { title, description, pubDate, href, category, readingTime, image } = Astro.props;
-const formattedDate = pubDate.toLocaleDateString("en-US", {
+const { title, description, pubDate, href, category, readingTime, image, lang = "en" } = Astro.props;
+const dateLocale = lang === "ja" ? "ja-JP" : "en-US";
+const formattedDate = pubDate.toLocaleDateString(dateLocale, {
   year: "numeric",
-  month: "short",
+  month: lang === "ja" ? "long" : "short",
   day: "numeric",
 });
 
@@ -51,7 +53,7 @@ const borderColor = category === "build" ? "border-sky-700" : "border-emerald-80
         )}
         <time class="text-sm text-muted" datetime={pubDate.toISOString()}>{formattedDate}</time>
         {readingTime && (
-          <span class="text-sm text-muted">&middot; {readingTime} min read</span>
+          <span class="text-sm text-muted">&middot; {readingTime}{lang === "ja" ? "分で読める" : " min read"}</span>
         )}
       </div>
       <h3 class="text-xl font-bold text-heading group-hover:text-ivy transition-colors leading-snug">{title}</h3>

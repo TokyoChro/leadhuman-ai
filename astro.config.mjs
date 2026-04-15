@@ -20,6 +20,16 @@ export default defineConfig({
     rehypePlugins: [rehypeNumberedCallouts],
   },
 
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'ja'],
+    fallback: { ja: 'en' },
+    routing: {
+      prefixDefaultLocale: false,
+      fallbackType: 'rewrite',
+    },
+  },
+
   adapter: vercel(),
   integrations: [sitemap()]
 });

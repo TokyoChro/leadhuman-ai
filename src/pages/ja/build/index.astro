@@ -1,0 +1,33 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import PostCard from "../../../components/PostCard.astro";
+import { getCollection } from "astro:content";
+import { getReadingTime } from "../../../utils/reading-time";
+
+const posts = (await getCollection("buildJa", ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout title="AIで創る" description="AIを使ったツール、ワークフロー、実験の記録。">
+  <h1 class="text-3xl font-bold mb-2 text-heading">AIで創る</h1>
+  <p class="text-muted mb-8">AIを使ったツール、ワークフロー、実験の記録。</p>
+
+  <div class="grid gap-4 sm:grid-cols-2">
+    {posts.map((post) => (
+      <PostCard
+        title={post.data.title}
+        description={post.data.description}
+        pubDate={post.data.pubDate}
+        href={`/ja/build/${post.id}/`}
+        category="build"
+        readingTime={getReadingTime(post.body)}
+        image={post.data.image}
+        lang="ja"
+      />
+    ))}
+  </div>
+
+  {posts.length === 0 && (
+    <p class="text-muted italic">まだ記事がありません。もうしばらくお待ちください。</p>
+  )}
+</BaseLayout>

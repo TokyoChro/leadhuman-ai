@@ -1,0 +1,381 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PostListRow from "../../components/PostListRow.astro";
+import ExpertisePillar from "../../components/ExpertisePillar.astro";
+import YouTubeLite from "../../components/YouTubeLite.astro";
+import { getCollection } from "astro:content";
+import { getReadingTime } from "../../utils/reading-time";
+import { getLangFromUrl, useTranslations, getLocalePath } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const heroCount = 6;
+
+const buildPosts = (await getCollection("buildJa", ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+
+const leadPosts = (await getCollection("leadJa", ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+
+const faqJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Jay Vergaraとは？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Jay Vergara（ジェイ・ベルガラ）は東京を拠点とするL&D戦略家、リーダーシップ開発コンサルタント、AIトレーナーです。企業研修プログラムの構築、マネージャーの育成、人材開発へのAI統合を支援しています。Indeed、楽天、TELUS、Yellow Pagesでの勤務経験があり、グロービス経営大学院でMBAを取得中です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "leadhuman.aiとは？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "leadhuman.aiはJay Vergaraが運営する思想発信プラットフォームです。HR・L&DチームのためのAIチュートリアル、リーダーシップ開発フレームワーク、異文化ビジネスコミュニケーション、企業研修戦略を扱っています。実践的なガイド、オピニオン記事、動画チュートリアルを公開しています。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Jay Vergaraはどんなテーマについて書いていますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Jayは企業研修・L&D戦略、マネージャー・リーダーシップ開発、HR・L&DチームのためのAI、異文化ビジネスコミュニケーションについて書いています。東京での10年以上の異文化経験に基づいたコンテンツを発信しています。"
+      }
+    }
+  ]
+});
+
+const personJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Jay Vergara",
+  "url": "https://leadhuman.ai",
+  "image": "https://leadhuman.ai/images/hero/hero-workspace.png",
+  "jobTitle": "L&D Strategist & Leadership Development Consultant",
+  "alumniOf": {
+    "@type": "EducationalOrganization",
+    "name": "GLOBIS University"
+  },
+  "knowsAbout": [
+    "Learning and Development",
+    "Leadership Development",
+    "AI Training",
+    "Cross-Cultural Communication",
+    "Manager Development",
+    "Corporate Learning Strategy"
+  ],
+  "sameAs": [
+    "https://linkedin.com/in/vergarajay/",
+    "https://www.youtube.com/@leadhumanai",
+    "https://www.tiktok.com/@leadhuman.ai"
+  ]
+});
+---
+
+<BaseLayout
+  title="leadhuman.ai — AIチュートリアル・リーダーシップ | Jay Vergara"
+  description="Jay Vergara（ジェイ・ベルガラ）は東京を拠点とするL&D戦略家、リーダーシップ開発コンサルタント、AIトレーナー。実践的なチュートリアル、異文化コミュニケーションの知見、リーダーシップ戦略をleadhuman.aiで発信中。"
+>
+  <script type="application/ld+json" set:html={personJsonLd} slot="head" />
+  <script type="application/ld+json" set:html={faqJsonLd} slot="head" />
+
+  <!-- Hero: Editorial Spread -->
+  <section class="py-12 md:py-20">
+    <div class="grid md:grid-cols-[1fr_auto] gap-8 md:gap-14 items-center">
+
+      <!-- Text column -->
+      <div class="order-2 md:order-1" id="hero-text-col">
+
+        <div class="hero-subtitle flex items-center gap-3 mb-5 text-xs tracking-[0.2em] uppercase text-muted font-medium">
+          <span class="hero-dot inline-block w-2 h-2 rounded-full bg-ivy"></span>
+          <span>{t('hero.location1')}</span>
+          <span class="text-divider">—</span>
+          <span>{t('hero.location2')}</span>
+        </div>
+
+        <h1 class="hero-name text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-heading" style="line-height: 1.05;">
+          Jay<br />Vergara
+          <span class="sr-only"> — 東京在住のL&D戦略家、リーダーシップ開発コンサルタント、AIトレーナー</span>
+        </h1>
+
+        <div class="hero-line h-px bg-divider my-6 max-w-[200px]"></div>
+
+        <p class="hero-tagline text-ivy font-medium italic whitespace-nowrap" style="font-style: italic; font-size: clamp(0.75rem, 2.5vw, 1.5rem);">
+          {t('hero.tagline')}
+        </p>
+
+        <p class="hero-subtitle mt-4 text-base text-muted leading-relaxed max-w-md">
+          {t('hero.subtitle')}<br />
+          {t('hero.subtitle2')}
+        </p>
+
+        <p class="hero-body mt-4 text-body leading-relaxed max-w-md" set:html={t('hero.body')} />
+
+        <div class="hero-body mt-6 flex justify-start">
+          <a href="https://linkedin.com/in/vergarajay/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 border border-ivy text-ivy text-sm font-medium rounded hover:bg-ivy hover:text-ecru transition-colors">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            {t('hero.cta')}
+          </a>
+        </div>
+      </div>
+
+      <!-- Image column: framed illustration -->
+      <div class="order-1 md:order-2 flex justify-center">
+        <div class="hero-image-wrap relative w-[280px] sm:w-[320px] md:w-[360px]">
+          <div class="relative overflow-hidden rounded" id="hero-frame" style="aspect-ratio: 3/4;">
+            {[
+              { src: "/images/hero/hero-workspace.png", alt: "東京のデスクでノートとラップトップを前に考えるJay Vergara" },
+              { src: "/images/hero/hero-facilitating.png", alt: "プロフェッショナルのグループにワークショップの図を説明するJay Vergara" },
+              { src: "/images/hero/hero-training.png", alt: "ホワイトボードの前で企業研修を行うJay Vergara" },
+              { src: "/images/hero/hero-building-ai.png", alt: "ホームオフィスでラップトップを使いAIツールを構築するJay Vergara" },
+              { src: "/images/hero/hero-ai-human.png", alt: "居心地の良いワークスペースでAIホログラフィックインターフェースと作業するJay Vergara" },
+              { src: "/images/hero/hero-consulting.png", alt: "AIダッシュボードを見ながら同僚とコンサルティングするJay Vergara" },
+            ].map((img, i) => (
+              <img
+                src={img.src}
+                alt={img.alt}
+                class:list={["hero-crossfade hero-image-drift absolute inset-0 w-full h-full object-cover object-center", { "active": i === 0 }]}
+                loading={i === 0 ? "eager" : "lazy"}
+                data-hero-index={i}
+              />
+            ))}
+          </div>
+          <!-- Image counter -->
+          <div class="absolute bottom-3 right-3 z-10 flex gap-1.5" id="hero-dots">
+            {Array.from({ length: heroCount }, (_, i) => (
+              <button
+                class:list={["relative w-3 h-3 rounded-full transition-all duration-500 before:absolute before:-inset-3 before:content-['']", i === 0 ? "bg-ivy scale-125" : "bg-divider"]}
+                data-dot={i}
+                aria-label={`画像${i + 1}を表示`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script is:inline define:vars={{ heroCount }}>
+    // Hero image crossfade rotation
+    (function() {
+      const images = document.querySelectorAll('.hero-crossfade');
+      const dots = document.querySelectorAll('[data-dot]');
+      if (!images.length) return;
+
+      let current = Math.floor(Math.random() * images.length);
+
+      // Set initial random image
+      images.forEach((img, i) => {
+        img.classList.toggle('active', i === current);
+      });
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('bg-ivy', i === current);
+        dot.classList.toggle('scale-125', i === current);
+        dot.classList.toggle('bg-divider', i !== current);
+      });
+
+      // Cycle every 8 seconds
+      setInterval(() => {
+        const prev = current;
+        current = (current + 1) % images.length;
+
+        images[prev].classList.remove('active');
+        images[current].classList.add('active');
+
+        dots[prev].classList.remove('bg-ivy', 'scale-125');
+        dots[prev].classList.add('bg-divider');
+        dots[current].classList.remove('bg-divider');
+        dots[current].classList.add('bg-ivy', 'scale-125');
+      }, 8000);
+
+      // Click dots to jump
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+          if (i === current) return;
+          images[current].classList.remove('active');
+          dots[current].classList.remove('bg-ivy', 'scale-125');
+          dots[current].classList.add('bg-divider');
+
+          current = i;
+          images[current].classList.add('active');
+          dots[current].classList.remove('bg-divider');
+          dots[current].classList.add('bg-ivy', 'scale-125');
+        });
+      });
+    })();
+  </script>
+
+  <hr class="my-12 divider-gradient" />
+
+  <!-- Latest from Build with AI -->
+  <section class="mb-16">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-2xl font-bold text-ivy">{t('section.latestBuild')}</h2>
+      <a href="/ja/build/" class="text-sm text-ivy hover:text-ivy-light transition-colors">{t('common.viewAll')} &rarr;</a>
+    </div>
+    <div class="flex flex-col gap-4">
+      {buildPosts.length > 0 ? buildPosts.map((post) => (
+        <PostListRow
+          title={post.data.title}
+          description={post.data.description}
+          pubDate={post.data.pubDate}
+          href={`/ja/build/${post.id}/`}
+          category="build"
+          readingTime={getReadingTime(post.body)}
+          image={post.data.image}
+          lang="ja"
+        />
+      )) : (
+        <p class="text-muted text-sm">{t('common.noPosts')}</p>
+      )}
+    </div>
+  </section>
+
+  <!-- Latest from Lead Humanly -->
+  <section class="mb-16">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-2xl font-bold text-ivy">{t('section.latestLead')}</h2>
+      <a href="/ja/lead/" class="text-sm text-ivy hover:text-ivy-light transition-colors">{t('common.viewAll')} &rarr;</a>
+    </div>
+    <div class="flex flex-col gap-4">
+      {leadPosts.length > 0 ? leadPosts.map((post) => (
+        <PostListRow
+          title={post.data.title}
+          description={post.data.description}
+          pubDate={post.data.pubDate}
+          href={`/ja/lead/${post.id}/`}
+          category="lead"
+          readingTime={getReadingTime(post.body)}
+          image={post.data.image}
+          lang="ja"
+        />
+      )) : (
+        <p class="text-muted text-sm">{t('common.noPosts')}</p>
+      )}
+    </div>
+  </section>
+
+  <hr class="my-12 divider-gradient" />
+
+  <!-- Expertise Pillars -->
+  <section class="mb-16">
+    <h2 class="text-2xl font-bold text-heading mb-2">{t('section.expertise')}</h2>
+    <p class="text-sm text-muted mb-6 max-w-2xl">
+      {t('section.expertiseDesc')}
+    </p>
+    <div class="grid sm:grid-cols-2 gap-4">
+      <ExpertisePillar
+        title={t('pillar.learning.title')}
+        description={t('pillar.learning.desc')}
+        accentColor="ivy"
+        href="/ja/lead/"
+      />
+      <ExpertisePillar
+        title={t('pillar.leadership.title')}
+        description={t('pillar.leadership.desc')}
+        accentColor="ivy"
+        href="/ja/lead/"
+      />
+      <ExpertisePillar
+        title={t('pillar.ai.title')}
+        description={t('pillar.ai.desc')}
+        accentColor="indigo"
+        href="/ja/build/"
+      />
+      <ExpertisePillar
+        title={t('pillar.crosscultural.title')}
+        description={t('pillar.crosscultural.desc')}
+        accentColor="coral"
+        href="/ja/lead/"
+      />
+    </div>
+  </section>
+
+  <hr class="my-12 divider-gradient" />
+
+  <!-- About Jay -->
+  <section class="mb-16">
+    <h2 class="text-2xl font-bold text-heading mb-6">{t('section.aboutJay')}</h2>
+    <div class="flex flex-col sm:flex-row gap-6 items-start">
+      <div class="about-image-wrap relative w-32 sm:w-36 shrink-0">
+        <div class="relative overflow-hidden rounded" style="aspect-ratio: 3/4;">
+          <img
+            src="/images/jay-profile.png"
+            alt="Jay Vergara"
+            class="absolute inset-0 w-full h-full object-cover"
+            style="object-position: 50% 15%;"
+            loading="lazy"
+          />
+        </div>
+      </div>
+      <div class="space-y-3 text-body leading-relaxed">
+        <p>
+          {t('home.about1')}
+        </p>
+        <p>
+          {t('home.about2')}
+        </p>
+        <p>
+          <a href="/ja/about/" class="text-ivy hover:text-ivy-light transition-colors underline">{t('home.aboutLink')}</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="my-12 divider-gradient" />
+
+  <!-- Featured Video -->
+  <section class="mb-16">
+    <h2 class="text-2xl font-bold text-heading mb-2 text-center">{t('section.videos')}</h2>
+    <p class="text-center text-muted text-sm mb-6 max-w-lg mx-auto">
+      {t('section.videosDesc')}
+    </p>
+    <div class="max-w-2xl mx-auto">
+      <YouTubeLite videoId="7q2wFn8qZEU" title="leadhuman.aiへようこそ" />
+      <p class="text-center mt-4">
+        <a href="/ja/videos/" class="text-sm text-ivy hover:text-ivy-light transition-colors">{t('common.browseVideos')} &rarr;</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="text-center py-12">
+    <p class="text-sm text-muted mb-4">{t('section.ctaDesc')}</p>
+    <div class="flex justify-center gap-4">
+      <a
+        href="https://linkedin.com/in/vergarajay/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 px-5 py-3 bg-[#0A66C2] text-white font-semibold rounded-lg hover:bg-[#004182] transition-colors"
+      >
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+      <a
+        href="https://www.youtube.com/@leadhumanai"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 px-5 py-3 bg-[#FF0000] text-white font-semibold rounded-lg hover:bg-[#cc0000] transition-colors"
+      >
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        YouTube
+      </a>
+      <a
+        href="https://www.tiktok.com/@leadhuman.ai"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 px-5 py-3 bg-[#000000] text-white font-semibold rounded-lg hover:bg-[#333333] transition-colors"
+      >
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        TikTok
+      </a>
+    </div>
+  </section>
+</BaseLayout>

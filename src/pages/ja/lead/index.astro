@@ -1,0 +1,33 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import PostCard from "../../../components/PostCard.astro";
+import { getCollection } from "astro:content";
+import { getReadingTime } from "../../../utils/reading-time";
+
+const posts = (await getCollection("leadJa", ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout title="人間らしく導く" description="リーダーシップ、学び、異文化コミュニケーション。">
+  <h1 class="text-3xl font-bold mb-2 text-heading">人間らしく導く</h1>
+  <p class="text-muted mb-8">リーダーシップ、学び、異文化コミュニケーション。</p>
+
+  <div class="grid gap-4 sm:grid-cols-2">
+    {posts.map((post) => (
+      <PostCard
+        title={post.data.title}
+        description={post.data.description}
+        pubDate={post.data.pubDate}
+        href={`/ja/lead/${post.id}/`}
+        category="lead"
+        readingTime={getReadingTime(post.body)}
+        image={post.data.image}
+        lang="ja"
+      />
+    ))}
+  </div>
+
+  {posts.length === 0 && (
+    <p class="text-muted italic">まだ記事がありません。もうしばらくお待ちください。</p>
+  )}
+</BaseLayout>
