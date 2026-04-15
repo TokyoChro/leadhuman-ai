@@ -31,5 +31,15 @@ export default defineConfig({
   },
 
   adapter: vercel(),
-  integrations: [sitemap()]
+  integrations: [
+    sitemap({
+      i18n: {
+        defaultLocale: 'en',
+        locales: {
+          en: 'en',
+          ja: 'ja',
+        },
+      },
+    }),
+  ]
 });
