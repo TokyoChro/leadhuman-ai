@@ -302,6 +302,90 @@ def link_sources(article_content):
     return before + "\n".join(result)
 
 
+# ─── Japanese Translation ──────────────────────────────────────────────────
+
+def translate_to_japanese(title, description, article_content):
+    """Translate the blog post to Japanese using Claude."""
+    api_key = os.environ.get("ANTHROPIC_API_KEY", "")
+    if not api_key:
+        print("  ANTHROPIC_API_KEY not set, skipping Japanese translation", file=sys.stderr)
+        return None
+
+    try:
+        import anthropic
+
+        client = anthropic.Anthropic(api_key=api_key)
+        response = client.messages.create(
+            model="claude-sonnet-4-6",
+            max_tokens=4096,
+            messages=[
+                {
+                    "role": "user",
+                    "content": (
+                        f"Translate the following blog post into natural, professional Japanese. "
+                        f"This is for a bilingual thought leadership site (leadhuman.ai) written "
+                        f"by Jay Vergara, a Canadian living in Tokyo.\n\n"
+                        f"RULES:\n"
+                        f"- Write in a conversational yet professional Japanese tone\n"
+                        f"- Keep the author's voice: reflective, human, slightly self-deprecating\n"
+                        f"- Do NOT use hyphens or em dashes anywhere\n"
+                        f"- Keep markdown formatting (>, **, ##, links, etc.) exactly as-is\n"
+                        f"- Keep all URLs, citation links, and source references unchanged\n"
+                        f"- Keep author name as 'Jay Vergara' (do not transliterate)\n"
+                        f"- Keep English terms in quotes when they are used as named concepts\n"
+                        f"- Statistics and numbers stay as-is\n"
+                        f"- The Sources section should keep paper titles in English but add a brief "
+                        f"Japanese note for the journal name if helpful\n\n"
+                        f"Return your response in this exact format:\n"
+                        f"TITLE: [translated title]\n"
+                        f"DESCRIPTION: [translated description, max 150 chars]\n"
+                        f"BODY:\n[translated article body]\n\n"
+                        f"---\n\n"
+                        f"TITLE TO TRANSLATE: {title}\n\n"
+                        f"DESCRIPTION TO TRANSLATE: {description}\n\n"
+                        f"ARTICLE BODY TO TRANSLATE:\n{article_content}"
+                    ),
+                }
+            ],
+        )
+        result = response.content[0].text.strip()
+
+        # Parse the response
+        ja_title = ""
+        ja_description = ""
+        ja_body = ""
+
+        lines = result.split("\n")
+        mode = None
+        body_lines = []
+
+        for line in lines:
+            if line.startswith("TITLE:"):
+                ja_title = line[6:].strip().strip('"')
+            elif line.startswith("DESCRIPTION:"):
+                ja_description = line[12:].strip().strip('"')
+            elif line.startswith("BODY:"):
+                mode = "body"
+            elif mode == "body":
+                body_lines.append(line)
+
+        ja_body = "\n".join(body_lines).strip()
+
+        if not ja_title or not ja_body:
+            print("  Translation parse failed: missing title or body", file=sys.stderr)
+            return None
+
+        return {
+            "title": ja_title,
+            "description": ja_description or ja_title,
+            "body": ja_body,
+        }
+
+    except Exception as e:
+        print(f"  Japanese translation failed: {e}", file=sys.stderr)
+        return None
+
+
 # ─── Telegram ────────────────────────────────────────────────────────────────
 
 def send_telegram(message):
@@ -337,7 +421,7 @@ def main():
     print("  CLOUD PUBLISHER — leadhuman.ai")
     print("=" * 50)
 
-    print("\n[1/6] Fetching draft from Notion...")
+    print("\n[1/7] Fetching draft from Notion...")
     draft = fetch_draft()
     if not draft:
         print("No drafts found in Notion Content Vault. Nothing to publish.")
@@ -359,11 +443,11 @@ def main():
     # Step 2: Generate image
     has_image = False
     if not args.skip_image:
-        print("\n[2/6] Generating scene prompt...")
+        print("\n[2/7] Generating scene prompt...")
         scene_prompt = args.prompt or generate_scene_prompt(title, article_content)
         print(f"  Scene: {scene_prompt}")
 
-        print("\n[3/6] Generating Ivy Boys illustration...")
+        print("\n[3/7] Generating Ivy Boys illustration...")
         try:
             from generate import generate
 
@@ -376,11 +460,11 @@ def main():
         except Exception as e:
             print(f"  Image generation failed: {e} — publishing without image", file=sys.stderr)
     else:
-        print("\n[2/6] Skipping image generation (--skip-image)")
-        print("[3/6] Skipped")
+        print("\n[2/7] Skipping image generation (--skip-image)")
+        print("[3/7] Skipped")
 
-    # Step 3: Write markdown
-    print("\n[4/6] Writing markdown...")
+    # Step 3: Write English markdown
+    print("\n[4/7] Writing English markdown...")
     content_path = CONTENT_DIR / hub_path / f"{slug}.md"
     content_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -415,24 +499,53 @@ def main():
     content_path.write_text(frontmatter + article_content + "\n", encoding="utf-8")
     print(f"  Wrote: {content_path}")
 
-    # Step 4: Update Notion
-    print("\n[5/6] Updating Notion status to 'Live'...")
+    # Step 4: Translate and write Japanese version
+    print("\n[5/7] Translating to Japanese...")
+    ja = translate_to_japanese(title, description, article_content)
+    if ja:
+        ja_hub = f"{hub_path}-ja"
+        ja_path = CONTENT_DIR / ja_hub / f"{slug}.md"
+        ja_path.parent.mkdir(parents=True, exist_ok=True)
+
+        ja_desc = ja["description"].replace('"', "'").replace("\n", " ").strip()
+        ja_frontmatter = (
+            f'---\n'
+            f'title: "{ja["title"]}"\n'
+            f'description: "{ja_desc}"\n'
+            f'pubDate: {today}\n'
+            f'tags: {tags_str}\n'
+            f'author: "Jay Vergara"'
+            f'{image_line}\n'
+            f'draft: false\n'
+            f'---\n\n'
+        )
+        ja_path.write_text(ja_frontmatter + ja["body"] + "\n", encoding="utf-8")
+        print(f"  Wrote JA: {ja_path}")
+    else:
+        print("  Japanese translation skipped (no API key or translation failed)")
+
+    # Step 5: Update Notion
+    print("\n[6/7] Updating Notion status to 'Live'...")
     notion_update_status(page_id, "Live")
 
-    # Step 5: Notify
+    # Step 6: Notify
     url = f"https://leadhuman.ai/{hub_path}/{slug}"
-    print(f"\n[6/6] Sending Telegram notification...")
+    print(f"\n[7/7] Sending Telegram notification...")
     img_status = "with custom illustration" if has_image else "without image"
+    ja_status = " + Japanese" if ja else ""
     send_telegram(
         f"\U0001f4dd *leadhuman.ai Auto-Published*\n\n"
         f"*{title}*\n"
-        f"Published {img_status}\n\n"
-        f"{url}"
+        f"Published {img_status}{ja_status}\n\n"
+        f"EN: {url}\n"
+        f"JA: https://leadhuman.ai/ja/{hub_path}/{slug}"
     )
 
     print(f"\n{'=' * 50}")
     print(f"  PUBLISHED: {url}")
+    print(f"  JA: https://leadhuman.ai/ja/{hub_path}/{slug}")
     print(f"  Image: {'Yes' if has_image else 'No'}")
+    print(f"  Japanese: {'Yes' if ja else 'No'}")
     print(f"{'=' * 50}")
 
 
