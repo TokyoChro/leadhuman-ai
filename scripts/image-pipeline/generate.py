@@ -36,7 +36,9 @@ STYLE_BASE = (
     "combining vintage menswear editorial art with manga-influenced character design "
     "and watercolor textures. Clean sepia/brown line work, warm earth tone palette "
     "(tan, olive, cream, forest green, navy), soft watercolor washes, hand-drawn feel "
-    "on cream paper. No text, no annotations, no Japanese characters, no words, no letters."
+    "on cream paper. ABSOLUTELY NO TEXT anywhere in the image. No words, no letters, "
+    "no numbers, no titles, no captions, no annotations, no signs with writing, "
+    "no speech bubbles, no labels, no Japanese characters."
 )
 
 COMPOSITION_SQUARE = (
@@ -124,6 +126,10 @@ def generate(prompt_text: str, slug: str, vibe: str = None, season: str = None) 
         f"Scene: {prompt_text}\n\n"
         f"{COMPOSITION_SQUARE}\n\n"
         f"Style: {STYLE_BASE}\n"
+        f"NEGATIVE CONSTRAINTS (do NOT include ANY of these): "
+        f"No text, no words, no letters, no numbers, no titles, no captions anywhere in the image. "
+        f"No cigarettes, no smoking, no vaping, no pipes, no alcohol, no weapons. "
+        f"The character should look healthy and professional.\n\n"
         f"Do NOT reproduce the reference. Create a NEW warm watercolor editorial illustration "
         f"with this ONE person in a new scene. Again — ONLY ONE CHARACTER in the image."
     )

@@ -1,25 +1,11 @@
 ---
 title: "Your Team Isn't Resisting AI. They're Watching You."
-description: "```javascript --- title: 'Your Team Isn't Resisting AI. They're Watching You.' description: 'AI adoption isn't stalling because employees fear technol"
+description: "AI adoption isn't stalling because employees fear technology. It's stalling because manager engagement has collapsed and your team is reading the room."
 pubDate: 2026-04-16
 tags: ["leadership", "ai-tools", "l-and-d"]
 author: "Jay Vergara"
 image: "../../assets/images/posts/your-team-isnt-resisting-ai-theyre-watching-you.png"
 draft: false
----
-
-```javascript
----
-title: "Your Team Isn't Resisting AI. They're Watching You."
-description: "AI adoption isn't stalling because employees fear technology. It's stalling because manager engagement has collapsed and your team is reading the room. Here's what actually moves the needle."
-pubDate: 2026-04-16
-tags: ["leadership", "ai-tools", "l-and-d"]
-author: "Jay Vergara"
-image: "../../assets/images/posts/your-team-isnt-resisting-ai-theyre-watching-you.png"
-draft: false
----
-```
-
 ---
 
 I've been reflecting on a pattern that keeps showing up in conversations with people leading teams right now. The company buys the AI tools and runs the training sessions and sends the all hands announcement. And then two weeks later the workflows are exactly the same and nobody can explain why.
@@ -66,6 +52,6 @@ I write about leadership and AI intersections regularly over on LinkedIn. Come c
 
 ## Sources
 
-Leadership Engagement and Organizational Culture in AI Receptive Organizations (Welch, 2025, Land Forces Academy Review)
+- [Leadership Engagement and Organizational Culture in AI Receptive Organizations](https://consensus.app/papers/details/d40ba3302348512fbfab335b59a3f6bd/?utm_source=claude_desktop) (Welch, 2025, Land Forces Academy Review)
 
-Exploring Determinants Influencing Artificial Intelligence Adoption, Reference to Diffusion of Innovation Theory (Patnaik et al., 2024, Technology in Society, 26 citations)
+- [Exploring Determinants Influencing Artificial Intelligence Adoption, Reference to Diffusion of Innovation Theory](https://consensus.app/results/?q=Exploring%20Determinants%20Influencing%20Artificial%20Intelligence%20Adoption%20Diffusion%20of%20Innovation%20Theory%20Patnaik%202024) (Patnaik et al., 2024, Technology in Society, 26 citations)

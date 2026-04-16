@@ -15,6 +15,7 @@ import json
 import os
 import re
 import sys
+import urllib.parse
 from datetime import datetime
 from pathlib import Path
 
@@ -136,6 +137,9 @@ def blocks_to_text(blocks):
         elif block_type == "code":
             text = extract_text(block_data.get("rich_text", []))
             lang = block_data.get("language", "")
+            # Skip code blocks that contain frontmatter YAML (injected by remote trigger)
+            if text.strip().startswith("---") and "title:" in text:
+                continue
             lines.append(f"```{lang}\n{text}\n```")
         elif block_type == "divider":
             lines.append("---")
@@ -194,8 +198,11 @@ def fetch_draft():
     blocks = notion_get_page_blocks(page_id)
     content = blocks_to_text(blocks)
 
-    # Strip frontmatter if present
-    fm_match = re.search(r"^(---\n.*?\n---)\s*\n", content, re.DOTALL)
+    # Strip frontmatter if present (bare or wrapped in a code fence)
+    fm_match = re.search(
+        r"^(```\w*\n)?---\n.*?\n---(```)?(\s*\n)?",
+        content, re.DOTALL,
+    )
     if fm_match:
         article_content = content[fm_match.end() :].strip()
     else:
@@ -226,8 +233,7 @@ def generate_scene_prompt(title, article_content):
     """Use Claude to generate a scene description for the illustration."""
     api_key = os.environ.get("ANTHROPIC_API_KEY", "")
     if not api_key:
-        # Fallback: generic scene based on title
-        return f"A young Japanese-American professional man in a modern Tokyo office setting, contemplating the theme of '{title}'"
+        return "A young Japanese-American professional man in a modern Tokyo office setting, looking thoughtful"
 
     try:
         import anthropic
@@ -247,7 +253,11 @@ def generate_scene_prompt(title, article_content):
                         f"Article excerpt: {article_content[:500]}\n\n"
                         f"The scene should be a warm, everyday setting (office, cafe, park, "
                         f"train station, meeting room, etc.) that metaphorically connects to "
-                        f"the article's theme. Just output the scene description, nothing else."
+                        f"the article's theme.\n\n"
+                        f"IMPORTANT: Do NOT include the article title or any words/text in the "
+                        f"scene description. Describe ONLY the visual setting, character posture, "
+                        f"and mood. The image generator will render text if you include any.\n\n"
+                        f"Just output the scene description, nothing else."
                     ),
                 }
             ],
@@ -255,7 +265,41 @@ def generate_scene_prompt(title, article_content):
         return response.content[0].text.strip()
     except Exception as e:
         print(f"Claude scene prompt failed: {e}", file=sys.stderr)
-        return f"A young Japanese-American professional man in a modern Tokyo office setting, contemplating the theme of '{title}'"
+        return "A young Japanese-American professional man in a modern Tokyo office setting, looking thoughtful"
+
+
+# ─── Source Linking ─────────────────────────────────────────────────────────
+
+def link_sources(article_content):
+    """Wrap plain-text academic sources with Consensus search links."""
+    sources_idx = article_content.find("## Sources")
+    if sources_idx < 0:
+        return article_content
+
+    before = article_content[:sources_idx]
+    sources_section = article_content[sources_idx:]
+
+    lines = sources_section.split("\n")
+    result = [lines[0]]  # Keep "## Sources" header
+
+    for line in lines[1:]:
+        stripped = line.strip().lstrip("- ")
+        # Skip if already linked, empty, or is a divider/header
+        if not stripped or "](http" in stripped or stripped.startswith("#") or stripped == "---":
+            result.append(line)
+            continue
+
+        # Extract paper title (text before the parenthetical author/year info)
+        title_match = re.match(r'^(.+?)\s*\(', stripped)
+        if title_match:
+            paper_title = title_match.group(1).strip().rstrip(',').rstrip('.')
+            search_url = f"https://consensus.app/results/?q={urllib.parse.quote(paper_title)}"
+            linked = f"- [{stripped}]({search_url})"
+            result.append(linked)
+        else:
+            result.append(line)
+
+    return before + "\n".join(result)
 
 
 # ─── Telegram ────────────────────────────────────────────────────────────────
@@ -342,7 +386,18 @@ def main():
 
     today = datetime.now().strftime("%Y-%m-%d")
     tags_str = json.dumps(tags)
-    description = article_content[:150].replace('"', "'").replace("\n", " ").strip()
+    # Build description from clean article text (strip any leftover code fences/frontmatter)
+    desc_text = re.sub(r'^```\w*\n', '', article_content.lstrip())
+    desc_text = re.sub(r'^---\n.*?\n---\s*\n?', '', desc_text, flags=re.DOTALL).lstrip()
+    desc_text = desc_text.replace("\n", " ").replace('"', "'").strip()
+    if len(desc_text) > 150:
+        cutoff = desc_text[:150].rfind(". ")
+        if cutoff > 80:
+            desc_text = desc_text[:cutoff + 1]
+        else:
+            cutoff = desc_text[:150].rfind(" ")
+            desc_text = desc_text[:cutoff] if cutoff > 80 else desc_text[:150]
+    description = desc_text.strip()
 
     image_line = f'\nimage: "../../assets/images/posts/{slug}.png"' if has_image else ""
     frontmatter = (
@@ -356,6 +411,7 @@ def main():
         f'draft: false\n'
         f'---\n\n'
     )
+    article_content = link_sources(article_content)
     content_path.write_text(frontmatter + article_content + "\n", encoding="utf-8")
     print(f"  Wrote: {content_path}")
 
