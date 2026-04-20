@@ -1,18 +1,12 @@
 ---
 title: "The Reason Your AI Initiative Isn't Working Has Nothing to Do With the AI"
-description: "## Astro Frontmatter  ---  ## Article Draft  Something I've noticed watching companies roll out AI tools over the past year: the leaders who are most"
+description: "Most AI rollouts don't fail because of the tools. They fail because leaders skipped the training step and assumed people would figure it out on their own."
 pubDate: 2026-04-20
 tags: ["ai-tools", "leadership", "l-and-d"]
 author: "Jay Vergara"
 image: "../../assets/images/posts/the-reason-your-ai-initiative-isnt-working.png"
 draft: false
 ---
-
-## Astro Frontmatter
-
----
-
-## Article Draft
 
 Something I've noticed watching companies roll out AI tools over the past year: the leaders who are most frustrated with the results are almost always the same leaders who skipped the training step entirely.
 
@@ -52,20 +46,14 @@ If this resonates, let's connect and keep the conversation going: linkedin.com/i
 
 ## Sources
 
-- AI Doesn't Reduce Work — It Intensifies It — HBR, February 2026
+- 'AI Doesn't Reduce Work, It Intensifies It', HBR, February 2026
 
-- 'AI Brain Fry' Is Real and It's Making Workers More Exhausted, Not More Productive — Fortune, March 2026
+- 'AI Brain Fry Is Real and It's Making Workers More Exhausted, Not More Productive', Fortune, March 2026
 
-- AI Promised Supreme Productivity, but It's Actually Straining Workloads — Fortune, March 2026
+- 'AI Promised Supreme Productivity, but It's Actually Straining Workloads', Fortune, March 2026
 
-- Where Senior Leaders Are Struggling with AI Adoption, According to Research — HBR, February 2026
+- 'Where Senior Leaders Are Struggling with AI Adoption, According to Research', HBR, February 2026
 
-- Rising AI Adoption Spurs Workforce Changes — Gallup
+- 'Rising AI Adoption Spurs Workforce Changes', Gallup
 
-- Drowning in AI Busywork? Why Workslop Is the New Workplace Crisis — Metaintro, 2026
-
----
-
-## Pipeline Notes
-
-- [⚠️ Consensus limit reached (30/30 searches used, resets May 1, 2026). Academic peer-reviewed citations are pending. All statistics sourced via HBR, Fortune, Gallup, and SHRM secondary reporting. To add academic citations, upgrade at https://consensus.app/pricing/ or wait for May 1 reset, then search: "AI cognitive overload employee training effectiveness" and "AI adoption organizational learning outcomes".](https://consensus.app/results/?q=%E2%9A%A0%EF%B8%8F%20Consensus%20limit%20reached)
+- 'Drowning in AI Busywork? Why Workslop Is the New Workplace Crisis', Metaintro, 2026
