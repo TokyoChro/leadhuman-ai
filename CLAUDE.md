@@ -88,7 +88,7 @@ No manual steps. No Mac required. Jay gets a Telegram ping when the post is live
 **Telegram:**
 - Bot: Master Librarian (`@PeakPotentialPublisher_Bot`)
 - Jay's personal chat ID: 8313708098
-- Bot token: 8771669297:AAEQCDxM745GDTsqrKgDM_WIjgfW80jtBNE
+- Bot token: stored in GitHub Secrets as `TELEGRAM_BOT_TOKEN` (never commit to this file)
 
 ### Manual Triggers
 ```bash
