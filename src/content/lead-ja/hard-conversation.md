@@ -1,6 +1,6 @@
 ---
 title: "チームはあなたが避け続けている難しい会話を求めている"
-description: "多くのマネージャーはフィードバックを柔らかくすることでチームを守っていると思っています。しかし研究はその逆を示しています。あなたの部下はあなたが避け続けている会話に飢えているのです。"
+description: "多くのマネージャーはフィードバックを柔らかくすることでチームを守っていると思っています。研究はその逆を示しています。あなたの部下はあなたが避け続けている会話に飢えているのです。"
 pubDate: 2026-03-03
 tags: ["leadership", "communications", "l-and-d"]
 author: "Jay Vergara"
@@ -14,31 +14,31 @@ draft: false
 
 ここが厄介なところです。多くのマネージャーがフィードバックを避けるのは、気にしていないからではなく、気にしすぎているからです。関係を壊したくないし、悪者になりたくないし、相手が聞きたくないだろうと思い込んでいる。その思い込みはほぼ毎回間違っています。
 
-[Abi-Esber et al. (2022)](https://consensus.app/papers/just-letting-you-know-%E2%80%A6-underestimating-others-desire-for-abi-esber-abel/7136c3662d775aacaefe74102483b3ac/) は約2,000人の参加者を対象に5つの実験を行い、すべてのマネージャーが居心地悪く感じるような発見をしました。**人は、他者が建設的なフィードバックをどれほど望んでいるかを一貫して過小評価している**のです。フィールドスタディでは、顔に食べ物がついている人にそれを伝えたのはわずか2.6%でした。残酷だからではなく、相手が知りたくないだろうと思ったからです。これをパフォーマンスフィードバックやキャリア開発の会話、つまり本当にその人の軌道を形作る瞬間にスケールして考えると、言われていないことが大量に積み上がっているということになります。
+[Abi-Esber et al. (2022)](https://consensus.app/papers/just-letting-you-know-%E2%80%A6-underestimating-others-desire-for-abi-esber-abel/7136c3662d775aacaefe74102483b3ac/)は約2,000人の参加者を対象に5つの実験を行い、すべてのマネージャーが立ち止まって考えるべき発見をしました。**人は、他者が建設的なフィードバックをどれほど望んでいるかを一貫して過小評価している**のです。フィールドスタディでは、顔に食べ物がついている人にそれを伝えたのはわずか2.6%でした。残酷だからではなく、相手が知りたくないだろうと思い込んだからです。これをパフォーマンスフィードバックやキャリア開発の会話、つまり本当にその人の軌道を形作る瞬間にスケールして考えると、言われていないことが大量に積み上がっているということになります。
 
 ---
 
-> 🔑 **根本的な問題は、マネージャーがフィードバックを伝えられないことではありません。部下がどれほどフィードバックを求めているかを見誤っているのです。不快感を感じているのは伝える側であって、受け取る側ではありません。そしてその不快感から自分を守ることで、マネージャーはチームが成長するために必要な情報を奪ってしまっているのです。**
+> 🔑 **マネージャーはフィードバックを伝えられます。より大きな問題は、部下がどれほどフィードバックを求めているかを見誤っていることです。不快感は伝える側のものであり、その不快感から自分を守ることで、マネージャーはチームが成長するために必要な情報を奪ってしまっているのです。**
 
 ---
 
 ## なぜ伝えたときに逆効果になるのか
 
-フィードバックがようやく届いたとき、裏目に出ることがよくあります。内容が間違っているからではなく、伝え方が相手の中で間違った反応を引き起こすからです。[Xing et al. (2021)](https://consensus.app/papers/supervisor-negative-feedback-and-employee-motivation-to-xing-sun/cce0e0fc35515dcb8a812fb6885b8a2a/) はアメリカの従業員370人と中国の看護師302人を対象に調査し、**ネガティブなフィードバックに対する従業員の反応は、なぜそれを言われているのかという認識次第だ**ということを発見しました。本当にパフォーマンスについてだと感じれば学ぶ意欲が湧きますが、上司のフラストレーションやエゴや意図のためだと感じれば、心を閉ざしてしまいます。
+フィードバックがようやく届いたとき、裏目に出ることがよくあります。内容が間違っているからではなく、伝え方が相手の中で間違った反応を引き起こすからです。[Xing et al. (2021)](https://consensus.app/papers/supervisor-negative-feedback-and-employee-motivation-to-xing-sun/cce0e0fc35515dcb8a812fb6885b8a2a/)はアメリカの従業員370人と中国の看護師302人を対象に調査し、**ネガティブなフィードバックに対する従業員の反応は、なぜそれを言われているのかという認識次第だ**ということを発見しました。本当にパフォーマンスについてだと感じれば学ぶ意欲が湧きますが、上司のフラストレーションやエゴや意図のためだと感じれば、心を閉ざしてしまいます。
 
-ここでStone and Heenのフィードバックトリガーのフレームワークが役立ちます。人がフィードバックを拒否する理由は3つあります。フィードバックの内容が間違っていると思う場合（真実トリガー）、伝えている人に問題がある場合（関係トリガー）、そしてフィードバックが自分のアイデンティティ、つまり自分が何者であるかという感覚を脅かす場合（アイデンティティトリガー）です。[Steele et al. (2025)](https://consensus.app/papers/i-am-not-who-you-think-i-am-the-role-of-appraisal-in-responses-steele-hill/b0b7fc3be80550308da09486874697bf/) はエンジニアリング企業のリーダーを対象にした最近の研究でこれを確認し、フィードバックが自己認識と矛盾する場合、その結果はそれを脅威と捉えるか機会と捉えるかに完全に左右されること、そして同じフィードバックでもフレーミングと受け取り方次第でまったく異なる結果を生むことを発見しました。
+ここでStone and Heenのフィードバックトリガーのフレームワークが役立ちます。人がフィードバックを拒否する理由は3つあります。フィードバックの内容が間違っていると思う場合（真実トリガー）、伝えている人に問題がある場合（関係トリガー）、そしてフィードバックが自分のアイデンティティ、つまり自分が何者であるかという感覚を脅かす場合（アイデンティティトリガー）です。[Steele et al. (2025)](https://consensus.app/papers/i-am-not-who-you-think-i-am-the-role-of-appraisal-in-responses-steele-hill/b0b7fc3be80550308da09486874697bf/)はエンジニアリング企業のリーダーを対象にした最近の研究でこれを確認し、フィードバックが自己認識と矛盾する場合、その結果はそれを脅威と捉えるか機会と捉えるかに完全に左右されること、そして同じフィードバックでもフレーミングと受け取り方次第でまったく異なる結果を生むことを発見しました。
 
 ---
 
-## 今週試してほしい4つのこと
+## どこから始めるか
 
-> 1️⃣ **伝える前に聞く。** 次の1on1の前に、こう尋ねてみてください。「今、どんな種類のフィードバックが一番役に立ちますか? 感謝、コーチング、それとも評価?」相手に選ばせるのです。Stone and Heenのフレームワークから来たこの一つの質問が、会話のダイナミクスをまるごと変えます。相手は衝撃に備えるのではなく、自分から参加しているのです。
+次の1on1の前に、一つだけ問いかけてみてください。「今、どんな種類のフィードバックが一番役に立ちますか。感謝、コーチング、それとも評価ですか」相手に選ばせるのです。Stone and Heenのフレームワークから来たこの一つの質問が、会話のダイナミクスをまるごと変えます。相手は衝撃に備えるのではなく、自分から参加しているのです。
 
-> 2️⃣ **判断ではなく、見ていることをそのまま伝える。** 「直近2回のプロジェクトアップデートが締め切り後に提出されていました」と言うのは、「時間管理がちゃんとできていませんね」と言うのとは全く違う印象を与えます。前者は観察可能な事実であり、後者はアイデンティティに対する反応を引き起こします。具体的で行動に基づいた伝え方を心がけてください。
+そして、判断ではなく、見ていることをそのまま伝えましょう。「直近2回のプロジェクトアップデートが締め切り後に提出されていました」と言うのは、「時間管理ができていませんね」と言うのとは全く違う印象を与えます。前者は観察可能な事実であり、後者はアイデンティティに対する反応を引き起こします。具体的で行動に基づいた伝え方を心がけてください。
 
-> 3️⃣ **言うのが怖いことほど、早く言う。** フィードバックが言わずに溜まれば溜まるほど、自分の頭の中でどんどん大きくなっていきますし、ようやく伝えたときに相手が感じる不意打ち感も大きくなります。小さくてタイムリーな会話は、大きくて遅れた会話よりもほぼ毎回良い結果を生みます。
+言うのが怖いことほど、早く言いましょう。フィードバックが言わずに溜まれば溜まるほど、自分の頭の中でどんどん大きくなっていきますし、ようやく伝えたときに相手が感じる不意打ち感も大きくなります。小さくてタイムリーな会話は、大きくて遅れた会話よりもほぼ毎回良い結果を生みます。
 
-> 4️⃣ **口を開く前に自分の動機を確認する。** Xingの研究はこの点を明確にしています。フィードバックが相手の成長ではなく自分のフラストレーションのためなら、相手はそれを感じ取りますし、そこから学ぶことはありません。怒っているなら待ちましょう。本当に助けたいと思っているなら、伝えてください。
+そして、口を開く前に自分の動機を確認してください。Xingの研究はこの点を明確にしています。フィードバックが相手の成長ではなく自分のフラストレーションのためなら、相手はそれを感じ取りますし、そこから学ぶことはありません。怒っているなら待ちましょう。本当に助けたいと思っているなら、伝えてください。
 
 ---
 
@@ -48,10 +48,10 @@ draft: false
 
 **出典:**
 
-- [Abi-Esber et al. (2022)](https://consensus.app/papers/just-letting-you-know-%E2%80%A6-underestimating-others-desire-for-abi-esber-abel/7136c3662d775aacaefe74102483b3ac/) — "Just Letting You Know… Underestimating Others' Desire for Constructive Feedback," *Journal of Personality and Social Psychology*.
-- [Xing et al. (2021)](https://consensus.app/papers/supervisor-negative-feedback-and-employee-motivation-to-xing-sun/cce0e0fc35515dcb8a812fb6885b8a2a/) — "Supervisor Negative Feedback and Employee Motivation to Learn."
-- [Steele et al. (2025)](https://consensus.app/papers/i-am-not-who-you-think-i-am-the-role-of-appraisal-in-responses-steele-hill/b0b7fc3be80550308da09486874697bf/) — "I Am Not Who You Think I Am: The Role of Appraisal in Responses to Feedback."
+- [Abi-Esber et al. (2022)](https://consensus.app/papers/just-letting-you-know-%E2%80%A6-underestimating-others-desire-for-abi-esber-abel/7136c3662d775aacaefe74102483b3ac/), "Just Letting You Know… Underestimating Others' Desire for Constructive Feedback," *Journal of Personality and Social Psychology*.
+- [Xing et al. (2021)](https://consensus.app/papers/supervisor-negative-feedback-and-employee-motivation-to-xing-sun/cce0e0fc35515dcb8a812fb6885b8a2a/), "Supervisor Negative Feedback and Employee Motivation to Learn."
+- [Steele et al. (2025)](https://consensus.app/papers/i-am-not-who-you-think-i-am-the-role-of-appraisal-in-responses-steele-hill/b0b7fc3be80550308da09486874697bf/), "I Am Not Who You Think I Am: The Role of Appraisal in Responses to Feedback."
 
 ---
 
-*[leadhuman.ai](https://leadhuman.ai) の Lead Humanly シリーズより。*
+*[leadhuman.ai](https://leadhuman.ai)のLead Humanlyシリーズの一部です。*

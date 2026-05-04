@@ -22,7 +22,7 @@ draft: false
 
 この光景を何十回も会議で見てきました。西洋人の同僚がある点を押し続けているのに、部屋の他の全員はすでに黙ってその話題を終わりにすることに同意している。誰も「やめて」とは言わないけれど、空気が「やめて」と言っている。その二つの間のギャップに、異文化の誤解が住んでいるのです。
 
-[Van Scotter & Leonard (2023)](https://consensus.app/papers/culture-and-communication-scotter-leonard/a1705b76f93d54268a7c4f96ed598cc6/)は文化とコミュニケーションに関する研究をレビューし、**文化的な違いがコミュニケーションの内容の認識に大きく影響し、社会的・文化的要因が内容だけでなく、どのチャネルを通じてコミュニケーションが効果的と解釈されるかにも影響する**ことを明らかにしました。「空気を読む」は、この洞察が日常的な実践に転換された日本語版と言えます。
+[Van Scotter & Leonard (2023)](https://consensus.app/papers/culture-and-communication-scotter-leonard/a1705b76f93d54268a7c4f96ed598cc6/)は文化とコミュニケーションに関する研究をレビューし、**文化的な違いが個人のコミュニケーションの内容の認識に大きく影響し、社会的・文化的要因が内容だけでなく、どのチャネルを通じてコミュニケーションが効果的と解釈されるかにも影響する**ことを明らかにしました。「空気を読む」は、この洞察が日常的な実践に転換された日本語版と言えます。
 
 ---
 
@@ -42,29 +42,31 @@ draft: false
 
 ---
 
-## 異文化で仕事をするときに試すべき4つのこと
+## 違う文化の学び方
 
-> 1️⃣ **きれいに翻訳できない言葉に出会ったら、最も近い英語の等価語を急いで見つけようとしないでください。** その居心地の悪さと一緒にいてください。定義ではなくストーリーを通じて説明してもらいましょう。完璧な翻訳がないその居心地の悪さこそが、文化的理解が深まっている感覚です。
+私が受けてきた異文化研修のほとんどは、行動を教えてくれます。日本ではビジネスカードを後ろのポケットに入れない、とか、アジアの一部のコンテキストでは長くアイコンタクトを取らない、といったことです。それも有用ですが、なぜそうするのかを説明せずに、何をすべきかだけを教えています。翻訳不可能な言葉は、その「なぜ」を説明してくれます。
 
-> 2️⃣ **一緒に仕事をしている文化の翻訳不可能な概念のリストを作り始めましょう。** その言葉、直訳、そして実際にはどういう意味なのかを一段落書いてください。これがあなたの異文化チートシートになります。
+きれいに翻訳できない言葉に出会ったら、最も近い英語の等価語を急いで見つけようとしないでください。その居心地の悪さと一緒にいて、定義ではなくストーリーを通じて説明してもらいましょう。完璧な翻訳がないその感覚こそが、文化的理解が深まっている感覚です。
 
-> 3️⃣ **その文化の同僚との会話でこうした言葉を使ってみましょう。** 相手にとって大事な概念を学ぶ時間を取ったことを示すほど、早く敬意を伝えられる方法はありません。日本人の同僚に「根回し」と言ってみてください。顔が輝くのが見えるはずです。
+一緒に仕事をしている文化のこうした概念のリストを作っておくのも役立ちます。その言葉、直訳、そして実際にはどういう意味なのかを一段落書いてください。私のリストは3年前にメモアプリのファイルとして始まり、今では異文化の仕事で最も役立つドキュメントの一つになっています。
 
-> 4️⃣ **自分自身の翻訳不可能な概念を探してみましょう。** あなたの文化が深く大切にしていて、そのための特定の言葉がある概念は何ですか？この問いを投げかけると、自分自身の文化的プログラミングが見えてきます。そしてその自己認識こそが、本物の異文化流暢さの出発点です。
+そして、一つ覚えたら使ってみてください。日本人の同僚に「根回し」と言うと、どんな翻訳語よりもずっと響きます。相手が実際に使っている概念を学ぶ時間を取ってくれた、と伝わるからです。
+
+そして、ほとんどの人が驚く一手があります。自分自身の翻訳不可能な概念を探してみてください。あなたの文化が深く大切にしていて、そのための特定の言葉がある概念は何ですか。この問いを投げかけると、自分自身の文化的プログラミングが見えてきます。普段は見えない部分です。
 
 ---
 
-翻訳不可能な言葉こそが鍵です。ただ、あなたがすでに持っているどの錠前にも合わないだけなのです。
+翻訳不可能な言葉こそが鍵です。ただ、あなたがすでに持っているどの錠前にも合わないだけなのです。組織がそうした異文化的流暢さ、特に日本と西洋のビジネスコンテキストにまたがる流暢さを構築しようとしているなら、それは[Peak Potentialでチームと一緒に取り組んでいること](https://peakpotentialconsulting.com/services/cross-cultural-services)です。
 
 ---
 
 **出典:**
 
-- [Van Scotter & Leonard (2023)](https://consensus.app/papers/culture-and-communication-scotter-leonard/a1705b76f93d54268a7c4f96ed598cc6/) — "Culture and Communication."
-- [Kumar (2024)](https://consensus.app/papers/understanding-cultural-differences-in-innovation-a-kumar/83922667d9ce57ef9306d6076d82d731/) — "Understanding Cultural Differences in Innovation: A Conceptual Framework."
-- [The Culture Map by Erin Meyer](https://erinmeyer.com/books/the-culture-map/) — 文化的次元がビジネスコミュニケーションを国境を越えてどう形作るかをマッピング。
-- [Takeo Doi's "The Anatomy of Dependence"](https://en.wikipedia.org/wiki/The_Anatomy_of_Dependence) — *甘え*と日本の社会関係におけるその役割についての基本文献。
-- [Why Your Proposal Died Before the Meeting Started](https://leadhuman.ai/lead/why-your-proposal-died) — 根回しと日本のビジネスにおける意思決定への影響をさらに深掘り。
+- [Van Scotter & Leonard (2023)](https://consensus.app/papers/culture-and-communication-scotter-leonard/a1705b76f93d54268a7c4f96ed598cc6/), "Culture and Communication."
+- [Kumar (2024)](https://consensus.app/papers/understanding-cultural-differences-in-innovation-a-kumar/83922667d9ce57ef9306d6076d82d731/), "Understanding Cultural Differences in Innovation: A Conceptual Framework."
+- [The Culture Map by Erin Meyer](https://erinmeyer.com/books/the-culture-map/), 文化的次元がビジネスコミュニケーションを国境を越えてどう形作るかをマッピング。
+- [Takeo Doi's "The Anatomy of Dependence"](https://en.wikipedia.org/wiki/The_Anatomy_of_Dependence), *甘え*と日本の社会関係におけるその役割についての基本文献。
+- [Why Your Proposal Died Before the Meeting Started](https://leadhuman.ai/lead/why-your-proposal-died), 根回しと日本のビジネスにおける意思決定への影響をさらに深掘り。
 
 ---
 
