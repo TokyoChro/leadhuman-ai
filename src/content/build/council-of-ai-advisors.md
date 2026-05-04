@@ -76,10 +76,10 @@ Build yours and start small and let it grow and you'll wonder how you ever worke
 
 **Sources:**
 
-- [Claude Projects Documentation](https://docs.anthropic.com/en/docs/about-claude/models) — set up persistent context for each councilor in Claude.
-- [Anthropic's Prompt Engineering Guide](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering) — best practices for the detailed system prompts that make councilors effective.
-- [How to Use Claude to Build a Personal Knowledge System in 30 Minutes](https://leadhuman.ai/build/claude-personal-knowledge-system) — the prerequisite tutorial for setting up your foundation before building a council.
-- [The Culture Map by Erin Meyer](https://erinmeyer.com/books/the-culture-map/) — one of the frameworks my Cross-Cultural Councilor draws from constantly.
+- [Claude Projects Documentation](https://docs.anthropic.com/en/docs/about-claude/models), set up persistent context for each councilor in Claude.
+- [Anthropic's Prompt Engineering Guide](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering), best practices for the detailed system prompts that make councilors effective.
+- [How to Use Claude to Build a Personal Knowledge System in 30 Minutes](https://leadhuman.ai/build/claude-personal-knowledge-system), the prerequisite tutorial for setting up your foundation before building a council.
+- [The Culture Map by Erin Meyer](https://erinmeyer.com/books/the-culture-map/), one of the frameworks my Cross-Cultural Councilor draws from constantly.
 
 ---
 

@@ -16,7 +16,7 @@ I learned this the hard way early on. I showed up to a leadership meeting with w
 
 ---
 
-## The meeting isn't where the decision happens
+## Where the decision actually happens
 
 In most North American companies you bring a proposal to a meeting where people discuss it, there's debate, and a decision gets made. The meeting is the decision point.
 
@@ -28,7 +28,7 @@ That process is nemawashi, which is a gardening term that literally means 'going
 
 ---
 
-> 🔑 **The meeting is not where the decision happens. In consensus-driven cultures the meeting is where the decision gets confirmed. The real work happened in the hallways, over coffee, one on one.** If you're walking into a meeting hoping to persuade people in real time, you've already lost in cultures that value pre-alignment.
+> 🔑 **In consensus-driven cultures the meeting is where the decision gets confirmed. The real work happened in the hallways, over coffee, one on one.** If you're walking into a meeting hoping to persuade people in real time, you've already lost.
 
 ---
 
@@ -44,15 +44,15 @@ Erin Meyer places Japan at the extreme end of the consensus building scale in Th
 
 ---
 
-## Four Things to Try Before Your Next Big Meeting
+## How to actually do this before your next big meeting
 
-> 1️⃣ **Map your stakeholders before proposing anything.** Identify everyone who will be affected or whose support you need. In Japanese organizations this often includes people several levels removed who might not seem directly relevant. Include them anyway.
+Start by mapping your stakeholders, before proposing anything. Identify everyone who will be affected or whose support you need. In Japanese organizations this often includes people several levels removed who might not seem directly relevant. Include them anyway.
 
-> 2️⃣ **Have individual conversations first.** Go to each person privately and share the idea. Listen carefully to what they say and more importantly to what they don't say. This is not a lobbying tour but a genuine consultation.
+Then go have the conversations. One on one, in private. Share the idea early and listen carefully to what they say and more importantly to what they don't say. This is not a lobbying tour but a genuine consultation. If you treat it as a tour, people will know, and they will remember.
 
-> 3️⃣ **Incorporate feedback genuinely.** This is where most people get it wrong. Nemawashi only works if you're willing to reshape the proposal based on what you hear. If you're going through the motions people will know, and they'll remember.
+Incorporate the feedback for real. This is where most outsiders get nemawashi wrong. The process only works if you're willing to reshape the proposal based on what you've heard. Going through the motions and showing up with the original deck is worse than not doing nemawashi at all, because you've wasted everyone's time and revealed that your invitation to weigh in was theater.
 
-> 4️⃣ **Let the meeting confirm what's already agreed.** When the proposal finally reaches the room it should feel almost anticlimactic. That's how you know it worked.
+By the time the proposal reaches the room, it should feel almost anticlimactic. That's how you know it worked.
 
 ---
 
@@ -64,10 +64,10 @@ You'll walk into that meeting with much better information, and the colleagues w
 
 **Sources:**
 
-- [Van Scotter & Leonard (2023)](https://consensus.app/papers/culture-and-communication-scotter-leonard/a1705b76f93d54268a7c4f96ed598cc6/) — "Culture and Communication."
-- [Ayenew & Zewde (2024)](https://consensus.app/papers/managing-diversity-and-multicultural-collaboration-a-ayenew-zewde/bda351577765516f8000abee7d7c4e42/) — "Managing Diversity and Multi-Cultural Collaboration: A Systematic Review."
-- [The Culture Map by Erin Meyer](https://erinmeyer.com/books/the-culture-map/) — maps how different cultures approach decision making and consensus building.
-- [The Words You Can't Translate Are the Cultural Keys](https://leadhuman.ai/lead/words-you-cant-translate) — more Japanese concepts that shape how business actually works.
+- [Van Scotter & Leonard (2023)](https://consensus.app/papers/culture-and-communication-scotter-leonard/a1705b76f93d54268a7c4f96ed598cc6/), "Culture and Communication."
+- [Ayenew & Zewde (2024)](https://consensus.app/papers/managing-diversity-and-multicultural-collaboration-a-ayenew-zewde/bda351577765516f8000abee7d7c4e42/), "Managing Diversity and Multi-Cultural Collaboration: A Systematic Review."
+- [The Culture Map by Erin Meyer](https://erinmeyer.com/books/the-culture-map/), maps how different cultures approach decision making and consensus building.
+- [The Words You Can't Translate Are the Cultural Keys](https://leadhuman.ai/lead/words-you-cant-translate), more Japanese concepts that shape how business actually works.
 
 ---
 

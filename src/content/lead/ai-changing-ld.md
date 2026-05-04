@@ -8,7 +8,7 @@ image: "../../assets/images/posts/ai-changing-ld.png"
 draft: false
 ---
 
-Something I keep noticing in conversations with L&D leaders: they know AI is coming for their function, they just don't know how fast.
+L&D leaders I talk to know AI is coming for their function. They just don't know how fast.
 
 Most of them are still thinking about AI as a content creation tool, a faster way to write course descriptions or generate quiz questions. And sure, it does that, but that's like saying the internet is a faster fax machine. The real shift is much bigger.
 
@@ -28,13 +28,13 @@ And it can translate and localize training content across languages in minutes. 
 
 ---
 
-> 🔑 **The real risk isn't that AI will replace L&D professionals. It's that AI will make it easy to produce training that looks polished and says absolutely nothing.** Beautiful slides, professional scripts, perfect formatting, zero learning. Most leaders can't tell the difference yet. That's the problem.
+> 🔑 **The bigger risk in L&D right now is that AI will make it easy to produce training that looks polished and says absolutely nothing.** Beautiful slides, professional scripts, perfect formatting, zero learning. Most leaders can't tell the difference yet. That's the problem.
 
 ---
 
 ## The window is closing
 
-[Guenole & Charlwood (2023)](https://consensus.app/papers/can-hr-adapt-to-the-paradoxes-of-artificial-intelligence-guenole-charlwood/9fbbe1db2ec356019363e4873fb687c4/) examined whether HR can adapt to the paradoxes of AI and identified a critical tension: **HR and L&D professionals need to develop skills to ensure that ethics and fairness remain central to AI development for people management**, but most aren't building those skills fast enough. The ones who figure this out in the next 12 to 18 months become indispensable. The ones who use AI to churn out more of the same mediocre training faster will automate themselves out of relevance.
+[Guenole & Charlwood (2023)](https://consensus.app/papers/can-hr-adapt-to-the-paradoxes-of-artificial-intelligence-guenole-charlwood/9fbbe1db2ec356019363e4873fb687c4/) examined whether HR can adapt to the paradoxes of AI and identified a critical tension: **HR and L&D professionals need to develop skills to ensure that ethics and fairness remain central to AI development for people management**, but most aren't building those skills fast enough. L&D teams who figure this out in the next 12 to 18 months become indispensable. L&D teams who use AI to churn out more of the same mediocre training, faster, will automate themselves out of relevance.
 
 AI can generate assessments that test whether someone remembers a fact but not whether they can apply it when it matters, and it can create the appearance of a learning culture without any actual learning happening.
 
@@ -42,28 +42,25 @@ Knowing the difference between AI that enhances learning and AI that simulates i
 
 ---
 
-## Four Things to Try This Month
+## Where to put your effort this quarter
 
-> 1️⃣ **Run one existing training program through an AI lens.** Take your most popular course and ask: what parts of this could AI personalize for each learner? What parts require a human facilitator? The answers will reshape how you think about your entire curriculum.
-
-> 2️⃣ **Build one AI-powered practice scenario.** Pick a skill your managers struggle with (feedback, delegation, difficult conversations) and use Claude or ChatGPT to create a realistic practice partner. Test it yourself first and notice what works.
-
-> 3️⃣ **Audit your content for 'polished emptiness.'** Review your last three training modules and ask honestly: does this change behavior or does it just check a box? AI makes it easier to produce content that feels complete but teaches nothing.
-
-> 4️⃣ **Have the skills conversation with your team.** What AI skills does your L&D function need in the next year? Not coding but prompt design, learning analytics, personalization architecture. Map the gap now.
+- **Run one existing training program through an AI lens.** Take your most popular course and ask which parts AI could personalize for each learner and which parts require a human facilitator. The answers will reshape how you think about the rest of the curriculum.
+- **Build one AI-powered practice scenario.** Pick a skill your managers struggle with (feedback, delegation, difficult conversations) and use Claude or ChatGPT to create a realistic practice partner. Test it yourself first and notice what works.
+- **Audit your content for 'polished emptiness.'** Review your last three training modules and ask honestly whether they change behavior or just check a box. AI makes it easier to produce content that feels complete but teaches nothing.
+- **Have the skills conversation with your team.** What AI skills does your L&D function need in the next year? Not coding but prompt design, learning analytics, personalization architecture. Map the gap now.
 
 ---
 
-The window between 'early adopter' and 'too late' is shorter than most L&D leaders think. The ones who start experimenting now will define what good looks like for everyone else. It's exactly these challenges that I work on with L&D teams through [our workshops at Peak Potential](https://peakpotentialconsulting.com/services/team-workshops), helping them figure out what to automate, what to protect, and how to build the skills that actually matter right now.
+The window between 'early adopter' and 'too late' is shorter than most L&D leaders think. Whoever starts experimenting now will define what good looks like for everyone else. These are exactly the challenges I work on with L&D teams through [our workshops at Peak Potential](https://peakpotentialconsulting.com/services/team-workshops), helping them figure out what to automate, what to protect, and how to build the skills that actually matter right now.
 
 ---
 
 **Sources:**
 
-- [Zhang & Fan (2024)](https://consensus.app/papers/aidriven-learning-analytics-applications-and-tools-in-zhang-fan/f4ecc1b56ecd5ce989238a3bd1550c72/) — "AI-Driven Learning Analytics Applications and Tools in Computer-Supported Collaborative Learning: A Systematic Review."
-- [Guenole & Charlwood (2023)](https://consensus.app/papers/can-hr-adapt-to-the-paradoxes-of-artificial-intelligence-guenole-charlwood/9fbbe1db2ec356019363e4873fb687c4/) — "Can HR Adapt to the Paradoxes of Artificial Intelligence?"
-- [How to Use Claude to Build a Personal Knowledge System](https://leadhuman.ai/build/claude-personal-knowledge-system) — how AI can support continuous learning at the individual level.
-- [Why Every Leader Needs to Understand AI](https://leadhuman.ai/lead/why-leaders-need-ai) — the leadership side of the AI adoption challenge.
+- [Zhang & Fan (2024)](https://consensus.app/papers/aidriven-learning-analytics-applications-and-tools-in-zhang-fan/f4ecc1b56ecd5ce989238a3bd1550c72/), "AI-Driven Learning Analytics Applications and Tools in Computer-Supported Collaborative Learning: A Systematic Review."
+- [Guenole & Charlwood (2023)](https://consensus.app/papers/can-hr-adapt-to-the-paradoxes-of-artificial-intelligence-guenole-charlwood/9fbbe1db2ec356019363e4873fb687c4/), "Can HR Adapt to the Paradoxes of Artificial Intelligence?"
+- [How to Use Claude to Build a Personal Knowledge System](https://leadhuman.ai/build/claude-personal-knowledge-system), how AI can support continuous learning at the individual level.
+- [Why Every Leader Needs to Understand AI](https://leadhuman.ai/lead/why-leaders-need-ai), the leadership side of the AI adoption challenge.
 
 ---
 

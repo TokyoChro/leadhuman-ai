@@ -18,7 +18,7 @@ Every language has these, and I've started to believe they're the single fastest
 
 ## Reading the air
 
-Take 'kuuki wo yomu.' It literally means 'reading the air,' though the dictionary might say 'reading the room,' but that misses something important. In Japan this isn't just a nice social skill but a baseline expectation, and it's the ability to sense what's not being said, to pick up on tension or discomfort without anyone naming it out loud. If you can't do it people won't tell you you're missing it. They'll just quietly work around you.
+Take 'kuuki wo yomu.' It literally means 'reading the air,' though the dictionary might say 'reading the room,' but that misses something important. In Japan this is a baseline expectation rather than a nice-to-have social skill, and it's the ability to sense what isn't being said, to pick up on tension or discomfort without anyone naming it out loud. If you can't do it, people won't tell you you're missing it. They'll just quietly work around you.
 
 I've watched this play out in meetings dozens of times, where the Western colleague keeps pushing a point that everyone else in the room has already silently agreed to drop. Nobody says stop, but the air says stop, and the gap between those two things is where cross-cultural misunderstandings live.
 
@@ -42,29 +42,31 @@ Every language has these untranslatable concepts. The Filipino 'pakikisama' whic
 
 ---
 
-## Four Things to Try When Working Across Cultures
+## A different way to learn culture
 
-> 1️⃣ **When you encounter a word that doesn't translate cleanly, don't rush to find the closest English equivalent.** Sit with the discomfort. Ask people to explain it through stories rather than definitions. That discomfort of not having a perfect translation is the feeling of your cultural understanding getting deeper.
+Most cross-cultural training I've sat through teaches you behaviors, like don't put your business card in your back pocket in Japan, or don't make eye contact too long in some Asian contexts. That training is fine, but it teaches you what to do without ever explaining why. Untranslatable words explain the why.
 
-> 2️⃣ **Start a list of untranslatable concepts from the cultures you work with.** Write down the word, the literal translation, and then a paragraph about what it actually means in practice. This becomes your cross-cultural cheat sheet.
+The next time you encounter a word that doesn't translate cleanly, don't rush to find the closest English equivalent. Sit with the discomfort and ask people to explain it through stories rather than definitions. The feeling of not having a perfect translation is the feeling of your understanding getting deeper.
 
-> 3️⃣ **Use these words in conversation with colleagues from that culture.** Nothing signals respect faster than showing you've taken the time to learn a concept that matters to them. Say 'nemawashi' to a Japanese colleague and watch their face light up.
+It also helps to keep a running list of these concepts from the cultures you work with. Write down the word, the literal translation, and then a paragraph about what it actually means in practice. Mine started as a Notes app file three years ago and is now the single most useful document I have for cross-cultural work.
 
-> 4️⃣ **Look for your own untranslatable concepts.** What does your culture value so deeply that it has a specific word for it? Asking this question reveals your own cultural programming, and that self-awareness is the starting point for genuine cross-cultural fluency.
+When you do learn one, use it. Saying 'nemawashi' to a Japanese colleague will land in a way that no translated equivalent can, because it tells them you've taken the time to learn the concept they actually use.
+
+And the move that surprises people most: look for your own untranslatable concepts. What does your culture value so deeply that it has a specific word for it? Asking this question reveals your own cultural programming, which is usually the part you don't see.
 
 ---
 
-The untranslatable words are the keys, and they just don't fit any lock you already own. If your organization is trying to build that kind of cross cultural fluency (especially across Japanese and Western business contexts), that's something [we help teams develop at Peak Potential](https://peakpotentialconsulting.com/services/cross-cultural-services).
+The untranslatable words are the keys, and they don't fit any lock you already own. If your organization is trying to build that kind of cross cultural fluency, especially across Japanese and Western business contexts, that's something [we help teams develop at Peak Potential](https://peakpotentialconsulting.com/services/cross-cultural-services).
 
 ---
 
 **Sources:**
 
-- [Van Scotter & Leonard (2023)](https://consensus.app/papers/culture-and-communication-scotter-leonard/a1705b76f93d54268a7c4f96ed598cc6/) — "Culture and Communication."
-- [Kumar (2024)](https://consensus.app/papers/understanding-cultural-differences-in-innovation-a-kumar/83922667d9ce57ef9306d6076d82d731/) — "Understanding Cultural Differences in Innovation: A Conceptual Framework."
-- [The Culture Map by Erin Meyer](https://erinmeyer.com/books/the-culture-map/) — maps how cultural dimensions shape business communication across borders.
-- [Takeo Doi's "The Anatomy of Dependence"](https://en.wikipedia.org/wiki/The_Anatomy_of_Dependence) — the foundational text on *amae* and its role in Japanese social relationships.
-- [Why Your Proposal Died Before the Meeting Started](https://leadhuman.ai/lead/why-your-proposal-died) — goes deeper into nemawashi and how it shapes Japanese business decisions.
+- [Van Scotter & Leonard (2023)](https://consensus.app/papers/culture-and-communication-scotter-leonard/a1705b76f93d54268a7c4f96ed598cc6/), "Culture and Communication."
+- [Kumar (2024)](https://consensus.app/papers/understanding-cultural-differences-in-innovation-a-kumar/83922667d9ce57ef9306d6076d82d731/), "Understanding Cultural Differences in Innovation: A Conceptual Framework."
+- [The Culture Map by Erin Meyer](https://erinmeyer.com/books/the-culture-map/), maps how cultural dimensions shape business communication across borders.
+- [Takeo Doi's "The Anatomy of Dependence"](https://en.wikipedia.org/wiki/The_Anatomy_of_Dependence), the foundational text on *amae* and its role in Japanese social relationships.
+- [Why Your Proposal Died Before the Meeting Started](https://leadhuman.ai/lead/why-your-proposal-died), goes deeper into nemawashi and how it shapes Japanese business decisions.
 
 ---
 

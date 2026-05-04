@@ -12,9 +12,9 @@ I've been watching the conversation around AI and middle management for a few mo
 
 Jack Dorsey just announced that Block is moving toward a model where AI systems handle coordination, project tracking, task assignment, and real time business insights. Gartner is predicting that 20% of organizations will use AI to flatten their structures by the end of 2026, eliminating more than half of current middle management roles. And employers already posted 12.3% fewer middle manager jobs last year compared to the year before.
 
-The message is loud and clear. Middle management is overhead and AI can do it cheaper.
+The message is loud and clear. Middle management is overhead, and AI can do it cheaper.
 
-But I have a theory about what's actually happening here.
+The conclusion is wrong.
 
 ---
 
@@ -32,7 +32,7 @@ We're running the same experiment again. Just with better technology.
 
 ---
 
-> **The tasks that AI automates were never the hard part of management. The hard part was always the human stuff and that's exactly what most organizations stopped investing in.**
+> **The tasks AI automates were never the hard part of management. The hard part was always the human work, and that's exactly what most organizations stopped investing in.**
 
 ---
 
@@ -42,15 +42,13 @@ If you're in learning and development right now, this is the moment to make the 
 
 [Tomaszewski et al. (2025)](https://consensus.app/papers/details/46855335341357b8bcb2144396726abc/) found that when healthcare organizations invested in structured leadership development for middle managers, engagement scores improved significantly. But more importantly, the participants reported higher team trust and better leadership effectiveness. Those aren't things you get from a project management bot.
 
-Here's what I'd actually do if I were leading an L&D function right now:
+If I were leading an L&D function right now, three moves would be on the top of my list.
 
-> **1. Audit what your managers actually spend time on.** Separate the coordination tasks (which AI can handle) from the human development tasks (which it can't). Most organizations have never done this clearly and that's why the "replace them all" argument sounds so compelling.
+The first is auditing what your managers actually spend time on, separating the coordination tasks (which AI can handle) from the human development tasks (which it can't). Most organizations have never done this clearly, and that's why the "replace them all" argument sounds so compelling.
 
-> **2. Rebuild manager development around the skills that remain.** Coaching, feedback, navigating conflict, building psychological safety, translating strategy into meaning for their teams. These are trainable skills but most manager training programs still focus on process and compliance instead.
+The second is rebuilding manager development around the skills that remain. Coaching, feedback, navigating conflict, building psychological safety, translating strategy into meaning for their teams. These are trainable skills, but most manager training programs still focus on process and compliance instead.
 
-> **3. Reposition managers as the people who make AI adoption actually work.** Someone has to help teams figure out how to use these tools, manage the anxiety around role changes, and maintain trust during the transition. That someone is a manager. Not an algorithm.
-
-> **4. Name it.** Give this redefined role a concept your organization can rally around. 'Human leadership layer.' 'Development manager.' Whatever works. When something has a name it becomes harder to accidentally eliminate.
+The third is repositioning managers as the people who make AI adoption actually work. Someone has to help teams figure out how to use these tools, manage the anxiety around role changes, and maintain trust during the transition. That someone is a manager, not an algorithm. Give that redefined role a concept your organization can rally around. 'Human leadership layer.' 'Development manager.' Whatever lands. When something has a name, it becomes harder to accidentally eliminate.
 
 ---
 

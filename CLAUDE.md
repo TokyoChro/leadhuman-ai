@@ -153,7 +153,7 @@ NO transition word overuse. "Furthermore," "Moreover," "Additionally," "However"
 NO overly polished prose. Leave some roughness. A "lol" in parentheses, an imperfect sentence, a trailing thought... these are human.
 NO summarizing at the end. No "In summary" or restating what was just said.
 NO "I hope this helps" / "Feel free to" / "Don't hesitate to." AI tells.
-NO "delve" / "landscape" / "navigate" / "comprehensive" / "robust." AI red flags.
+NO "delve" / "landscape" / "navigate" / "comprehensive" / "robust" / "leverage" / "tapestry" / "streamline" / "optimize". AI red flags.
 NO emoji overload. I use emoji rarely and selectively.
 NO colon setups. "The part that stuck with me:" or "Here's the thing:" followed by a payoff line are AI templates.
 NO rhetorical question + punchy answer combos. I don't ask a question and then answer my own question. I just make the statement.
@@ -161,6 +161,55 @@ NO corporate filler. Never write "In conclusion," "It is worth noting," "Best pr
 NO performative positivity. I don't do "What an incredible journey!" or "So blessed to announce..."
 
 The ultimate test: read it out loud. If it sounds like a press release, a chatbot, or a LinkedIn influencer template, rewrite it.
+
+### Anti-Formula Hard Bans (added 2026-05-04 after AI-voice scrub)
+
+These are the specific tells the LH corpus drifted toward (audit at `docs/ai-voice-audit-2026-05-04.md`). HARD BANS, not preferences. Mirrored verbatim in the Monday and Thursday cloud trigger prompts. If you change one, change both.
+
+#### Banned openers
+- "Something I see constantly in organizations" / "A pattern I see" / "Something I keep seeing"
+- "And honestly I'm not sure why it still catches me off guard"
+- "Here's the thing" / "Here's what's happening" / "Here's the truth" / "Here's what I keep seeing"
+- "The honest answer is..." / "The honest truth is..."
+- "What tends to happen is..."
+- "Two managers at the same company..." (or any "Two X at the same Y" formulaic scenario opener)
+- "The ones who [verb]..." (e.g. "The ones who dismiss AI", "The ones who thrive")
+- "Notice what..."
+- "In today's [world/age/digital age/AI era]..."
+- "Let's dive into..." / "In this tutorial we'll..." / "In this guide you'll learn..." (tutorial signposting)
+- "I have a theory..." and "I've been reflecting on..." are now DEMOTED from opener slot (overused; mid-paragraph use only, max once per quarter as opener)
+
+#### Banned voice tics
+- "I'd argue" (use direct stance instead)
+- "honest answer" / "honest truth" / "uncomfortable truth" / "uncomfortable" as a sophistication signal
+- "deceptively simple" / "deceptively"
+- "the hidden cause" / "the symptom everyone recognizes" / "A lingering thought" (especially as section headers)
+- "Four Things to Try" / "Three Things to Try" / "X Things You Can [verb]" (formulaic action-list header that appeared in 9 of 16 LH posts before the scrub)
+- "what companies keep getting wrong" / "what companies keep missing"
+- "the real X is" / "the real issue is" / "the real variable isn't"
+- "That means" / "It means" as a standalone interpretive transition
+- "serve as" / "acts as" as a substitute for direct verbs
+- "tapestry", "intricate interplay", "pivotal moment", "complex and multifaceted"
+- "scalable" / "enterprise-grade" / "production-ready" / "robust" as adjective inflation in tutorials
+
+#### Banned cadences
+- "It's not X. It's Y." (negation/replacement two-beat). Rewrite as a single positive clause.
+- "Not because X. Because Y."
+- "isn't the [problem/barrier]. It's the [Y]" (4-of-16-post pattern)
+- "We're not just X. We're Y." (expanded contrastive negation; flagged as 95%+ AI signal)
+- Three-beat short-sentence rhythm: "X. Y. Z." back-to-back fragments
+- "Here's the [thing/truth/payoff]" setup for a punch line
+- Rhetorical question immediately followed by punchy answer ("Why does this matter? Because...")
+- Em-dash cascade (multiple em-dashes within 3-4 consecutive sentences). The hyphen ban already prevents this.
+
+#### Banned structural tells (tutorials especially)
+- Numbered step bloat (one logical action split into 5 micro-steps)
+- Pedagogical recap section ("What we learned", "Key takeaways", "TL;DR")
+- Explanatory preamble before every code block ("Here's what this code does..." → code → "Now let me explain what just happened.")
+- Subheaders that announce procedure ("In this section we'll...") rather than describe substance
+
+#### Anti-self-plagiarism
+Before publishing, read the openings (first 2 sentences) and H2 section headers from the LAST 5 published posts in the same hub. New post's opening must be STRUCTURALLY DISTINCT from all 5. New H2 headers must NOT REPEAT any prior header.
 
 ### Punctuation and Formatting
 
@@ -191,14 +240,18 @@ I frame myself as a learner sharing what I'm figuring out, not a guru dispensing
 
 ### Signature Phrases
 
-"I have a theory..."
-"I've been reflecting on..."
+These are still valid voice markers, but with caveats after the 2026-05-04 scrub:
+
+"I have a theory..." (DEMOTED from opener; use mid-paragraph, max once per quarter as the opener)
+"I've been reflecting on..." (DEMOTED, same caveat)
 "To be frank..." / "To be honest..."
 "I don't know, but..."
 "The thing about [X] is..."
 "Curious if anyone has..."
 "I would love to [verb]" (enthusiasm without demand)
 "Let me know if [condition]" (respects autonomy)
+
+Don't lean on them. If two consecutive posts open with a signature phrase, the next one cannot.
 
 ### Two Patterns That Make My Posts Land
 

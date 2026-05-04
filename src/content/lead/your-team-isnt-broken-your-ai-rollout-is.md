@@ -8,7 +8,7 @@ image: "../../assets/images/posts/your-team-isnt-broken-your-ai-rollout-is.png"
 draft: false
 ---
 
-I've been reflecting on a pattern I keep seeing in leadership conversations right now and it surprises me every time. Someone in a C-suite meeting proudly announces their company is "fully AI integrated" and then five minutes later a manager on the same call quietly admits half their team has stopped submitting AI assisted work because they don't trust the outputs and they're exhausted from fact checking everything.
+There's a pattern I keep seeing in leadership conversations right now and it surprises me every time. Someone in a C-suite meeting proudly announces their company is "fully AI integrated" and then five minutes later a manager on the same call quietly admits half their team has stopped submitting AI assisted work because they don't trust the outputs and they're exhausted from fact checking everything.
 
 That gap tells you everything about where most AI rollouts actually stand.
 
@@ -24,23 +24,23 @@ The employees who embrace AI the hardest are often the ones burning out fastest.
 
 A daily diary study by Shao et al. in the Journal of Management (2024) found that while frequent AI tool use during the workday was linked to genuine knowledge gain, the same usage triggered information overload that impaired both task performance and end of day recovery. The people learning the most from AI were also the people least able to switch off when the day ended.
 
-> The problem isn't that your people aren't using AI. It's that they're using it in ways nobody designed for and recovering from it in ways nobody planned for.
+> Your people are using AI in ways nobody designed for and recovering from it in ways nobody planned for.
 
 ---
 
 So what does a leader actually do with this?
 
-> **1. Audit the load, not just the adoption rate.** Pull your AI tool usage data and ask a different question: not "are people using it?" but "how many tools are they toggling between in a single workday?" Research consistently shows one to three AI tools can improve output, but four or more is where cognitive strain overtakes any efficiency gain. If your team is running five AI platforms and three browser extensions, you've got a tool sprawl problem disguised as a training problem.
+Audit the load, not just the adoption rate. Pull your AI tool usage data and ask a different question: not "are people using it?" but "how many tools are they toggling between in a single workday?" Research consistently shows one to three AI tools can improve output, but four or more is where cognitive strain overtakes any efficiency gain. If your team is running five AI platforms and three browser extensions, you've got a tool sprawl problem disguised as a training problem.
 
-> **2. Make verification time visible and valued.** The hidden labor of AI adoption is the editing, checking, rewriting, and contextualizing that follows every AI output. One analysis found that employees lost 40% of AI's efficiency gains just in correction work. If you haven't built that time into your team's workflow, you haven't changed the workload at all and you've just added steps. Say it out loud in your next team meeting: reviewing AI work is real work and it counts.
+Make verification time visible and valued. The hidden labor of AI adoption is the editing, checking, rewriting, and contextualizing that follows every AI output. One analysis found that employees lost 40% of AI's efficiency gains just in correction work. If you haven't built that time into your team's workflow, you haven't changed the workload at all and you've just added steps. Say it out loud in your next team meeting: reviewing AI work is real work and it counts.
 
-> **3. Let people narrow before they scale.** Fenwick et al. in Discover Artificial Intelligence (2024) found that AI failures in organizations are almost never technical. They're human. They happen when adoption is divorced from how people actually work and what they actually value. The practical move: let each team member own one AI use case deeply before asking them to spread across the whole suite. Depth first. Breadth later.
+Let people narrow before they scale. Fenwick et al. in Discover Artificial Intelligence (2024) found that AI failures in organizations are almost never technical. They're human. They happen when adoption is divorced from how people actually work and what they actually value. The practical move: let each team member own one AI use case deeply before asking them to spread across the whole suite. Depth first. Breadth later.
 
-> **4. Have the 'brain fry' conversation before the exit interview.** I have a theory that the number one reason AI adoption programs quietly fail is that nobody made it safe to say "I'm overwhelmed." One survey found 34% of workers experiencing AI cognitive overload were actively planning to leave, which means you've got a retention crisis hiding inside an innovation initiative. In your next one on one, ask: "What part of our AI workflow costs you the most energy?" Then listen like the answer matters, because it does.
+And have the 'brain fry' conversation before the exit interview. The number one reason AI adoption programs quietly fail is that nobody made it safe to say "I'm overwhelmed." One survey found 34% of workers experiencing AI cognitive overload were actively planning to leave, which means you've got a retention crisis hiding inside an innovation initiative. In your next one on one, ask: "What part of our AI workflow costs you the most energy?" Then listen like the answer matters, because it does.
 
 ---
 
-To be frank, the companies getting this right aren't the ones with the most tools. They're the ones where leadership treats cognitive load as a real operational constraint and not a soft skills problem. The technology was never the hard part and it still isn't. If your team is stuck in that gap between adoption and actual productivity, that's something [we help organizations work through in our workshops](https://peakpotentialconsulting.com/services/team-workshops).
+The companies getting this right aren't the ones with the most tools. They're the ones where leadership treats cognitive load as a real operational constraint rather than a soft skills problem. The technology was never the hard part and it still isn't. If your team is stuck in that gap between adoption and actual productivity, that's something [we help organizations work through in our workshops](https://peakpotentialconsulting.com/services/team-workshops).
 
 What's one AI task your team is doing right now that secretly costs more time than it saves? I'm genuinely curious what you're seeing out there.
 

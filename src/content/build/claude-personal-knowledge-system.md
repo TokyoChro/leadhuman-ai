@@ -89,7 +89,7 @@ With context Claude drafts content that sounds like you and makes recommendation
 
 Without context it's smart but generic. With context it's a genuine thinking partner.
 
-And here's what surprised me most. Building the system forced me to articulate things about my own work I'd never written down. My frameworks and my opinions and my priorities. That was valuable before I even gave it to the AI.
+The thing that surprised me most about this whole exercise was the side effect. Building the system forced me to articulate things about my own work I'd never written down. My frameworks, my opinions, my priorities. That was valuable before I even gave it to the AI.
 
 30 minutes. Start today.
 
@@ -97,10 +97,10 @@ And here's what surprised me most. Building the system forced me to articulate t
 
 **Sources:**
 
-- [Claude Projects Documentation](https://docs.anthropic.com/en/docs/about-claude/models) — how to use Projects for persistent context in Claude.
-- [Tiago Forte's "Building a Second Brain"](https://www.buildingasecondbrain.com/) — the framework that inspired the knowledge management approach behind this system.
-- [How I Built a Council of AI Advisors](https://leadhuman.ai/build/council-of-ai-advisors) — takes this concept further by creating specialized AI personas with deep domain context.
-- [Why Every Leader Needs to Understand AI](https://leadhuman.ai/lead/why-leaders-need-ai) — the leadership case for building AI fluency, starting with systems like this one.
+- [Claude Projects Documentation](https://docs.anthropic.com/en/docs/about-claude/models), how to use Projects for persistent context in Claude.
+- [Tiago Forte's "Building a Second Brain"](https://www.buildingasecondbrain.com/), the framework that inspired the knowledge management approach behind this system.
+- [How I Built a Council of AI Advisors](https://leadhuman.ai/build/council-of-ai-advisors), takes this concept further by creating specialized AI personas with deep domain context.
+- [Why Every Leader Needs to Understand AI](https://leadhuman.ai/lead/why-leaders-need-ai), the leadership case for building AI fluency, starting with systems like this one.
 
 ---
 

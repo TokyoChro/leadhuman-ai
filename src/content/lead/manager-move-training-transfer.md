@@ -1,6 +1,6 @@
 ---
 title: "The Manager Move That Makes Training Stick"
-description: "Two managers at the same company attend the same leadership program. Same trainer, same content, same room, three days."
+description: "Most organizations measure training investment and satisfaction scores, then quietly skip the only number that decides whether the program worked: behavior change ninety days later."
 pubDate: 2026-04-27
 tags: ["l-and-d", "leadership"]
 author: "Jay Vergara"
@@ -8,9 +8,9 @@ image: "../../assets/images/posts/manager-move-training-transfer.png"
 draft: false
 ---
 
-Two managers at the same company attend the same leadership program. Same trainer, same content, same room, three days.
+Send two people from the same company to the same leadership program (same trainer, same content, same room, three days) and three months later one of them has changed four behaviors and the other hasn't changed any.
 
-Three months later one has changed four behaviors and the other hasn't changed any. The difference wasn't the training.
+The difference wasn't the training.
 
 This is the central puzzle of L&D and it doesn't get talked about enough. Organizations invest thousands per person per program, run satisfaction surveys after, get decent scores, and call it done. But satisfaction scores measure how much people liked the training, not whether they used it. And the research is pretty clear that most don't.
 
@@ -28,7 +28,7 @@ Most people attend training without anyone asking them that. It changes the enti
 
 When they come back, do the debrief. Carve out 30 minutes in the first week back, not to check a box but to hear what they learned and help them translate it into one or two concrete actions. Ask them: 'What's one thing you want to try this month, and what would get in the way?'
 
-The people who have that conversation with their manager are the ones who actually try the thing. The ones who don't go back to what they were doing before, notebooks filed and untouched.
+People whose manager has that conversation with them actually try the thing. People whose manager doesn't go back to what they were doing before, notebooks filed and untouched.
 
 Thirty days later, circle back. One question is enough: how's it going with what you said you'd try? It takes two minutes and communicates something no reminder email can.
 
@@ -38,7 +38,7 @@ But you don't need to fix the whole system to fix your part of it. Three convers
 
 The training is the seed. The manager is the soil.
 
-What was the last time you had one of these conversations before sending someone to a program?
+When was the last time you had one of these conversations before sending someone to a program?
 
 If this landed for you, share it with a manager who's about to send someone to training and still figuring out their role in the process.
 
@@ -46,9 +46,9 @@ If this landed for you, share it with a manager who's about to send someone to t
 
 ## Sources
 
-- [Blume et al. (2010): "Transfer of Training: A Meta-Analytic Review" — Journal of Management. (1,334 citations)](https://consensus.app/results/?q=Blume%20et%20al)
+- [Blume et al. (2010): "Transfer of Training: A Meta-Analytic Review," Journal of Management. (1,334 citations)](https://consensus.app/results/?q=Blume%20et%20al)
 
-- [Brinkerhoff et al. (1995): "Partnerships for Training Transfer: Lessons from a Corporate Study" — Human Resource Development Quarterly. (246 citations)](https://consensus.app/results/?q=Brinkerhoff%20et%20al)
+- [Brinkerhoff et al. (1995): "Partnerships for Training Transfer: Lessons from a Corporate Study," Human Resource Development Quarterly. (246 citations)](https://consensus.app/results/?q=Brinkerhoff%20et%20al)
 
 ---
 
